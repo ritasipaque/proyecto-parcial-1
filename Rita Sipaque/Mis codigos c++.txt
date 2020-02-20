@@ -1,0 +1,181 @@
+#include<iostream>
+#include<string.h>
+#include<fstream>
+#include<stdlib.h>
+
+using namespace std;
+ifstream leer;
+ofstream archivo;
+ofstream temp;
+string nose;
+struct regla
+	{
+string puesto,nombre ;
+char txt[100];
+    float emp,sueldo,sueldoex,bonificacion,comisiones,totaldeven;
+    float  suma,suma1,horas,igss,isr,anticipos,descujudi,totaldescue,totalliquido;
+    float suma2,suma3,suma4,suma5,suma6,suma7,suma8;
+    float i;
+	} datos;
+
+void registrop() {
+archivo.open("original nuevo 19.txt", ios::app);
+if(archivo.is_open())
+{
+    //ingreso de los datos para formar la planilla
+
+cout<<"ingrese la cantidad de empleados:"<<endl;
+    cin >> datos.emp;
+    for (float i=1;i<= datos.emp;i++)
+    cout<<"Ingrese el nombre del empleado: ";
+	cin>>datos.nombre;
+	cout<<"Ingrese el puesto del empleado: ";
+	cin>>datos.puesto;
+   cout<<"Ingrese su sueldo: ";
+	cin>>datos.sueldo;
+	cout<<"Ingrese las horas trabajadas:";
+	cin>>datos.horas;
+//datos para calcular el sueldo extraordinario
+	datos.suma=datos.sueldo/30/8;
+	datos.suma1=datos.suma*01.5;
+	datos.sueldoex=datos.suma1*datos.horas;
+
+	cout<<"\n****** el total del sueldo extraordinario es de Q:"<<datos.sueldoex<<endl;
+cout<<"Ingrese la bonificacion: ";
+//calculando las bonificaiones
+	cin>>datos.bonificacion;
+	cout<<"Ingrese sus comisiones: ";
+	cin>>datos.comisiones;
+	if(datos.comisiones >=200)
+    {cout<<"si hay comisiones ";
+
+}
+else{
+    cout<<"no hay comisiones: ";
+    }
+ datos.totaldeven=datos.sueldo+datos.sueldoex+datos.bonificacion+datos.comisiones;
+
+
+ cout<<"\n**********el total devengado es de Q:"<<datos.totaldeven<<endl;
+ //calculo del IGSS
+datos.suma2=datos.sueldo*04.83;
+datos.igss=datos.suma2/100;
+cout<<"\n**********el total del IGSS es de Q:"<<datos.igss<<endl;
+if(datos.sueldo>5000)
+    {cout<<"si hay ISR ";
+//calculo de cuando el empleado tiene derecho a ISR
+datos.suma3= datos.sueldo*12;
+datos.suma4= datos.suma3*04.83/100;
+datos.suma5=48000+12000+ datos.suma4;
+datos.suma6= datos.suma3- datos.suma5;
+datos.suma7= datos.suma6*0.05+5.78;
+datos.isr= datos.suma7/6;
+cout<<"\n**********el total de ISR es de Q:"<< datos.isr<<endl;
+
+}
+if(datos.sueldo<5000)
+{cout<<"\n***************no hay ISR****************** ";
+}
+cout<<"\n Ingrese el anticipo: ";
+	cin>> datos.anticipos;
+cout<<"Ingrese el descuento judical: ";
+	cin>> datos.descujudi;
+	//calculo de sumas del total descuentos
+datos.totaldescue= datos.igss+ datos.isr+ datos.anticipos+ datos.descujudi;
+cout<<"\n**********el total de descuentos es de Q:"<< datos.totaldescue<<endl;
+datos.totalliquido= datos.totaldeven- datos.totaldescue;
+cout<<"\n**********el total liquido  es de Q:"<< datos.totalliquido<<endl;
+//Almacenando con archivos la informacion de la planilla a traves de (txt)
+
+archivo<<"\n*******datos de los empleados planilla***********\n"<<endl;
+archivo<<datos.nombre<<"\t"<<datos.puesto<<"\t"<<endl;
+archivo<<"\n"<<endl;
+archivo<<"sueldos"<<endl;
+archivo<<datos. sueldo<<"\t"<<endl;
+archivo<<"sueldos Extraordinario"<<endl;
+archivo<<datos.sueldoex<<"\t"<<endl;
+archivo<<"Bonificaciones"<<endl;
+archivo<<datos.bonificacion<<"\t"<<endl;
+archivo<<"Comisones"<<endl;
+archivo<<datos.comisiones<<"\t"<<endl;
+archivo<<"Total Devengado"<<endl;
+archivo<<datos.totaldeven<<"\t"<<endl;
+archivo<<"Total Igss"<<endl;
+archivo<<datos.igss<<"\t"<<endl;
+archivo<<"Total Isr"<<endl;
+archivo<<datos.isr<<"\t"<<endl;
+archivo<<"Total Anticipos"<<endl;
+archivo<<datos.anticipos<<"\t"<<endl;
+archivo<<"Total Descuentos Judiciales"<<endl;
+archivo<<datos.descujudi<<"\t"<<endl;
+archivo<<"Total Descuentos"<<endl;
+archivo<<datos. totaldescue<<"\t"<<endl;
+archivo<<"total liquido"<<endl;
+archivo<<datos.totalliquido<<"\t"<<endl;
+
+}
+
+		else
+		{
+
+			cout << "error" << endl;
+		}
+		archivo.close();
+	}
+	// Generando el recibo de pago
+void bus(){
+
+leer.open("original nuevo 19.txt", ios::in);
+if(leer.is_open())
+    {
+    while(!leer.eof()){
+//Archivo del recibo de  Pago
+leer>>datos.txt;
+        leer>>datos.txt;
+    cout<<datos.txt<<endl;
+
+    }
+
+
+    }leer.close();
+
+
+
+
+
+}
+
+int main (){
+
+
+  int resp;
+
+//menu para el registro (planilla) y leer(recibo de pago)
+cout << "registro 1" << endl;
+cout << "leee 2" << endl;
+cin>>resp;
+switch(resp)
+{
+    case 1 :
+registrop();
+break;
+case 2 :
+bus();
+break;
+case 3 :
+    system("pause");
+
+
+}
+
+
+
+
+
+    return 0;
+}
+
+
+
+
+
