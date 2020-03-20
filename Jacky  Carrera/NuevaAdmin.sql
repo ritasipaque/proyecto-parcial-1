@@ -19,14 +19,11 @@ diasquetrabaja varchar(40) not null
 )engine=innodb;
 create table oficina
 (
-nombrecarrera varchar(40) primary key,
-codigopuestocatedratico varchar(5) not null,
+codigocarrera varchar(40) primary key,
 codigopuestocoordinador varchar(5) not null,
 horariocarrera varchar(20) not null,
 cuotainscripcion varchar(10)not null,
 cuotamensualidad varchar(10) not null,
-numeropapeleria varchar(20) not null,
-carnetestudiante varchar(10) not null,
 foreign key (codigopuestocoordinador) references coordinadores(codigopuestocoordinador),
 foreign key (codigopuestocatedratico) references catedraticos(codigopuestocatedratico)
 )engine=innodb;
