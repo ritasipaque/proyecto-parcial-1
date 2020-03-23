@@ -1,0 +1,12 @@
+carlos	m		232323	21001	2323	it	gerente	
+
+
+vanes	f		323232	43002	4342	sistemas	tecnico	
+
+
+
+
+carlos	masculino	los	pitufos	21	001	222	it	gerente	
+
+
+carlos	mas	esta	23122	0001	2232	322	312	
