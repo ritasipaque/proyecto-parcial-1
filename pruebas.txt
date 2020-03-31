@@ -3,8 +3,7 @@
             pst.setString(2, txt_NombreEmpleado.getText().trim());
             pst.setString(3, txt_DepartamentoEmpleado.getText().trim());
             pst.setString(4, txt_TelefonoEmpleado.getText().trim());
-            etText().trim());
-            pst.executeUpdate();
+           
 
             txt_NombreEmpleado.setText("");
             txt_DepartamentoEmpleado.setText("");
@@ -15,5 +14,4 @@
             txt_SexoEmpleado.setText("");
             txt_EdadEMpleado.setText("");
             txt_CorreoEmpleado.setText("");
-            label_status.setText("Registro exitoso.");
-        } catch (Exception e) {
+           
