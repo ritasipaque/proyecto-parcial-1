@@ -519,9 +519,9 @@ public class LABORATORIOCOMPLETO extends javax.swing.JFrame {
             reciboo M = new reciboo();
             int fila =tablita.getSelectedRow();
 
-            reciboo.txtNombre2.setText(tablita.getValueAt(fila,0).toString());
-            reciboo.txtPuesto.setText(tablita.getValueAt(fila,1).toString());
-            reciboo.txtSueldo.setText(tablita.getValueAt(fila,3).toString());
+            reciboo.TxtNombre1.setText(tablita.getValueAt(fila,0).toString());
+            reciboo.Puesto.setText(tablita.getValueAt(fila,1).toString());
+            reciboo.Sueldo.setText(tablita.getValueAt(fila,3).toString());
             reciboo.IGSS.setText(tablita.getValueAt(fila,8).toString());
             reciboo.ISR.setText(tablita.getValueAt(fila,9).toString());
             reciboo.Totales.setText(tablita.getValueAt(fila,14).toString());

@@ -51,7 +51,7 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="txtNombre2" min="-2" pref="101" max="-2" attributes="0"/>
+                                  <Component id="TxtNombre1" min="-2" pref="101" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
@@ -60,8 +60,8 @@
                                   </Group>
                                   <EmptySpace max="32767" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="txtPuesto" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="txtSueldo" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
+                                      <Component id="Puesto" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="Sueldo" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
@@ -180,17 +180,17 @@
                                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="3" attributes="0">
                                               <Component id="jLabel13" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="txtNombre2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="TxtNombre1" alignment="3" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="3" attributes="0">
                                               <Component id="jLabel10" alignment="3" min="-2" pref="18" max="-2" attributes="0"/>
-                                              <Component id="txtPuesto" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="Puesto" alignment="3" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                           <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="3" attributes="0">
                                               <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="txtSueldo" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="Sueldo" alignment="3" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
@@ -321,12 +321,12 @@
             <Property name="text" type="java.lang.String" value="Sueldo"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtSueldo">
+        <Component class="javax.swing.JTextField" name="Sueldo">
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtPuesto">
+        <Component class="javax.swing.JTextField" name="Puesto">
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
           </AuxValues>
@@ -341,7 +341,7 @@
             <Property name="text" type="java.lang.String" value="Nombre"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtNombre2">
+        <Component class="javax.swing.JTextField" name="TxtNombre1">
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
           </AuxValues>

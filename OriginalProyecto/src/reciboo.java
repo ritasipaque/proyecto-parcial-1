@@ -59,9 +59,9 @@ public class reciboo extends javax.swing.JFrame {
                 try (Formatter creaForma = new Formatter(ubicacion+archivo)) {
                     creaForma.format("%s\r\n%s\r\n%s\r\n%s\r\n%s\r\n%s\r\n","Empresa "+jLabel4.getText(),
                             "ID= "+txtId.getText(),
-                            "NOMBRE= "+txtNombre2.getText(),
-                            "PUESTO= "+txtPuesto.getText(),
-                            "SUELDO= "+txtSueldo.getText(),
+                            "NOMBRE= "+TxtNombre1.getText(),
+                            "PUESTO= "+Puesto.getText(),
+                            "SUELDO= "+Sueldo.getText(),
                             "NUMERO_DE_CUENTA= "+txtNoCuenta.getText());
                 }
                JOptionPane.showMessageDialog(rootPane,"REGISTRO INGRESADO CORRECTAMENTE");
@@ -89,9 +89,9 @@ public class reciboo extends javax.swing.JFrame {
                 Properties mostrar = new Properties();
                 mostrar.load(fis);
                         
-                txtNombre2.setText(mostrar.getProperty("NOMBRE"));
-                txtPuesto.setText(mostrar.getProperty("PUESTO"));
-                txtSueldo.setText(mostrar.getProperty("SUELDO"));
+                TxtNombre1.setText(mostrar.getProperty("NOMBRE"));
+                Puesto.setText(mostrar.getProperty("PUESTO"));
+                Sueldo.setText(mostrar.getProperty("SUELDO"));
                 txtNoCuenta.setText(mostrar.getProperty("NUMERO_DE_CUENTA"));
                 
             } catch (Exception e){
@@ -122,11 +122,11 @@ public class reciboo extends javax.swing.JFrame {
         txtNoCuenta = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        txtSueldo = new javax.swing.JTextField();
-        txtPuesto = new javax.swing.JTextField();
+        Sueldo = new javax.swing.JTextField();
+        Puesto = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        txtNombre2 = new javax.swing.JTextField();
+        TxtNombre1 = new javax.swing.JTextField();
         txtId = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
         IGSS = new javax.swing.JTextField();
@@ -242,15 +242,15 @@ public class reciboo extends javax.swing.JFrame {
                             .addGroup(panelLayout.createSequentialGroup()
                                 .addComponent(jLabel13)
                                 .addGap(18, 18, 18)
-                                .addComponent(txtNombre2, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(TxtNombre1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLayout.createSequentialGroup()
                                 .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel10)
                                     .addComponent(jLabel9))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtPuesto)
-                                    .addComponent(txtSueldo, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(Puesto)
+                                    .addComponent(Sueldo, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(panelLayout.createSequentialGroup()
                                 .addComponent(jLabel15)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -337,15 +337,15 @@ public class reciboo extends javax.swing.JFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                             .addComponent(jLabel13)
-                                            .addComponent(txtNombre2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(TxtNombre1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGap(18, 18, 18)
                                         .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                             .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(txtPuesto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(Puesto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGap(17, 17, 17)
                                         .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                             .addComponent(jLabel9)
-                                            .addComponent(txtSueldo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                            .addComponent(Sueldo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addGroup(panelLayout.createSequentialGroup()
                                         .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                             .addComponent(jLabel1)
@@ -497,7 +497,7 @@ public class reciboo extends javax.swing.JFrame {
 
             TxtNombre1.setText("");
             Puesto.setText("");
-            Sueldo1.setText("");
+            Sueldo.setText("");
             txtNoCuenta.setText("");
             txtHoras.setText("");
             IGSS.setText("");
@@ -603,7 +603,10 @@ public class reciboo extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JTextField IGSS;
     public static javax.swing.JTextField ISR;
+    public static javax.swing.JTextField Puesto;
+    public static javax.swing.JTextField Sueldo;
     public static javax.swing.JTextField Totales;
+    public static javax.swing.JTextField TxtNombre1;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -627,9 +630,6 @@ public class reciboo extends javax.swing.JFrame {
     private javax.swing.JPanel panel;
     public static javax.swing.JTextField txtId;
     private javax.swing.JTextField txtNoCuenta;
-    public static javax.swing.JTextField txtNombre2;
-    public static javax.swing.JTextField txtPuesto;
-    public static javax.swing.JTextField txtSueldo;
     private javax.swing.JTextField txt_buscar;
     // End of variables declaration//GEN-END:variables
 }
