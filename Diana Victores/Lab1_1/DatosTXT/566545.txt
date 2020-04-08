@@ -1,0 +1,5 @@
+Codigo=566545
+Empleado=Alejandro
+Cargo=Contador
+Fecha de Contratacion=08/09/2019
+Sueldo=5000
