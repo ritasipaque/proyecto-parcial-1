@@ -288,7 +288,7 @@ public class Almacenamientodeempleados extends javax.swing.JFrame {
             pst.setString(6, txt_DireccionEmpleado.getText().trim());
             pst.setString(7, txt_SexoEmpleado.getText().trim());
             pst.setString(8, txt_EdadEMpleado.getText().trim());
-            pst.setString(9, txt_CorreoEmpleado.getText().trim());
+            pst.setString(9, txt_CorreoEmpleao.getText().trim());
             pst.executeUpdate();
 
             label_status.setText("Modificacion exitosa.");
