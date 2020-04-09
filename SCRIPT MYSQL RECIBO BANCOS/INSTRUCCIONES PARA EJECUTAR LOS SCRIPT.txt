@@ -1,0 +1,13 @@
+...Por si hay confusiones con los Scripts...
+1. Abrir MYSQL
+2. Crear una nueva conexión
+3. Dentro de la nueva conexión, insertar los scripts de esta carpeta dandole en "Open Script"
+4. Ejecutarlos y verificar si la base de datos "nominab" fue creada 
+5. Si fue creada exitosamente, verificar dentro de la base de datos en el apartado de "Tables"
+fue creada la tabla con el nombre "bancosss".
+
+Si todo esta correctamente, probar intercambiar datos con Java dentro de la misma.
+
+Gracias. 
+
+Alejandro Jerónimo
