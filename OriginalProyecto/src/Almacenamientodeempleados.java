@@ -255,6 +255,60 @@ public class Almacenamientodeempleados extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+<<<<<<< HEAD
+=======
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+
+        try {
+            String ID = txt_buscar.getText().trim();
+
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/bd_ins800", "root", "");
+            PreparedStatement pst = cn.prepareStatement("update Mantenimiento set NombreEmpleado = ?, DepartamentoEmpleado = ?, PuestoEmpleado = ?, telefonoEmpleado = ?, CuentaEmpleado = ?, DireccionEmpleado = ?, SexoEmpleado = ?, EdadEmpleado = ?, CorreoEmpleado = ?    where ID = " + ID);
+
+            pst.setString(1, txt_NombreEmpleado.getText().trim());
+            pst.setString(2, txt_DepartamentoEmpleado.getText().trim());
+            pst.setString(3, txt_PuestoEmpleado.getText().trim());
+            pst.setString(4, txt_TelefonoEmpleado.getText().trim());
+            pst.setString(5, txt_CuentaEmpleado.getText().trim());
+            pst.setString(6, txt_DireccionEmpleado.getText().trim());
+            pst.setString(7, txt_SexoEmpleado.getText().trim());
+            pst.setString(8, txt_EdadEMpleado.getText().trim());
+            pst.setString(9, txt_CorreoEmpleao.getText().trim());
+            pst.executeUpdate();
+
+            label_status.setText("Modificacion exitosa.");
+
+        } catch (Exception e) {
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+
+        try {
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/bd_ins800", "root", "");
+            PreparedStatement pst = cn.prepareStatement("delete from Mantenimiento where ID = ?");
+
+            pst.setString(1, txt_buscar.getText().trim());
+            pst.executeUpdate();
+
+            txt_NombreEmpleado.setText("");
+            txt_DepartamentoEmpleado.setText("");
+            txt_PuestoEmpleado.setText("");
+            txt_TelefonoEmpleado.setText("");
+            txt_CuentaEmpleado.setText("");
+            txt_DireccionEmpleado.setText("");
+            txt_SexoEmpleado.setText("");
+            txt_EdadEMpleado.setText("");
+            txt_CorreoEmpleado.setText("");
+
+            label_status.setText("Registro eliminado.");
+
+        } catch (Exception e) {
+        }
+
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+>>>>>>> 897b2d3ba03def0c97b93ea38df59103723d86d6
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // se registran todo los empleados 
         try {
