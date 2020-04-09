@@ -1,13 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
-/**
- *
- * @author familia Sipaque
- */
 import java.sql.*;
 import javax.swing.JOptionPane;
 public class Almacenamientodeempleados extends javax.swing.JFrame {
@@ -265,7 +256,7 @@ public class Almacenamientodeempleados extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        // se registran todo los empleados 
         try {
             
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/bd_ins800", "root", "");
@@ -300,7 +291,8 @@ public class Almacenamientodeempleados extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
+        // se buscan todos los empleados que se han registrado y ver si existe detro de la base de datos
+       
         
         try {
             Connection cn;
@@ -332,7 +324,7 @@ public class Almacenamientodeempleados extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        // es la funcion donde podemos modifcar cualquier dato de los empleados
         
         try {
             String ID = txt_buscar.getText().trim();
@@ -360,7 +352,7 @@ public class Almacenamientodeempleados extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
+        // Aqui podemos eliminar cualquier registro que se alla registrado anteriormente.
         
        try {
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/bd_ins800", "root", "");
