@@ -1,4 +1,4 @@
-
+package Nomina;
 //import java.awt.Color;
 import Login.in_sesion;
 import Nomina.reciboo;

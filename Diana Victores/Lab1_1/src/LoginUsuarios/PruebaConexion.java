@@ -3,11 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package PRUEBA_CONEXION;
+package LoginUsuarios;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -16,12 +14,12 @@ import java.util.logging.Logger;
  *
  * @author Diana
  */
-public class prueba_en_la_conexion extends javax.swing.JFrame {
+public class PruebaConexion extends javax.swing.JFrame {
 
     /**
-     * Creates new form prueba_en_la_conexion
+     * Creates new form PruebaConexion
      */
-    public prueba_en_la_conexion() {
+    public PruebaConexion() {
         initComponents();
     }
 
@@ -38,7 +36,7 @@ public class prueba_en_la_conexion extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setText("CONECTAR");
+        jButton1.setText("Probar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -49,30 +47,33 @@ public class prueba_en_la_conexion extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(156, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(155, 155, 155)
                 .addComponent(jButton1)
-                .addGap(157, 157, 157))
+                .addContainerGap(180, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(126, 126, 126)
+                .addGap(132, 132, 132)
                 .addComponent(jButton1)
-                .addContainerGap(151, Short.MAX_VALUE))
+                .addContainerGap(145, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // PRUEBA DE LA CONEXION
-   
-        registro cc=new registro ();
-          Connection con=cc.conexion();
-      
-          
-         
+        // TODO add your handling code here:
+        
+      registro cc=new registro ();
+        try {  
+            Connection con=cc.conexion();
+        } catch (SQLException ex) {
+            Logger.getLogger(PruebaConexion.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+                                           
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -92,20 +93,20 @@ public class prueba_en_la_conexion extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(prueba_en_la_conexion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PruebaConexion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(prueba_en_la_conexion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PruebaConexion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(prueba_en_la_conexion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PruebaConexion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(prueba_en_la_conexion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PruebaConexion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new prueba_en_la_conexion().setVisible(true);
+                new PruebaConexion().setVisible(true);
             }
         });
     }
@@ -113,4 +114,8 @@ public class prueba_en_la_conexion extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     // End of variables declaration//GEN-END:variables
+
+    public Connection conexion() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

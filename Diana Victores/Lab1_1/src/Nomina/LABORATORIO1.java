@@ -1,10 +1,16 @@
+package Nomina;
+
 
 //import java.awt.Color;
-import Login.in_sesion;
-import Nomina.reciboo;
-import Nomina.LABORATORIO1;
+import Login.usuarios1;
 import java.io.File;
+import java.io.FileInputStream;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.Formatter;
+import java.util.Properties;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -12,9 +18,9 @@ import javax.swing.table.DefaultTableModel;
 
 
 
-public class LABORATORIOCOMPLETO extends javax.swing.JFrame {
+public class LABORATORIO1 extends javax.swing.JFrame {
     //Esto significa que colocando la palabra eslash sera lo mismo poner las barras invertidas \\
-    String eslash=File.separator;
+    String eslash=File.separator; 
     //Esta es la ubicacion de la base de datos
     String ubicacion=System.getProperty("user.dir")+eslash+"Empleados"+eslash;
     //user.dir es para decir que la ubicacion de la bd estara dentro del proyecto
@@ -23,20 +29,23 @@ public class LABORATORIOCOMPLETO extends javax.swing.JFrame {
     /**
      * Creates new form Planilla
      */
-       public LABORATORIOCOMPLETO() {
+       public LABORATORIO1() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        this.setTitle ("LABORATORIO1");
     }
        
        //colocames un metodo crear 
     private void Crear(){
+         
         //como ya tengo creada la ubicacion del archivo creare el nombre del archivo, es decir el archivop tendra el nombre ID   
-        String archivo=nombres.getText()+".registros"; //registros sera la extension del archivo
+        String archivo=txtnombres.getText()+".registros"; //registros sera la extension del archivo
         //en un file creara la ubicacion
         File crea_ubicacion=new File(ubicacion);
         File crea_archivo=new File(ubicacion+archivo); //el archivo se creara en donde esta la ubicacion
         
         //en caso que no tenga nada escrito el campo del ID
-        if(nombres.getText().equals("")){
+        if(txtnombres.getText().equals("")){
             JOptionPane.showMessageDialog(rootPane, "NO ESTA INGRESADO EL ID");
         }else{
             
@@ -52,14 +61,14 @@ public class LABORATORIOCOMPLETO extends javax.swing.JFrame {
                crea_ubicacion.mkdirs();
                 try (Formatter creaForma = new Formatter(ubicacion+archivo)) {
                     creaForma.format("%s\r\n%s\r\n%s\r\n%s\r\n%s\r\n%s\r\n%s\r\n%s\r\n%s\r\n","***Empresa "+jLabel3.getText(),
-                            "NOMBRE= "+nombres.getText(),
-                            "PUESTO= "+pues.getText(),
+                            "NOMBRE= "+txtnombres.getText(),
+                            "PUESTO= "+txtpuesto.getText(),
                             "***INGRESOS DEL EMPLEADO***",
-                            "SUELDO EXTRAORDINARIO= "+suel.getText(),
-                            "COMISIONES= "+comis.getText(),
+                            "SUELDO_EXTRAORDINARIO= "+txtsueldo.getText(),
+                            "COMISIONES= "+txtcomisiones.getText(),
                             "***DESCUENTOS DEL EMPLEADO***",
-                            "ANTICIPOS= "+antici.getText(),
-                            "DESCUENTO JUDICIAL= "+djudicial.getText());
+                            "ANTICIPOS= "+txtanticipos.getText(),
+                            "DESCUENTO_JUDICIAL= "+txtdescuento.getText());
                 }
                JOptionPane.showMessageDialog(rootPane,"REGISTRO INGRESADO CORRECTAMENTE");
             }
@@ -69,6 +78,38 @@ public class LABORATORIOCOMPLETO extends javax.swing.JFrame {
         }
     }
 
+    
+    private void Buscar(){
+        File url= new File(ubicacion+txtnombres.getText()+".registros");
+       
+        if(txtnombres.getText().equals("")){
+            
+        JOptionPane.showMessageDialog(rootPane, "Indique el nombre para mostrar");
+        
+        }else{
+    
+        if(url.exists()){
+            
+            try {
+                FileInputStream fis = new FileInputStream(url);
+                Properties mostrar = new Properties();
+                mostrar.load(fis);
+                        
+                txtpuesto.setText(mostrar.getProperty("PUESTO"));
+                txtsueldo.setText(mostrar.getProperty("SUELDO_EXTRAORDINARIO"));
+                txtcomisiones.setText(mostrar.getProperty("COMISIONES"));
+                txtanticipos.setText(mostrar.getProperty("ANTICIPOS"));
+                txtdescuento.setText(mostrar.getProperty("DESCUENTO_JUDICIAL"));
+                
+            } catch (Exception e){
+            }
+            
+        }else{
+            JOptionPane.showMessageDialog(rootPane, "Ese registro no existe");
+        }
+    }
+}
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -80,25 +121,25 @@ public class LABORATORIOCOMPLETO extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        nombres = new javax.swing.JTextField();
+        txtnombres = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        pues = new javax.swing.JTextField();
+        txtpuesto = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
-        suel = new javax.swing.JTextField();
+        txtsueldo = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        comis = new javax.swing.JTextField();
+        txtcomisiones = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        otross = new javax.swing.JTextField();
+        txtotros = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
-        antici = new javax.swing.JTextField();
+        txtanticipos = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        djudicial = new javax.swing.JTextField();
+        txtdescuento = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        otrosss = new javax.swing.JTextField();
-        CmdCalc = new javax.swing.JButton();
+        txtOtros = new javax.swing.JTextField();
+        CmdCalcular = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablita = new javax.swing.JTable();
         CmdSalir = new javax.swing.JButton();
@@ -107,9 +148,13 @@ public class LABORATORIOCOMPLETO extends javax.swing.JFrame {
         TSal = new javax.swing.JTextField();
         cheque = new javax.swing.JButton();
         CmdCalc1 = new javax.swing.JButton();
+        CmdCalc2 = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        label_status = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(204, 153, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos Personales", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Calibri", 1, 12))); // NOI18N
@@ -118,12 +163,12 @@ public class LABORATORIOCOMPLETO extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
         jLabel1.setText("Nombre:");
 
-        nombres.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
+        txtnombres.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
 
         jLabel2.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
         jLabel2.setText("Puesto:");
 
-        pues.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
+        txtpuesto.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -131,15 +176,15 @@ public class LABORATORIOCOMPLETO extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(nombres, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtnombres, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(pues, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtpuesto)))
                 .addContainerGap(78, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -148,16 +193,19 @@ public class LABORATORIOCOMPLETO extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(nombres, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtnombres, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(pues, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtpuesto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(15, Short.MAX_VALUE))
         );
 
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 47, -1, -1));
+
         jLabel3.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
         jLabel3.setText("Desarrollo Empresarial S.A.");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(189, 11, -1, -1));
 
         jPanel2.setBackground(new java.awt.Color(204, 153, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Ingresos", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Calibri", 1, 12))); // NOI18N
@@ -165,17 +213,17 @@ public class LABORATORIOCOMPLETO extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
         jLabel4.setText("Sueldo Extraordinario:");
 
-        suel.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
+        txtsueldo.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
 
         jLabel5.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
         jLabel5.setText("Comisiones:");
 
-        comis.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
+        txtcomisiones.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
 
         jLabel6.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
         jLabel6.setText("Otros:");
 
-        otross.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
+        txtotros.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -187,15 +235,15 @@ public class LABORATORIOCOMPLETO extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(otross, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtotros, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(comis, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtcomisiones, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(suel, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtsueldo, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(70, 70, 70))
         );
         jPanel2Layout.setVerticalGroup(
@@ -203,16 +251,19 @@ public class LABORATORIOCOMPLETO extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(suel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtsueldo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(comis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtcomisiones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(otross, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(txtotros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 175, 332, 112));
 
         jPanel3.setBackground(new java.awt.Color(204, 153, 255));
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Descuentos", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Calibri", 1, 12))); // NOI18N
@@ -220,63 +271,71 @@ public class LABORATORIOCOMPLETO extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
         jLabel7.setText("Anticipos:");
 
-        antici.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
+        txtanticipos.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
 
         jLabel8.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
         jLabel8.setText("Descuento Judicial:");
 
-        djudicial.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
+        txtdescuento.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
 
         jLabel9.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
         jLabel9.setText("Otros:");
 
-        otrosss.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
+        txtOtros.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel9)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(otrosss, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel8)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(djudicial, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jLabel7)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(antici, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(70, 70, 70))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtanticipos, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(33, 33, 33))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel8)
+                            .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(txtOtros, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(33, 33, 33))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(txtdescuento)
+                                .addGap(52, 52, 52))))))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(antici, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtanticipos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
-                    .addComponent(djudicial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtdescuento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
-                    .addComponent(otrosss, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(txtOtros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
-        CmdCalc.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
-        CmdCalc.setText("Calcular");
-        CmdCalc.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        CmdCalc.addActionListener(new java.awt.event.ActionListener() {
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(352, 50, -1, -1));
+
+        CmdCalcular.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
+        CmdCalcular.setText("Calcular");
+        CmdCalcular.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        CmdCalcular.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CmdCalcActionPerformed(evt);
+                CmdCalcularActionPerformed(evt);
             }
         });
+        getContentPane().add(CmdCalcular, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 116, 129, 35));
 
         tablita.setBackground(new java.awt.Color(102, 102, 102));
         tablita.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
@@ -291,6 +350,8 @@ public class LABORATORIOCOMPLETO extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tablita);
 
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 345, 833, 206));
+
         CmdSalir.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
         CmdSalir.setText("Salir");
         CmdSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -299,6 +360,7 @@ public class LABORATORIOCOMPLETO extends javax.swing.JFrame {
                 CmdSalirActionPerformed(evt);
             }
         });
+        getContentPane().add(CmdSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(531, 196, 129, 35));
 
         CmdTotales.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
         CmdTotales.setText("Totales");
@@ -308,11 +370,14 @@ public class LABORATORIOCOMPLETO extends javax.swing.JFrame {
                 CmdTotalesActionPerformed(evt);
             }
         });
+        getContentPane().add(CmdTotales, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 169, 129, 35));
 
         jLabel10.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
         jLabel10.setText("Total Salarios:");
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(623, 569, -1, -1));
 
         TSal.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
+        getContentPane().add(TSal, new org.netbeans.lib.awtextra.AbsoluteConstraints(713, 566, 120, -1));
 
         cheque.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         cheque.setForeground(new java.awt.Color(204, 0, 0));
@@ -322,105 +387,74 @@ public class LABORATORIOCOMPLETO extends javax.swing.JFrame {
                 chequeActionPerformed(evt);
             }
         });
+        getContentPane().add(cheque, new org.netbeans.lib.awtextra.AbsoluteConstraints(452, 562, -1, -1));
 
         CmdCalc1.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
-        CmdCalc1.setText("Guardar");
+        CmdCalc1.setText("Archivar");
         CmdCalc1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         CmdCalc1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CmdCalc1ActionPerformed(evt);
             }
         });
+        getContentPane().add(CmdCalc1, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 64, 129, 35));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(cheque)
-                        .addGap(26, 26, 26)
-                        .addComponent(jLabel10)
-                        .addGap(20, 20, 20)
-                        .addComponent(TSal, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGap(42, 42, 42)
-                                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(179, 179, 179)
-                                .addComponent(jLabel3)))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(CmdCalc, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(CmdSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(CmdTotales, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(CmdCalc1, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(32, 32, 32))))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel3)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)))
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
-                            .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(358, 358, 358)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel10)
-                            .addComponent(TSal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cheque)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(CmdCalc1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(CmdCalc, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(CmdSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(12, 12, 12)
-                        .addComponent(CmdTotales, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
+        CmdCalc2.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
+        CmdCalc2.setText("Buscar");
+        CmdCalc2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        CmdCalc2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CmdCalc2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(CmdCalc2, new org.netbeans.lib.awtextra.AbsoluteConstraints(379, 196, 129, 35));
+
+        jButton1.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
+        jButton1.setText("Registros Nuevos");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 222, -1, 38));
+        getContentPane().add(label_status, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 570, -1, -1));
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void CmdCalcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CmdCalcActionPerformed
-        //----- VARIABLES -----//
+    private void CmdCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CmdCalcularActionPerformed
+        //--CONEXION--
+
+     try{
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/nomina", "root", "");
+            
+            PreparedStatement pst = cn.prepareStatement("select * from planilla where CodigoNombres = ?,CodigoPuesto=?,CodigoSueldo=?,CodigoComisiones=?,CodigoOtros=?,CodigoAnticipos=?,CodigoDescuento=?,CodigoOtros2");
+            pst.setString(1, txtnombres.getText().trim());
+            
+            ResultSet rs = pst.executeQuery();
+            
+            if(rs.next()){
+                txtnombres.setText(rs.getString("CodigoNombres"));
+                txtpuesto.setText(rs.getString("CodigoPuesto"));
+                txtsueldo.setText(rs.getString("CodigoSueldo"));
+                txtcomisiones.setText(rs.getString("CodigoComisiones"));
+                txtotros.setText(rs.getString("CodigoOtros"));
+                txtanticipos.setText(rs.getString("CodigoAnticipos"));
+                txtdescuento.setText(rs.getString("CodigoDescuento"));
+                txtOtros.setText(rs.getString("CodigoOtros2"));
+
+                pst.executeUpdate(); 
+              
+ 
+//----- VARIABLES -----//
         String nombree="";
         String puestoo="";
         double sueldo=0.0;
         //------------------------//
-        nombree = nombres.getText();
-        puestoo = pues.getText();
+        nombree = txtnombres.getText();
+        puestoo = txtpuesto.getText();
+        
         switch(puestoo)
         {
             case "Contador":
@@ -444,9 +478,9 @@ public class LABORATORIOCOMPLETO extends javax.swing.JFrame {
         }
         //--------------------------//
         double sueldoExtra=0, comisiones=0, otrosIngresos=0;
-        sueldoExtra=Double.parseDouble(suel.getText());
-        comisiones=Double.parseDouble(comis.getText());
-        otrosIngresos=Double.parseDouble(otross.getText());
+        sueldoExtra=Double.parseDouble(txtsueldo.getText());
+        comisiones=Double.parseDouble(txtcomisiones.getText());
+        otrosIngresos=Double.parseDouble(txtotros.getText());
         //----------------------------------------------//
         double totIngresos=0;
         //--- SE ADICIONAN 154.5, VALOR DE LA BONIFICACIÓN INCENTIVO
@@ -460,9 +494,9 @@ public class LABORATORIOCOMPLETO extends javax.swing.JFrame {
         }
         double anticipos=0, dj=0, otrosDescuentos=0;
         double totDesc=0;
-        anticipos=Double.parseDouble(antici.getText());
-        dj=Double.parseDouble(djudicial.getText());
-        otrosDescuentos=Double.parseDouble(otrosss.getText());
+        anticipos=Double.parseDouble(txtanticipos.getText());
+        dj=Double.parseDouble(txtdescuento.getText());
+        otrosDescuentos=Double.parseDouble(txtOtros.getText());
         //---------
         totDesc=igss+isr+anticipos+dj+otrosDescuentos;
         //---------------------//
@@ -489,21 +523,37 @@ public class LABORATORIOCOMPLETO extends javax.swing.JFrame {
         modelo.addRow(data);
         tablita.setModel(modelo);
         //--------------------------//
-        nombres.setText("");
-        suel.setText("");
-        comis.setText("");
-        otross.setText("");
-        antici.setText("");
-        otrosss.setText("");
-        djudicial.setText("");
-        nombres.requestFocus();
-    }//GEN-LAST:event_CmdCalcActionPerformed
+        txtnombres.setText("");
+        txtsueldo.setText("");
+        txtcomisiones.setText("");
+        txtotros.setText("");
+        txtanticipos.setText("");
+        txtOtros.setText("");
+        txtdescuento.setText("");
+        txtnombres.requestFocus();
+        
+        
+     //CONEXION MYSQL
+    
+   } else {
+                JOptionPane.showMessageDialog(null, "Registro Exitoso");
+            }
+            
+        }catch (Exception e){
+         e.printStackTrace();    
+        }
+        
+    }//GEN-LAST:event_CmdCalcularActionPerformed
 
     private void CmdSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CmdSalirActionPerformed
        System.exit(0);
     }//GEN-LAST:event_CmdSalirActionPerformed
 
     private void CmdTotalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CmdTotalesActionPerformed
+     
+       
+   // CODIGO DE PLANILLA    
+        
         DefaultTableModel modelo = (DefaultTableModel) tablita.getModel();
         float t2=0; String t0="";
         for(int i=0; i<modelo.getRowCount(); i++)
@@ -512,10 +562,19 @@ public class LABORATORIOCOMPLETO extends javax.swing.JFrame {
             t2=t2+Float.parseFloat(t0);
         }
         TSal.setText(String.valueOf(t2));
+        
+        
+        
+        
+
+             
+        
+        
     }//GEN-LAST:event_CmdTotalesActionPerformed
 
     private void chequeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chequeActionPerformed
         this.setVisible(true);
+        
         reciboo c= new reciboo();
         c.setVisible(true);
         try {
@@ -539,6 +598,18 @@ public class LABORATORIOCOMPLETO extends javax.swing.JFrame {
     private void CmdCalc1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CmdCalc1ActionPerformed
         Crear();
     }//GEN-LAST:event_CmdCalc1ActionPerformed
+
+    private void CmdCalc2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CmdCalc2ActionPerformed
+        Buscar();
+    }//GEN-LAST:event_CmdCalc2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+           r_empleados GN= new r_empleados(); 
+          GN.setVisible(true);
+           this.setVisible(false);
+           
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -570,23 +641,20 @@ public class LABORATORIOCOMPLETO extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                in_sesion login = new in_sesion();
-                login.setVisible(true);
-                //new LABORATORIO1().setVisible(true);
+                new LABORATORIO1().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton CmdCalc;
     private javax.swing.JButton CmdCalc1;
+    private javax.swing.JButton CmdCalc2;
+    private javax.swing.JButton CmdCalcular;
     private javax.swing.JButton CmdSalir;
     private javax.swing.JButton CmdTotales;
     private javax.swing.JTextField TSal;
-    private javax.swing.JTextField antici;
     private javax.swing.JButton cheque;
-    private javax.swing.JTextField comis;
-    private javax.swing.JTextField djudicial;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
@@ -601,11 +669,21 @@ public class LABORATORIOCOMPLETO extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField nombres;
-    private javax.swing.JTextField otross;
-    private javax.swing.JTextField otrosss;
-    private javax.swing.JTextField pues;
-    private javax.swing.JTextField suel;
+    private javax.swing.JLabel label_status;
     private javax.swing.JTable tablita;
+    private javax.swing.JTextField txtOtros;
+    private javax.swing.JTextField txtanticipos;
+    private javax.swing.JTextField txtcomisiones;
+    private javax.swing.JTextField txtdescuento;
+    private javax.swing.JTextField txtnombres;
+    private javax.swing.JTextField txtotros;
+    private javax.swing.JTextField txtpuesto;
+    private javax.swing.JTextField txtsueldo;
     // End of variables declaration//GEN-END:variables
+
+    private static class JoptionPane {
+
+        public JoptionPane() {
+        }
+    }
 }
