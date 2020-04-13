@@ -2,6 +2,8 @@ package Nomina;
 
 
 import com.mysql.jdbc.PreparedStatement;
+import static com.oracle.webservices.internal.api.databinding.DatabindingModeFeature.ID;
+//import static com.oracle.webservices.internal.api.databinding.DatabindingModeFeature.ID;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -320,7 +322,7 @@ public class r_empleados extends javax.swing.JFrame {
             
             txtcodigo.setText("");
             txtempleado.setText("");
-            this.comcargo.getSelectedItem().toString();
+            comcargo.getSelectedItem().toString();
             txtfecha.setText("");
             txtsueldo.setText("");
    
@@ -354,16 +356,20 @@ int filas;
            Class.forName("com.mysql.jdbc.Driver");
            Connection conectar = DriverManager.getConnection("jdbc:mysql://localhost/nomina","root","");
            
-            Connection cn= DriverManager.getConnection("jdbc:mysql://localhost/nomina","root","lfsr1999");
+            Connection cn= DriverManager.getConnection("jdbc:mysql://localhost/nomina","root","");
             PreparedStatement pst = (PreparedStatement) cn.prepareStatement("update employee_record set ID=?, CodigoEmpleado=?, CodigoCargo=?, CodigoFecha=?,CodigoSueldo=?,  where ID = " + ID);
 
-            txtcodigo.setText("");
-            txtempleado.setText("");
-            comcargo.setSelectedItem("");
-            txtfecha.setText("");
-            txtsueldo.setText("");
             
+            pst.setString(1, txtcodigo.getText().trim());
+            pst.setString(2, txtempleado.getText().trim());
+            pst.setString(3, this.comcargo.getSelectedItem().toString());
+            pst.setString(4, txtfecha.getText().trim()); 
+            pst.setString(5, txtsueldo.getText().trim()); 
+           
+
             pst.executeUpdate();
+
+           
 
             label_estatus.setText("Registro Editado con exito");
 
@@ -379,7 +385,7 @@ int filas;
         String [] datos=new String [5];
         datos[0]=txtcodigo.getText();
         datos[1]=txtempleado.getText();
-        datos[2]=this.comcargo.getSelectedItem().toString();
+        datos[2]=comcargo.getSelectedItem().toString();
         datos[3]=txtfecha.getText();
         datos[4]=txtsueldo.getText();
         int i = 0;
@@ -404,11 +410,10 @@ int filas;
            Connection conectar = DriverManager.getConnection("jdbc:mysql://localhost/nomina","root","");
            
            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/nomina", "root", "");
-           java.sql.PreparedStatement pst = cn.prepareStatement("insert into employee_record values(?,?,?,?,?)");
-
+          // java.sql.PreparedStatement pst = cn.prepareStatement("insert into employee_record values(?,?,?,?,?)");
+           java.sql.PreparedStatement pst = cn.prepareStatement("delete from employee_record where ID=?, CodigoEmpleado=?, CodigoCargo=?, CodigoFecha=?,CodigoSueldo=?,  where ID = " + ID); 
 
             pst.setString(1, txt_buscar.getText().trim());
-
             pst.executeUpdate();
 
             txtcodigo.setText("");
@@ -423,6 +428,7 @@ int filas;
         } catch (Exception e) {
         }
         
+         
        
   //---------------------------------------------------------------------------------------------------------------//
       //CODIGO R_EMPLEADOS
@@ -454,7 +460,7 @@ try{
             
             pst.setString(1, txtcodigo.getText().trim()); 
             pst.setString(2, txtempleado.getText().trim()); 
-             pst.setString(3, this.comcargo.getSelectedItem().toString());
+            pst.setString(3, this.comcargo.getSelectedItem().toString());
             pst.setString(4, txtfecha.getText().trim());
             pst.setString(5, txtsueldo.getText().trim());
              
@@ -610,6 +616,7 @@ try{
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(r_empleados.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
