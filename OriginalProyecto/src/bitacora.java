@@ -67,6 +67,11 @@ public class bitacora extends javax.swing.JFrame {
                 puestoItemStateChanged(evt);
             }
         });
+        puesto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                puestoActionPerformed(evt);
+            }
+        });
 
         jButton5.setText("Registro de Empleados");
         jButton5.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -434,6 +439,10 @@ public class bitacora extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void puestoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_puestoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_puestoActionPerformed
 
     /**
      * @param args the command line arguments
