@@ -261,7 +261,7 @@ public class r_empleados extends javax.swing.JFrame {
            Connection conectar = DriverManager.getConnection("jdbc:mysql://localhost/nomina","root","");
            
            Connection cn= DriverManager.getConnection("jdbc:mysql://localhost/nomina","root","");
-            java.sql.PreparedStatement pst = cn.prepareStatement("insert into employee_record values(?,?,?,?,?)");
+            java.sql.PreparedStatement pst = conectar.prepareStatement("insert into employee_record values(?,?,?,?,?)");
                       
            // pst.setString(1, "0");
             pst.setString(1, txtcodigo.getText().trim());
@@ -310,11 +310,11 @@ public class r_empleados extends javax.swing.JFrame {
            Connection conectar = DriverManager.getConnection("jdbc:mysql://localhost/nomina","root","");
            
            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/nomina", "root", "");//conecta a MYSQL  
-            java.sql.PreparedStatement pst = cn.prepareStatement("insert into employee_record values(?,?,?,?,?)");
+           java.sql.PreparedStatement pst = conectar.prepareStatement("insert into employee_record values(?,?,?,?,?)");
            
             pst.setString(1, txtcodigo.getText().trim()); 
             pst.setString(2, txtempleado.getText().trim()); 
-            pst.setString(3, this.comcargo.getSelectedItem().toString());
+            pst.setString(3, comcargo.getSelectedItem().toString());
             pst.setString(4, txtfecha.getText().trim()); 
             pst.setString(5, txtsueldo.getText().trim()); 
        
@@ -351,11 +351,27 @@ int filas;
         // CONEXION MYSQL MODIFICAR
         
        
-           
-           try{ String ID = txt_buscar.getText().trim();
+            try {
+            String ID = txt_buscar.getText().trim();
+
            Class.forName("com.mysql.jdbc.Driver");
            Connection conectar = DriverManager.getConnection("jdbc:mysql://localhost/nomina","root","");
            
+<<<<<<< HEAD
+           
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/nomina", "root", "");
+            java.sql.PreparedStatement pst = conectar.prepareStatement("update employee_record set CodigoEmpleado = ?, CodigoCargo = ?, CodigoFecha = ?, CodigoSueldo = ?, where ID = " + ID);
+
+            pst.setString(2, txtcodigo.getText().trim());
+            pst.setString(1, txtempleado.getText().trim());
+            pst.setString(1, comcargo.getSelectedItem().toString());
+            pst.setString(1, txtfecha.getText().trim()); 
+            pst.setString(1, txtsueldo.getText().trim()); 
+          
+            pst.executeUpdate();
+
+            label_status.setText("Modificación exitosa.");
+=======
             Connection cn= DriverManager.getConnection("jdbc:mysql://localhost/nomina","root","");
             PreparedStatement pst = (PreparedStatement) cn.prepareStatement("update employee_record set ID=?, CodigoEmpleado=?, CodigoCargo=?, CodigoFecha=?,CodigoSueldo=?,  where ID = " + ID);
 
@@ -372,9 +388,9 @@ int filas;
            
 
             label_estatus.setText("Registro Editado con exito");
+>>>>>>> c0116b81807bc39cf68b032bf8ef4dad46c8f038
 
         } catch (Exception e) {
-
         }
         
     
@@ -410,8 +426,13 @@ int filas;
            Connection conectar = DriverManager.getConnection("jdbc:mysql://localhost/nomina","root","");
            
            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/nomina", "root", "");
+<<<<<<< HEAD
+           java.sql.PreparedStatement pst = conectar.prepareStatement("delete from employee_record values(?,?,?,?,?)");
+
+=======
           // java.sql.PreparedStatement pst = cn.prepareStatement("insert into employee_record values(?,?,?,?,?)");
            java.sql.PreparedStatement pst = cn.prepareStatement("delete from employee_record where ID=?, CodigoEmpleado=?, CodigoCargo=?, CodigoFecha=?,CodigoSueldo=?,  where ID = " + ID); 
+>>>>>>> c0116b81807bc39cf68b032bf8ef4dad46c8f038
 
             pst.setString(1, txt_buscar.getText().trim());
             pst.executeUpdate();
@@ -432,17 +453,17 @@ int filas;
        
   //---------------------------------------------------------------------------------------------------------------//
       //CODIGO R_EMPLEADOS
-       DefaultTableModel modelo = (DefaultTableModel) tablaempleado.getModel();
-       int a=tablaempleado.getSelectedRow();
-       if (a<0){
+   //    DefaultTableModel modelo = (DefaultTableModel) tablaempleado.getModel();
+   //    int a=tablaempleado.getSelectedRow();
+ //      if (a<0){
            //JOptionPane.showMessageDialog(null, "Debe seleccionar una fila");
-       }else{
-           int confirmar = JOptionPane.showConfirmDialog(null, "Esta seguro que desea eliminar el registro?");
-           if (JOptionPane.OK_OPTION == confirmar){
-               modelo.removeRow(a);
-              JOptionPane.showMessageDialog(null, "Registro Eliminado");
-           }
-       }
+  //     }else{
+   //        int confirmar = JOptionPane.showConfirmDialog(null, "Esta seguro que desea eliminar el registro?");
+   //        if (JOptionPane.OK_OPTION == confirmar){
+   //            modelo.removeRow(a);
+   //           JOptionPane.showMessageDialog(null, "Registro Eliminado");
+   //        }
+   //    }
      
     }//GEN-LAST:event_jButton4ActionPerformed
 
@@ -455,7 +476,7 @@ try{
            
            
     Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/nomina", "root", "");//conecta a MYSQL  
-    PreparedStatement pst = (PreparedStatement) cn.prepareStatement("insert into employee_record values(?,?,?,?,?)");
+    PreparedStatement pst = (PreparedStatement) conectar.prepareStatement("insert into employee_record values(?,?,?,?,?)");
           
             
             pst.setString(1, txtcodigo.getText().trim()); 
@@ -497,13 +518,12 @@ try{
            
            
            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/nomina", "root", "");//conecta a MYSQL  
-           PreparedStatement pst = (PreparedStatement) cn.prepareStatement("insert into employee_record values(?,?,?,?,?)");
-            
+           java.sql.PreparedStatement pst = conectar.prepareStatement("delete from employee_record where Nombre = ?");
 
              
             pst.setString(1, txtcodigo.getText().trim());
             pst.setString(2, txtempleado.getText().trim());
-            pst.setString(3, this.comcargo.getSelectedItem().toString());
+            pst.setString(3, comcargo.getSelectedItem().toString());
             pst.setString(4, txtfecha.getText().trim());
             pst.setString(5, txtsueldo.getText().trim());
             
@@ -569,8 +589,8 @@ try{
            Class.forName("com.mysql.jdbc.Driver");
            Connection conectar = DriverManager.getConnection("jdbc:mysql://localhost/nomina","root","");
            
-           cn = DriverManager.getConnection("jdbc:mysql://localhost/nomina", "root", "lfsr1999");
-            PreparedStatement pst = (PreparedStatement) cn.prepareStatement("select * from employee_record where ID = ?");
+           cn = DriverManager.getConnection("jdbc:mysql://localhost/nomina", "root", "");
+           PreparedStatement pst = (PreparedStatement) conectar.prepareStatement("select * from employee_record where Nombre = ?");
             
             pst.setString(1, txt_buscar.getText().trim());
             ResultSet rs = pst.executeQuery();
@@ -579,8 +599,8 @@ try{
             txtcodigo.setText(rs.getString("Codigo"));
             txtempleado.setText(rs.getString("Empleado"));
             comcargo.setSelectedItem(rs.getString("Cargo"));
-           txtfecha.setText(rs.getString("Fecha"));
-           txtsueldo.setText(rs.getString("Sueldo"));
+            txtfecha.setText(rs.getString("Fecha"));
+            txtsueldo.setText(rs.getString("Sueldo"));
                 
             } else {
                 JOptionPane.showMessageDialog(null, "Empleado no registrado.");
