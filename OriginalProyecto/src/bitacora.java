@@ -1,9 +1,4 @@
 
-import static com.oracle.webservices.internal.api.databinding.DatabindingModeFeature.ID;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -44,7 +39,9 @@ public class bitacora extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        Editar = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
+        jButton3 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
@@ -53,11 +50,6 @@ public class bitacora extends javax.swing.JFrame {
         txtcod = new javax.swing.JTextField();
         txtemp = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        jButton6 = new javax.swing.JButton();
-        txt_buscar = new javax.swing.JTextField();
-        label_estatus = new javax.swing.JLabel();
-        Editar = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -67,21 +59,11 @@ public class bitacora extends javax.swing.JFrame {
                 puestoItemStateChanged(evt);
             }
         });
-        puesto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                puestoActionPerformed(evt);
-            }
-        });
 
         jButton5.setText("Registro de Empleados");
         jButton5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton5MouseClicked(evt);
-            }
-        });
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
             }
         });
 
@@ -105,7 +87,23 @@ public class bitacora extends javax.swing.JFrame {
 
         jLabel2.setText("Empleado");
 
+        Editar.setBackground(new java.awt.Color(255, 51, 51));
+        Editar.setText("Editar");
+        Editar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EditarActionPerformed(evt);
+            }
+        });
+
         jLabel3.setText("Cargo");
+
+        jButton3.setBackground(new java.awt.Color(255, 51, 51));
+        jButton3.setText("Eliminar");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jLabel4.setText("Sueldo");
 
@@ -131,29 +129,6 @@ public class bitacora extends javax.swing.JFrame {
 
         jLabel6.setText("Fecha de Contrato");
 
-        jButton6.setText("Buscar");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
-            }
-        });
-
-        Editar.setBackground(new java.awt.Color(255, 51, 51));
-        Editar.setText("Editar");
-        Editar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                EditarActionPerformed(evt);
-            }
-        });
-
-        jButton3.setBackground(new java.awt.Color(255, 51, 51));
-        jButton3.setText("Eliminar");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -161,7 +136,7 @@ public class bitacora extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 184, Short.MAX_VALUE)
+                        .addGap(0, 112, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel1)
                             .addComponent(jLabel2)
@@ -191,26 +166,13 @@ public class bitacora extends javax.swing.JFrame {
                         .addGap(3, 3, 3)
                         .addComponent(jButton5))
                     .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Editar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txt_buscar)
-                        .addGap(33, 33, 33))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(113, 113, 113)
-                                .addComponent(jButton6))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(124, 124, 124)
-                                .addComponent(label_estatus, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Editar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(323, 323, 323))
             .addGroup(layout.createSequentialGroup()
-                .addGap(64, 64, 64)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 763, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 53, Short.MAX_VALUE))
+                .addGap(36, 36, 36)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 674, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -224,44 +186,35 @@ public class bitacora extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(txtemp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2)
-                    .addComponent(txt_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButton2))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(22, 22, 22)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton6)
-                            .addComponent(Editar)))
+                        .addComponent(Editar))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(puesto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel3))))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtfech, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel6))
-                        .addGap(3, 3, 3)
-                        .addComponent(label_estatus, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(25, 25, 25)
-                        .addComponent(jButton3)
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtSueldo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4)
-                            .addComponent(jButton4))))
+                    .addComponent(txtfech, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton3)
+                    .addComponent(jLabel6))
+                .addGap(25, 25, 25)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtSueldo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4)
+                    .addComponent(jButton4))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(contra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel5))
                     .addComponent(jButton5))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 104, Short.MAX_VALUE)
+                .addGap(41, 41, 41)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(66, 66, 66))
+                .addContainerGap(129, Short.MAX_VALUE))
         );
 
         pack();
@@ -282,34 +235,6 @@ public class bitacora extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        try {
-            
-            Connection cn= DriverManager.getConnection("jdbc:mysql://localhost/Bitacora_BD14?useSSL=false","root","lfsr1999");
-           PreparedStatement pst = cn.prepareStatement("insert into Bitacora_de_empleado values(?,?,?,?,?,?,?)");
-           
-           pst.setString(1, "0");
-            pst.setString(2, txtcod.getText().trim());
-            pst.setString(3, txtemp.getText().trim());
-            pst.setString(4, puesto.getSelectedItem().toString());
-            pst.setString(5, txtfech.getText().trim());
-            pst.setString(6, txtSueldo.getText().trim());
-            pst.setString(7, contra.getText().trim());
-            pst.executeUpdate();
-            
-            txtcod.setText("");
-            txtemp.setText("");
-            puesto.setSelectedItem("");
-            txtfech.setText("");
-            txtSueldo.setText("");
-            contra.setText("");
-            
-           
-            label_estatus.setText("Regiatro exitoso");
-            
-        } catch (Exception e) {
-            
-        }
-        
         DefaultTableModel modelo = (DefaultTableModel) tblDatos.getModel();
         Object  [] fila=new Object [6];
         fila[0]=txtcod.getText();
@@ -335,65 +260,8 @@ public class bitacora extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
-        System.exit(0);
-    }//GEN-LAST:event_jButton4ActionPerformed
-
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
-
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
-         try{
-             Connection cn;
-            cn = DriverManager.getConnection("jdbc:mysql://localhost/Bitacora_BD14?useSSL=false", "root", "lfsr1999");
-            PreparedStatement pst = cn.prepareStatement("select * from Bitacora_de_empleado where ID = ?");
-            pst.setString(1, txt_buscar.getText().trim());
-
-            ResultSet rs = pst.executeQuery();
-
-            if(rs.next()){
-                txtcod.setText(rs.getString("Codigo"));
-                txtemp.setText(rs.getString("Empleado"));
-                puesto.setSelectedItem(rs.getString("Cargo"));
-                txtfech.setText(rs.getString("Fecha"));
-                txtSueldo.setText(rs.getString("Sueldo"));
-                contra.setText(rs.getString("Contraseña"));
-            } else {
-                JOptionPane.showMessageDialog(null, "Empleado no registrado.");
-            }
-
-        }catch (Exception e){
-
-        }
-
-        
-     
-        
-    }//GEN-LAST:event_jButton6ActionPerformed
-
     private void EditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditarActionPerformed
         // TODO add your handling code here:
-
-        try{ String ID = txt_buscar.getText().trim();
-            Connection cn= DriverManager.getConnection("jdbc:mysql://localhost/Bitacora_BD14?useSSL=false","root","lfsr1999");
-            PreparedStatement pst = cn.prepareStatement("update Bitacora_de_empleado set ID=?, Codigo=?, Empleado=?, Cargo=?,Fecha=?, Sueldo=?,Contraseña=?, where ID = " + ID);
-
-            txtcod.setText("");
-            txtemp.setText("");
-            puesto.setSelectedItem("");
-            txtfech.setText("");
-            txtSueldo.setText("");
-            contra.setText("");
-            pst.executeUpdate();
-
-            label_estatus.setText("Registro Editado con exito");
-
-        } catch (Exception e) {
-
-        }
 
         String [] datos=new String [5];
         datos[0]=txtcod.getText();
@@ -402,31 +270,11 @@ public class bitacora extends javax.swing.JFrame {
         datos[3]=txtfech.getText();
         datos[4]=txtSueldo.getText();
         int i = 0;
+
     }//GEN-LAST:event_EditarActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-
-        try {
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/Bitacora_BD14?useSSL=false", "root", "lfsr1999");
-            PreparedStatement pst = cn.prepareStatement("delete from Bitacora_de_empleado where ID = ?" );
-
-            pst.setString(1, txt_buscar.getText().trim());
-
-            pst.executeUpdate();
-
-            txtcod.setText("");
-            txtemp.setText("");
-            puesto.setSelectedItem("");
-            txtfech.setText("");
-            txtSueldo.setText("");
-            txt_buscar.setText("");
-
-            label_estatus.setText("Registro Eliminado con exito");
-
-        } catch (Exception e) {
-        }
-
         DefaultTableModel modelo = (DefaultTableModel) tblDatos.getModel();
         int a=tblDatos.getSelectedRow();
         if (a<0){
@@ -438,11 +286,13 @@ public class bitacora extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Registro Eliminado");
             }
         }
+
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    private void puestoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_puestoActionPerformed
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_puestoActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -487,7 +337,6 @@ public class bitacora extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -495,11 +344,9 @@ public class bitacora extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel label_estatus;
     private javax.swing.JComboBox<String> puesto;
     private javax.swing.JTable tblDatos;
     private javax.swing.JTextField txtSueldo;
-    private javax.swing.JTextField txt_buscar;
     private javax.swing.JTextField txtcod;
     private javax.swing.JTextField txtemp;
     private javax.swing.JTextField txtfech;
