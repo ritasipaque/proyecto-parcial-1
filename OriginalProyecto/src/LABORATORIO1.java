@@ -140,6 +140,7 @@ public class LABORATORIO1 extends javax.swing.JFrame {
         CmdCalc1 = new javax.swing.JButton();
         CmdCalc2 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -388,6 +389,13 @@ public class LABORATORIO1 extends javax.swing.JFrame {
             }
         });
 
+        jButton2.setText("Atrás ");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -399,7 +407,9 @@ public class LABORATORIO1 extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButton2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(cheque)
                                 .addGap(26, 26, 26)
                                 .addComponent(jLabel10)
@@ -410,7 +420,7 @@ public class LABORATORIO1 extends javax.swing.JFrame {
                                     .addGroup(layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                                            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 332, Short.MAX_VALUE))
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(layout.createSequentialGroup()
                                                 .addGap(64, 64, 64)
@@ -470,7 +480,8 @@ public class LABORATORIO1 extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
                     .addComponent(TSal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cheque))
+                    .addComponent(cheque)
+                    .addComponent(jButton2))
                 .addContainerGap())
         );
 
@@ -587,9 +598,9 @@ public class LABORATORIO1 extends javax.swing.JFrame {
             reciboo M = new reciboo();
             int fila =tablita.getSelectedRow();
 
-            reciboo.TxtNombre1.setText(tablita.getValueAt(fila,0).toString());
-            reciboo.Puesto.setText(tablita.getValueAt(fila,1).toString());
-            reciboo.Sueldo.setText(tablita.getValueAt(fila,3).toString());
+            reciboo.txtNombre2.setText(tablita.getValueAt(fila,0).toString());
+            reciboo.txtPuesto.setText(tablita.getValueAt(fila,1).toString());
+            reciboo.txtSueldo.setText(tablita.getValueAt(fila,3).toString());
             reciboo.IGSS.setText(tablita.getValueAt(fila,8).toString());
             reciboo.ISR.setText(tablita.getValueAt(fila,9).toString());
             reciboo.Totales.setText(tablita.getValueAt(fila,14).toString());
@@ -616,6 +627,23 @@ public class LABORATORIO1 extends javax.swing.JFrame {
            this.setVisible(false);
            
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+ menu  frm=new  menu ();
+                // LABORATORIO1.setVisible(true);
+                //LABORATORIO1.setVisible(true);
+                // this.setVisible(false);
+                
+                 this.setVisible(false);
+                 
+             frm.setVisible(true);
+                 this.setVisible(false);
+
+
+
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -664,6 +692,7 @@ public class LABORATORIO1 extends javax.swing.JFrame {
     private javax.swing.JTextField comis;
     private javax.swing.JTextField djudicial;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
