@@ -9,7 +9,7 @@ import Nomina.Almacenamientodeempleados;
 import Nomina.LABORATORIO1;
 import Nomina.bitacora;
 import Nomina.r_empleados;
-import Nomina.reciboo1;
+import Nomina.recibo;
 
 /**
  *
@@ -183,7 +183,7 @@ public class Contenedor extends javax.swing.JFrame {
     private void jCheckBoxMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxMenuItem3ActionPerformed
         // RECIBO
         
-         reciboo1 frm = new reciboo1();
+         recibo frm = new recibo();
          frm.setVisible(true);
          this.setVisible(false);
         

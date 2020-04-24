@@ -1,7 +1,7 @@
 package Nomina;
 //import java.awt.Color;
 import Login.in_sesion;
-import Nomina.reciboo1;
+import Nomina.recibo;
 import Nomina.LABORATORIO1;
 import java.io.File;
 import java.util.Formatter;
@@ -516,18 +516,18 @@ public class LABORATORIOCOMPLETO extends javax.swing.JFrame {
 
     private void chequeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chequeActionPerformed
         this.setVisible(true);
-        reciboo1 c= new reciboo1();
+        recibo c= new recibo();
         c.setVisible(true);
         try {
-            reciboo1 M = new reciboo1();
+            recibo M = new recibo();
             int fila =tablita.getSelectedRow();
 
-            reciboo1.TxtNombre1.setText(tablita.getValueAt(fila,0).toString());
-            reciboo1.Puesto.setText(tablita.getValueAt(fila,1).toString());
-            reciboo1.Sueldo.setText(tablita.getValueAt(fila,3).toString());
-            reciboo1.IGSS.setText(tablita.getValueAt(fila,8).toString());
-            reciboo1.ISR.setText(tablita.getValueAt(fila,9).toString());
-            reciboo1.Totales.setText(tablita.getValueAt(fila,14).toString());
+            recibo.TxtNombre1.setText(tablita.getValueAt(fila,0).toString());
+            recibo.Puesto.setText(tablita.getValueAt(fila,1).toString());
+            recibo.Sueldo1.setText(tablita.getValueAt(fila,3).toString());
+            recibo.IGSS.setText(tablita.getValueAt(fila,8).toString());
+            recibo.ISR.setText(tablita.getValueAt(fila,9).toString());
+            recibo.Totales.setText(tablita.getValueAt(fila,14).toString());
 
             M.show();
         } catch (Exception e) {
