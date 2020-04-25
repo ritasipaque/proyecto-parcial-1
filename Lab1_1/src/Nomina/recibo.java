@@ -366,20 +366,22 @@ public class recibo extends javax.swing.JFrame {
         //Codigo que permite insertar registros en al base de datos
         //Diseño del JFrame trabajado por ambos
         try{
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/nominabancos", "root", "");//conexión a MYSQL "Jose Alejandro Jeronimo"
-            PreparedStatement pst = cn.prepareStatement("insert into bancos values(?,?,?,?,?,?,?,?)");// conexión a la tabla "Jose Alejandro Jeronimo"
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3307/nominabancos", "root", "");//conexión a MYSQL "Jose Alejandro Jeronimo"
+            PreparedStatement pst = cn.prepareStatement("insert into bancos values(?,?,?,?,?,?,?,?,?,?)");// conexión a la tabla "Jose Alejandro Jeronimo"
 
             //La tabla y BD de MYSQL fueron trabajadas por "Jose Alejandro Jeronimo"   
             //"Jaqueline Carrera" Trabajó el codigo de JAVA junto con modificaciones por Jose Alejandro Jeronimo
 
-            pst.setString(1, TxtNombre1.getText().trim());//Nombre
-            pst.setString(2, Puesto.getText().trim());//Puesto
-            pst.setString(3, Sueldo1.getText().trim()); // Sueldo
-            pst.setString(4, txtNoCuenta.getText().trim()); // No. de cuenta
-            pst.setString(5, txtHoras.getText().trim()); // Horas extras
-            pst.setString(6, IGSS.getText().trim()); //IGSS 
-            pst.setString(7, ISR.getText().trim()); //ISR
-            pst.setString(8, txtOtros.getText().trim()); //Otros
+            pst.setString(1, "0");
+            pst.setString(2, TxtNombre1.getText().trim());//Nombre
+            pst.setString(3, Puesto.getText().trim());//Puesto
+            pst.setString(4, Sueldo1.getText().trim()); // Sueldo
+            pst.setString(5, txtNoCuenta.getText().trim()); // No. de cuenta
+            pst.setString(6, txtHoras.getText().trim()); // Horas extras
+            pst.setString(7, IGSS.getText().trim()); //IGSS 
+            pst.setString(8, ISR.getText().trim()); //ISR
+            pst.setString(9, txtOtros.getText().trim()); //Otros
+            pst.setString(10, Totales.getText().trim()); //Otros
             pst.executeUpdate();
 
             //Borra lo que hay en campos
@@ -403,8 +405,8 @@ public class recibo extends javax.swing.JFrame {
         try {
             String ID = txt_buscar.getText().trim();
 
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/nominabancos", "root", "");//"Jose Alejandro Jeronimo"
-            PreparedStatement pst = cn.prepareStatement("update bancos set Nombre = ?, Puesto = ?, Sueldo = ?, NodeCuenta = ?, HorasExtras = ?, IGSS = ?, ISR = ?, Otros = ?, where ID = " + ID);//"Jose Alejandro Jeronimo"
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3307/nominabancos", "root", "");//"Jose Alejandro Jeronimo"
+            PreparedStatement pst = cn.prepareStatement("update bancos set Nombre = ?, Puesto = ?, Sueldo = ?, NodeCuenta = ?, HorasExtras = ?, IGSS = ?, ISR = ?, Otros = ? where ID = " + ID);//"Jose Alejandro Jeronimo"
 
             //La tabla y BD de MYSQL fueron trabajadas por "Jose Alejandro Jeronimo"   
             //"Jaqueline Carrera" Trabajó el codigo de JAVA junto con modificaciones por Jose Alejandro Jeronimo
@@ -431,7 +433,7 @@ public class recibo extends javax.swing.JFrame {
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         //Codigo que permite consultar registros en la base de datos
         try{
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/nominabancos", "root", "");// "Jose Alejandro Jeronimo"
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3307/nominabancos", "root", "");// "Jose Alejandro Jeronimo"
             PreparedStatement pst = cn.prepareStatement("select * from bancos where Nombre = ?");//"Jose Alejandro Jeronimo"
             //La tabla y BD de MYSQL fueron trabajadas por "Jose Alejandro Jeronimo"   
             //"Jaqueline Carrera" Trabajó el codigo de JAVA junto con modificaciones por Jose Alejandro Jeronimo
@@ -465,7 +467,7 @@ public class recibo extends javax.swing.JFrame {
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         //Codigo que permite borrar registros en la base de datos
         try {
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/nominabancos", "root", "");//"Jose Alejandro Jeronimo"
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3307/nominabancos", "root", "");//"Jose Alejandro Jeronimo"
             PreparedStatement pst = cn.prepareStatement("delete from bancos where Nombre = ?");//"Jose Alejandro Jeronimo"
                 
             // Jaqueline Carrera
