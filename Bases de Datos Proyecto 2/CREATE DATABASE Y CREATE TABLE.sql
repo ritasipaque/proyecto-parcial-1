@@ -1,6 +1,6 @@
-create database nominab;
-use nominab;
-create table bancosss
+create database nominabancos;
+use nominabancos;
+create table bancos
 (
 	ID int(10) auto_increment primary key,
     Nombre varchar(50) not null,
@@ -10,5 +10,6 @@ create table bancosss
     HorasExtras varchar(10)not null,
     IGSS varchar(10) not null,
     ISR varchar(10) not null,
-    Otros varchar(10) not null
+    Otros varchar(10) not null,
+    Totales varchar(10) not null
 ) engine=innodb DEFAULT CHARSET=latin1;
