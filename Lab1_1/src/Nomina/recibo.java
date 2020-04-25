@@ -470,13 +470,14 @@ public class recibo extends javax.swing.JFrame {
         //Codigo que permite borrar registros en la base de datos
         try {
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3307/nominabancos", "root", "");//"Jose Alejandro Jeronimo"
-            PreparedStatement pst = cn.prepareStatement("delete from bancos where Nombre = ?");//"Jose Alejandro Jeronimo"
+            PreparedStatement pst = cn.prepareStatement("delete from bancos where ID = ?");//"Jose Alejandro Jeronimo"
                 
             // Jaqueline Carrera
             pst.setString(1, txt_buscar.getText().trim());// Busca lo que se encuntra en el txt
             pst.executeUpdate();
 
             //Vacia los txt seleccionados
+            txt_buscar.setText("");
             TxtNombre1.setText("");
             Puesto.setText("");
             Sueldo1.setText("");
@@ -485,6 +486,7 @@ public class recibo extends javax.swing.JFrame {
             IGSS.setText("");
             ISR.setText("");
             txtOtros.setText("");
+            Totales.setText("");
             
             // si se cumple aparecera mensaje en el label
             Label_status.setText("Registro eliminado.");
