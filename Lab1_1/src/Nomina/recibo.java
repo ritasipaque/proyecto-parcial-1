@@ -435,7 +435,7 @@ public class recibo extends javax.swing.JFrame {
         //Codigo que permite consultar registros en la base de datos
         try{
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3307/nominabancos", "root", "");// "Jose Alejandro Jeronimo"
-            PreparedStatement pst = cn.prepareStatement("select * from bancos where Nombre = ?");//"Jose Alejandro Jeronimo"
+            PreparedStatement pst = cn.prepareStatement("select * from bancos where ID = ?");//"Jose Alejandro Jeronimo"
             //La tabla y BD de MYSQL fueron trabajadas por "Jose Alejandro Jeronimo"   
             //"Jaqueline Carrera" Trabajó el codigo de JAVA junto con modificaciones por Jose Alejandro Jeronimo
             
@@ -453,6 +453,7 @@ public class recibo extends javax.swing.JFrame {
                 IGSS.setText(rs.getString("IGSS"));
                 ISR.setText(rs.getString("ISR"));
                 txtOtros.setText(rs.getString("Otros"));
+                Totales.setText(rs.getString("Totales"));
 
             } else {
                 //si el campo no existiera que aparecera un mensaje en el LABEL
