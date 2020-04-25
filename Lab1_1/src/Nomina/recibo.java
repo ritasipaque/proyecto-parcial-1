@@ -381,7 +381,7 @@ public class recibo extends javax.swing.JFrame {
             pst.setString(7, IGSS.getText().trim()); //IGSS 
             pst.setString(8, ISR.getText().trim()); //ISR
             pst.setString(9, txtOtros.getText().trim()); //Otros
-            pst.setString(10, Totales.getText().trim()); //Otros
+            pst.setString(10, Totales.getText().trim()); //Totales
             pst.executeUpdate();
 
             //Borra lo que hay en campos
@@ -406,19 +406,20 @@ public class recibo extends javax.swing.JFrame {
             String ID = txt_buscar.getText().trim();
 
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3307/nominabancos", "root", "");//"Jose Alejandro Jeronimo"
-            PreparedStatement pst = cn.prepareStatement("update bancos set Nombre = ?, Puesto = ?, Sueldo = ?, NodeCuenta = ?, HorasExtras = ?, IGSS = ?, ISR = ?, Otros = ? where ID = " + ID);//"Jose Alejandro Jeronimo"
+            PreparedStatement pst = cn.prepareStatement("update bancos set Nombre = ?, Puesto = ?, Sueldo = ?, NodeCuenta = ?, HorasExtras = ?, IGSS = ?, ISR = ?, Otros = ?, Totales = ? where ID = " + ID);//"Jose Alejandro Jeronimo"
 
             //La tabla y BD de MYSQL fueron trabajadas por "Jose Alejandro Jeronimo"   
             //"Jaqueline Carrera" Trabajó el codigo de JAVA junto con modificaciones por Jose Alejandro Jeronimo
 
-            pst.setString(2, TxtNombre1.getText().trim());//Nombre
-            pst.setString(1, Puesto.getText().trim());//Puesto
-            pst.setString(1, Sueldo1.getText().trim()); // Sueldo
-            pst.setString(1, txtNoCuenta.getText().trim()); // No. de cuenta
-            pst.setString(1, txtHoras.getText().trim()); // Horas extras
-            pst.setString(1, IGSS.getText().trim()); //IGSS 
-            pst.setString(1, ISR.getText().trim()); //ISR
-            pst.setString(1, txtOtros.getText().trim()); //Otros
+            pst.setString(1, TxtNombre1.getText().trim());//Nombre
+            pst.setString(2, Puesto.getText().trim());//Puesto
+            pst.setString(3, Sueldo1.getText().trim()); // Sueldo
+            pst.setString(4, txtNoCuenta.getText().trim()); // No. de cuenta
+            pst.setString(5, txtHoras.getText().trim()); // Horas extras
+            pst.setString(6, IGSS.getText().trim()); //IGSS 
+            pst.setString(7, ISR.getText().trim()); //ISR
+            pst.setString(8, txtOtros.getText().trim()); //Otros
+            pst.setString(9, Totales.getText().trim()); //Totales
           
             pst.executeUpdate();
 
