@@ -1,7 +1,7 @@
 package Nomina;
 //import java.awt.Color;
 import Login.in_sesion;
-import Nomina.recibo;
+import Recibo.recibo;
 import Nomina.LABORATORIO1;
 import java.io.File;
 import java.util.Formatter;

@@ -3,6 +3,7 @@ package Nomina;
 
 //import java.awt.Color;
 import CONTENEDOR.Contenedor;
+import Recibo.recibo;
 import java.io.File;
 import java.io.FileInputStream;
 import java.sql.Connection;
@@ -362,7 +363,7 @@ public class LABORATORIO1 extends javax.swing.JFrame {
 
     private void CmdCalcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CmdCalcActionPerformed
      
-try {
+            try {
             Class.forName("com.mysql.jdbc.Driver");
             Connection conectar = DriverManager.getConnection("jdbc:mysql://localhost/nominaphase3","root","");
 
@@ -377,11 +378,9 @@ try {
             pst.setString(6, txtotross.getText().trim());
             pst.setString(7, txtanticipos.getText().trim());
             pst.setString(8, txtjudicial.getText().trim());
-            pst.setString(9, txtotrosss.getText().trim());
+            pst.setString(9, txtotrosss.getText().trim());  
         
             pst.executeUpdate();
-
-            
             txtnombres.setText("");
             txtpues.setText("");
             txtsueldoextra.setText(""); 
@@ -515,7 +514,7 @@ try {
             recibo.IGSS.setText(tablita.getValueAt(fila,8).toString());
             recibo.ISR.setText(tablita.getValueAt(fila,9).toString());
             recibo.Totales.setText(tablita.getValueAt(fila,14).toString());
-            
+
             M.show();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, e);
@@ -529,7 +528,7 @@ try {
             String ID = txtid.getText().trim();
 
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/nominaphase3", "root", "");
-            PreparedStatement pst = cn.prepareStatement("update planilla set CodigoNombre=?, CodigoPuesto=?, CodigoSueldo=?,CodigoComisiones= ?, CodigoOtros= ?, CodigoAnticipos= ?,CodigoDescuento= ?, CodigoOtros2 = ? where ID = " + ID);
+            PreparedStatement pst = cn.prepareStatement("update planilla set CodigoNombre=?, CodigoPuesto=?, CodigoSueldo=?, CodigoComisiones= ?, CodigoOtros= ?, CodigoAnticipos= ?, CodigoDescuento= ?, CodigoOtros2 = ? where ID = " + ID);
 
             
             pst.setString(1, txtnombres.getText().trim());
@@ -553,7 +552,7 @@ try {
 
     private void CmdCalc2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CmdCalc2ActionPerformed
       //  Buscar();
-       try{
+        try{
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/nominaphase3", "root", "");
             PreparedStatement pst = cn.prepareStatement("select * from planilla where ID = ?");
             pst.setString(1, txtid.getText().trim());
@@ -562,8 +561,8 @@ try {
 
             if(rs.next()){
                 txtnombres.setText(rs.getString("CodigoNombre"));
-                txtpues.setText(rs.getString(" CodigoPuesto"));
-                txtsueldoextra.setText(rs.getString(" CodigoSueldo"));
+                txtpues.setText(rs.getString("CodigoPuesto"));
+                txtsueldoextra.setText(rs.getString("CodigoSueldo"));
                 txtcomis.setText(rs.getString("CodigoComisiones"));
                 txtotross.setText(rs.getString("CodigoOtros"));
                 txtanticipos.setText(rs.getString("CodigoAnticipos"));

@@ -51,6 +51,7 @@ public class Almacenamientodeempleados extends javax.swing.JFrame {
         jButton6 = new javax.swing.JButton();
         txt_SexoEmpleado = new javax.swing.JComboBox<>();
         txt_PuestoEmpleado = new javax.swing.JComboBox<>();
+        REGRESAR = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -166,6 +167,14 @@ public class Almacenamientodeempleados extends javax.swing.JFrame {
         txt_PuestoEmpleado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Contador/a ", "Contador Auxiliar/a", " Secretario/a ", "Vendedor/a ", "Chofer ", "Mensajero/a", "Jefe/a", "Gerente/a" }));
         txt_PuestoEmpleado.setActionCommand("");
         getContentPane().add(txt_PuestoEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(219, 135, 116, -1));
+
+        REGRESAR.setText("Regresar");
+        REGRESAR.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                REGRESARActionPerformed(evt);
+            }
+        });
+        getContentPane().add(REGRESAR, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 510, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -356,6 +365,12 @@ public class Almacenamientodeempleados extends javax.swing.JFrame {
     private void txt_SexoEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_SexoEmpleadoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_SexoEmpleadoActionPerformed
+
+    private void REGRESARActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_REGRESARActionPerformed
+       Contenedor GN= new Contenedor(); 
+         GN.setVisible(true);
+         this.setVisible(false);
+    }//GEN-LAST:event_REGRESARActionPerformed
  
 
     public static void main(String args[]) {
@@ -391,6 +406,7 @@ public class Almacenamientodeempleados extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton REGRESAR;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;

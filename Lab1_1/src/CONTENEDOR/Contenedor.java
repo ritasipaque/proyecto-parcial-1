@@ -9,7 +9,7 @@ import Nomina.Almacenamientodeempleados;
 import Nomina.LABORATORIO1;
 import Nomina.bitacora;
 import Nomina.r_empleados;
-import Nomina.recibo;
+import Recibo.recibo;
 
 /**
  *
