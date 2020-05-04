@@ -2,7 +2,6 @@ package Nomina;
 
 
 import CONTENEDOR.Contenedor;
-import static com.oracle.webservices.internal.api.databinding.DatabindingModeFeature.ID;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;

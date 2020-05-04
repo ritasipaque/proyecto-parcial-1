@@ -5,6 +5,7 @@
  */
 package PRUEBA_CONEXION;
 
+import LoginUsuarios.registro;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -69,7 +70,11 @@ public class prueba_en_la_conexion extends javax.swing.JFrame {
         // PRUEBA DE LA CONEXION
    
         registro cc=new registro ();
-          Connection con=cc.conexion();
+        try {
+            Connection con=cc.conexion();
+        } catch (SQLException ex) {
+            Logger.getLogger(prueba_en_la_conexion.class.getName()).log(Level.SEVERE, null, ex);
+        }
       
           
          
