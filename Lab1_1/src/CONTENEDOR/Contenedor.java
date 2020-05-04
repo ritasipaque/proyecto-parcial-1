@@ -5,6 +5,7 @@
  */
 package CONTENEDOR;
 
+import Mantenimientos.Almacenamiento_Departamento;
 import Nomina.Almacenamientodeempleados;
 import Nomina.LABORATORIO1;
 import Nomina.bitacora;
@@ -40,6 +41,7 @@ public class Contenedor extends javax.swing.JFrame {
         jCheckBoxMenuItem6 = new javax.swing.JCheckBoxMenuItem();
         jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
         jCheckBoxMenuItem4 = new javax.swing.JCheckBoxMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
         jCheckBoxMenuItem2 = new javax.swing.JCheckBoxMenuItem();
         jCheckBoxMenuItem3 = new javax.swing.JCheckBoxMenuItem();
         jMenu2 = new javax.swing.JMenu();
@@ -95,6 +97,14 @@ public class Contenedor extends javax.swing.JFrame {
             }
         });
         jMenu1.add(jCheckBoxMenuItem4);
+
+        jMenuItem1.setText("Almacenamiento Departamento");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem1);
 
         jCheckBoxMenuItem2.setSelected(true);
         jCheckBoxMenuItem2.setText("Bitacora");
@@ -198,6 +208,13 @@ public class Contenedor extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jCheckBoxMenuItem6ActionPerformed
 
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        Almacenamiento_Departamento frm = new Almacenamiento_Departamento();
+         frm.setVisible(true);
+         this.setVisible(false);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -245,5 +262,6 @@ public class Contenedor extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
     // End of variables declaration//GEN-END:variables
 }

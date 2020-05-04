@@ -3,7 +3,7 @@ package Nomina;
 
 import CONTENEDOR.Contenedor;
 import com.mysql.jdbc.PreparedStatement;
-import static com.oracle.webservices.internal.api.databinding.DatabindingModeFeature.ID;
+
 //import static com.oracle.webservices.internal.api.databinding.DatabindingModeFeature.ID;
 import java.io.File;
 import java.io.FileNotFoundException;
