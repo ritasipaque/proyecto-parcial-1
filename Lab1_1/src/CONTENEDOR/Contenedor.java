@@ -209,6 +209,7 @@ public class Contenedor extends javax.swing.JFrame {
     }//GEN-LAST:event_jCheckBoxMenuItem6ActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+      // almacen de departamento:
         Almacenamiento_Departamento frm = new Almacenamiento_Departamento();
          frm.setVisible(true);
          this.setVisible(false);
