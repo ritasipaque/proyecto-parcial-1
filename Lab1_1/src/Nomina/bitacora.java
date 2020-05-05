@@ -2,7 +2,6 @@ package Nomina;
 
 
 import CONTENEDOR.Contenedor;
-import static com.oracle.webservices.internal.api.databinding.DatabindingModeFeature.ID;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -62,6 +61,7 @@ public class bitacora extends javax.swing.JFrame {
         jButton7 = new javax.swing.JButton();
         label_estatus = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        label_status = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -181,6 +181,7 @@ public class bitacora extends javax.swing.JFrame {
 
         jLabel7.setText("ID");
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 70, -1, -1));
+        getContentPane().add(label_status, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 470, 250, 30));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -192,35 +193,37 @@ public class bitacora extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // BOTON GRABAR
-        try {
+     try{
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/Bitacora_BD14", "root", "");
+            PreparedStatement pst = cn.prepareStatement("insert into Bitacora_de_empleado values(?,?,?,?,?,?,?)");
             
-           Connection cn= DriverManager.getConnection("jdbc:mysql://localhost/Bitacora_BD13","root","");
-           PreparedStatement pst = cn.prepareStatement("insert into Bitacora_de_empleados1 values(?,?,?,?,?,?,?)");
-           
             pst.setString(1, "0");
+          //  pst.setString(1,buscar.getText().trim());
             pst.setString(2, txtcod.getText().trim());
             pst.setString(3, txtemp.getText().trim());
             pst.setString(4, txtpuesto.getSelectedItem().toString());
             pst.setString(5, txtfech.getText().trim());
             pst.setString(6, txtSueldo.getText().trim());
             pst.setString(7, contra.getText().trim());
+           
             pst.executeUpdate();
             
+            txtid.setText("");
             txtcod.setText("");
             txtemp.setText("");
             txtpuesto.setSelectedItem("");
             txtfech.setText("");
             txtSueldo.setText("");
             contra.setText("");
+
+            label_status.setText("Registro exitoso.");
             
-           
-            label_estatus.setText("Regiatro exitoso");
-            
-        } catch (Exception e) {
-            
+        }catch (Exception e){
         }
+           
  //-----------------------------------------------------------------------------------------------------------------
-        DefaultTableModel modelo = (DefaultTableModel) tblDatos.getModel();
+          //  fila[2]=txtpuesto.getSelectedItem().toString();
+          DefaultTableModel modelo = (DefaultTableModel) tblDatos.getModel();
         Object  [] fila=new Object [6];
         fila[0]=txtcod.getText();
         fila[1]=txtemp.getText();
@@ -257,8 +260,8 @@ public class bitacora extends javax.swing.JFrame {
         // TODO add your handling code here:
          try{
              Connection cn;
-            cn = DriverManager.getConnection("jdbc:mysql://localhost/Bitacora_BD13?", "root", "");
-            PreparedStatement pst = cn.prepareStatement("select * from Bitacora_de_empleados1 where ID = ?");
+            cn = DriverManager.getConnection("jdbc:mysql://localhost/Bitacora_BD14", "root", "");
+            PreparedStatement pst = cn.prepareStatement("select * from Bitacora_de_empleado where ID = ?");
             pst.setString(1, txtid.getText().trim());
 
             ResultSet rs = pst.executeQuery();
@@ -286,55 +289,54 @@ public class bitacora extends javax.swing.JFrame {
     private void EditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditarActionPerformed
         // BOTON EDITAR
 
-        try{ 
-            String ID = txtid.getText().trim();
+         try{ String ID = txtid.getText().trim();
+            Connection cn= DriverManager.getConnection("jdbc:mysql://localhost/Bitacora_BD14","root","");
+            PreparedStatement pst = cn.prepareStatement("update Bitacora_de_empleado set Codigo=?,Empleado=?,Cargo=?,Fecha=?,Sueldo=?, Contraseña=? where ID = " + ID);
             
-            Connection cn= DriverManager.getConnection("jdbc:mysql://localhost/Bitacora_BD13","root","");
-            PreparedStatement pst = cn.prepareStatement("update Bitacora_de_empleados1 set  Codigo=?, Empleado=?, Cargo=?,Fecha=?, Sueldo=?,Contraseña=? where ID = " + ID);
-
-            pst.setString(1, txtcod.getText().trim());
+             pst.setString(1, txtcod.getText().trim());
             pst.setString(2, txtemp.getText().trim());
             pst.setString(3, txtpuesto.getSelectedItem().toString());
             pst.setString(4, txtfech.getText().trim());
             pst.setString(5, txtSueldo.getText().trim());
             pst.setString(6, contra.getText().trim());
-
             pst.executeUpdate();
 
-            label_estatus.setText("Registro Editado con exito");
+            label_status.setText("Registro Editado con exito");
 
         } catch (Exception e) {
 
         }
 //-------------------------------------------------------------------------------------
-        String [] datos=new String [5];
+        String [] datos=new String [6];
         datos[0]=txtcod.getText();
         datos[1]=txtemp.getText();
         datos[2]=txtpuesto.getSelectedItem().toString();
         datos[3]=txtfech.getText();
         datos[4]=txtSueldo.getText();
+        datos[5]=contra.getText();
         int i = 0;
     }//GEN-LAST:event_EditarActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // BOTON ELIMINAR
 
-        try {
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/Bitacora_BD13", "root", "");
-            PreparedStatement pst = cn.prepareStatement("delete from Bitacora_de_empleados1 where ID = ?" );
+       try {
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/Bitacora_BD14", "root", "");
+            PreparedStatement pst = cn.prepareStatement("delete from Bitacora_de_empleado where ID = ?" );
 
             pst.setString(1, txtid.getText().trim());
 
             pst.executeUpdate();
 
+            txtid.setText("");
+            
             txtcod.setText("");
             txtemp.setText("");
-            txtpuesto.setSelectedItem("");
+             txtpuesto.setSelectedItem("");
             txtfech.setText("");
             txtSueldo.setText("");
-            txtid.setText("");
 
-            label_estatus.setText("Registro Eliminado con exito");
+            label_status.setText("Registro Eliminado con exito");
 
         } catch (Exception e) {
         }
@@ -416,6 +418,7 @@ public class bitacora extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel label_estatus;
+    private javax.swing.JLabel label_status;
     private javax.swing.JTable tblDatos;
     private javax.swing.JTextField txtSueldo;
     private javax.swing.JTextField txtcod;

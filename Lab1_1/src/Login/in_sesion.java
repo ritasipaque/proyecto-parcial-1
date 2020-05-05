@@ -45,7 +45,7 @@ public class in_sesion  extends javax.swing.JFrame {
         try{
          String usuario=txtusuario.getText();
          String pass=String.valueOf(txtcontraseña.getPassword());
-         String sql="select * from nomina where CodigoUsuarios = '"+usuario+"'and CodigoContrasenia='"+pass+"'";
+         String sql="select * from nominas where CodigoUsuarios = '"+usuario+"'and CodigoContrasenia='"+pass+"'";
          
          Statement st=con.createStatement();
          ResultSet rs=st.executeQuery(sql);
@@ -163,9 +163,9 @@ public class in_sesion  extends javax.swing.JFrame {
 
             Class.forName("com.mysql.jdbc.Driver");
 
-           Connection conectar = DriverManager.getConnection("jdbc:mysql://localhost/nomina", "root", "");
+           Connection conectar = DriverManager.getConnection("jdbc:mysql://localhost/nominas", "root", "");
             
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/nomina", "root", "");
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/nominas", "root", "");
             PreparedStatement pst = cn.prepareStatement("SELECT * FROM Login WHERE CodigoUsuario = ? AND CodigoContrasenia = ?");
             pst.setString(1, txtusuario.getText().trim());
             pst.setString(2, txtcontraseña.getText().trim());
