@@ -425,32 +425,40 @@ public class recibo extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        //Codigo que permite actualizar registros en la base de datos
-        try {
-            String ID = txt_buscar.getText().trim();
+       //Codigo que permite insertar registros en al base de datos
+        //Diseño del JFrame trabajado por ambos
+        try{
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/nominabancos", "root", "");//conexión a MYSQL "Jose Alejandro Jeronimo"
+            PreparedStatement pst = cn.prepareStatement("insert into bancos values(?,?,?,?,?,?,?,?,?,?)");// conexión a la tabla "Jose Alejandro Jeronimo"
 
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/nominabancos", "root", "");//"Jose Alejandro Jeronimo"
-            PreparedStatement pst = cn.prepareStatement("update bancos set Nombre = ?, Puesto = ?, Sueldo = ?, NodeCuenta = ?, HorasExtras = ?, IGSS = ?, ISR = ?, Otros = ?, where ID = " + ID);//"Jose Alejandro Jeronimo"
+            //La tabla y BD de MYSQL fueron trabajadas por "Jose Alejandro Jeronimo"   
+            //"Jaqueline Carrera" Trabajó el codigo de JAVA junto con modificaciones por Jose Alejandro Jeronimo
 
-            //La tabla y base de datos de MYSQL fueron trabajadas por "Jose Alejandro Jeronimo"   
-//Trabaje el codigo de JAVA "Jaqueline Carrera" junto con modificaciones por Jose Alejandro Jeronimo
-
+            pst.setString(1, "0");
             pst.setString(2, TxtNombre1.getText().trim());//Nombre
-            pst.setString(1, Puesto.getText().trim());//Puesto
-            pst.setString(1, Sueldo1.getText().trim()); // Sueldo
-            pst.setString(1, txtNoCuenta.getText().trim()); // No. de cuenta
-            pst.setString(1, txtHoras.getText().trim()); // Horas extras
-            pst.setString(1, IGSS.getText().trim()); //IGSS 
-            pst.setString(1, ISR.getText().trim()); //ISR
-            pst.setString(1, txtOtros.getText().trim()); //Otros
-          
+            pst.setString(3, Puesto.getText().trim());//Puesto
+            pst.setString(4, Sueldo1.getText().trim()); // Sueldo
+            pst.setString(5, txtNoCuenta.getText().trim()); // No. de cuenta
+            pst.setString(6, txtHoras.getText().trim()); // Horas extras
+            pst.setString(7, IGSS.getText().trim()); //IGSS 
+            pst.setString(8, ISR.getText().trim()); //ISR
+            pst.setString(9, txtOtros.getText().trim()); //Otros
+            pst.setString(10, Totales.getText().trim()); //Totales
             pst.executeUpdate();
 
-            Label_status.setText("Modificación exitosa.");//Si se cumple aparecera un mensaje en el Label
-
-        } catch (Exception e) {
+            //Borra lo que hay en campos
+            TxtNombre1.setText("");
+            Puesto.setText("");
+            Sueldo1.setText("");
+            txtNoCuenta.setText("");
+            txtHoras.setText("");
+            IGSS.setText("");
+            ISR.setText("");
+            txtOtros.setText("");
+            Label_status.setText("Registro exitoso.");
+        }catch (Exception e){
+            e.printStackTrace();
         }
-
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
