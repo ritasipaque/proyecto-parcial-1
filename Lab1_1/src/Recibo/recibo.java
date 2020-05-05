@@ -456,18 +456,20 @@ public class recibo extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        //Codigo que permite consultar registros en la base de datos
+         //Codigo que permite consultar registros en la base de datos
         try{
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/nominabancos", "root", "");// "Jose Alejandro Jeronimo"
-            PreparedStatement pst = cn.prepareStatement("select * from bancos where Nombre = ?");//"Jose Alejandro Jeronimo"
-//La tabla y base de datos de MYSQL fueron trabajadas por "Jose Alejandro Jeronimo"   
-//Trabaje el codigo de JAVA "Jaqueline Carrera" junto con modificaciones por Jose Alejandro Jeronimo
+            PreparedStatement pst = cn.prepareStatement("select * from bancos where ID = ?");//"Jose Alejandro Jeronimo"
+            //La tabla y BD de MYSQL fueron trabajadas por "Jose Alejandro Jeronimo"   
+            //"Jaqueline Carrera" Trabajó el codigo de JAVA junto con modificaciones por Jose Alejandro Jeronimo
+            
             pst.setString(1, txt_buscar.getText().trim());//busca lo que hay en el txt en la base de datos
 
             ResultSet rs = pst.executeQuery();
 
             if(rs.next()){
-                TxtNombre1.setText(rs.getString("Nombre"));//Borra lo que hay en los campos
+                //Busca lo que está en las " " y lo trae a los txt correspondientes 
+                TxtNombre1.setText(rs.getString("Nombre"));
                 Puesto.setText(rs.getString("Puesto"));
                 Sueldo1.setText(rs.getString("Sueldo"));
                 txtNoCuenta.setText(rs.getString("NodeCuenta"));
@@ -475,15 +477,16 @@ public class recibo extends javax.swing.JFrame {
                 IGSS.setText(rs.getString("IGSS"));
                 ISR.setText(rs.getString("ISR"));
                 txtOtros.setText(rs.getString("Otros"));
+                Totales.setText(rs.getString("Totales"));
 
             } else {
-                JOptionPane.showMessageDialog(null, "Persona no registrada.");//si el campo no existiera aparecera un mensaje en el LABEL
+                //si el campo no existiera que aparecera un mensaje en el LABEL
+                JOptionPane.showMessageDialog(null, "Persona no registrada.");
             }
 
         }catch (Exception e){
 
         }
-
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
