@@ -12,6 +12,7 @@ import Nomina.LABORATORIO1;
 import Nomina.bitacora;
 import Nomina.r_empleados;
 import Recibo.recibo;
+import Nomina.nomina_exe;
 
 /**
  *
@@ -69,7 +70,7 @@ public class Contenedor extends javax.swing.JFrame {
             jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jDesktopPane2Layout.createSequentialGroup()
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 535, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 19, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         jMenu3.setForeground(new java.awt.Color(0, 0, 204));
@@ -220,7 +221,7 @@ public class Contenedor extends javax.swing.JFrame {
 
     private void jCheckBoxMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxMenuItem6ActionPerformed
         // Planilla
-         LABORATORIO1 frm = new LABORATORIO1();
+         nomina_exe frm = new nomina_exe();
          frm.setVisible(true);
          this.setVisible(false);
       
