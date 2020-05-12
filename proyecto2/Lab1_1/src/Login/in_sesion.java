@@ -99,7 +99,7 @@ public class in_sesion  extends javax.swing.JFrame {
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, -1, -1));
         jPanel1.add(txtcontraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 110, 145, -1));
 
-        jButton1.setText("INICAR SESION");
+        jButton1.setText("INICIAR SESION");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
