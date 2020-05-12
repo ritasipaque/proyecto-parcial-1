@@ -13,8 +13,8 @@ import javax.swing.table.DefaultTableModel;
  * @author PERSONAL
  */
 public class nomina_exe extends javax.swing.JFrame {
-  double sueldoExtra, comisiones, otrosIngresos,bonficacion =250 ;
-     float igss=(float) 0.83;  float isr;   float anticipos, dj, otrosDescuentos;
+  double sueldoExtra, comisiones, otrosIngresos,bonficacion =154.50 ;
+     float igss=(float) 0.0483;  float isr;   float anticipos, dj, otrosDescuentos;
        float igss1;  
       float totDesc;
          String nombree;
@@ -391,7 +391,7 @@ public class nomina_exe extends javax.swing.JFrame {
        
        
         //---------
-        totDesc=igss+isr+anticipos+dj+otrosDescuentos;
+        totDesc=igss1+isr+anticipos+dj+otrosDescuentos;
         //---------------------//
        
         sueldoLiquido = totIngresos-totDesc;
