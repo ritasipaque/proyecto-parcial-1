@@ -2,10 +2,10 @@ package Nomina;
 
 
 import CONTENEDOR.Contenedor;
-<<<<<<< HEAD
+//<<<<<<< HEAD
 
-=======
->>>>>>> e36b7bc8ce6a2b4e36fd7eac2f67f5c4dbe70771
+//=======
+//>>>>>>> e36b7bc8ce6a2b4e36fd7eac2f67f5c4dbe70771
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
