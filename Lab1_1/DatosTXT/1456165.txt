@@ -1,5 +1,0 @@
-Codigo=1456165
-Empleado=Diana
-Cargo=Secretaria
-Fecha de Contratacion=12/12/2019
-Sueldo=4500

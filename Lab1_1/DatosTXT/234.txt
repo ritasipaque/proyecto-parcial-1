@@ -1,5 +1,0 @@
-Codigo=234
-Empleado=Luis
-Cargo=Contador
-Fecha de Contratacion=234
-Sueldo=432432

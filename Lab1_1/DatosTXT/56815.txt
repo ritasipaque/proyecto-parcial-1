@@ -1,5 +1,0 @@
-Codigo=56815
-Empleado=Luis
-Cargo=Contador
-Fecha de Contratacion=08/07/2019
-Sueldo=5000

@@ -1,5 +1,0 @@
-Codigo=265165
-Empleado=Jaqueline
-Cargo=Secretaria
-Fecha de Contratacion=05/06/2018
-Sueldo=4500

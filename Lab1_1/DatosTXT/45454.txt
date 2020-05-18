@@ -1,5 +1,0 @@
-Codigo=45454
-Empleado=Luis
-Cargo=Contador
-Fecha de Contratacion=20/12/2018
-Sueldo=5500
