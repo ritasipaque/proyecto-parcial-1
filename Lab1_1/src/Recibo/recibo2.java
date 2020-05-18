@@ -89,7 +89,7 @@ public class recibo2 extends javax.swing.JFrame {
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Ingresa el código de la persona: ");
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 200, -1, -1));
-        jPanel1.add(txt_buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 200, 110, -1));
+        jPanel1.add(txt_buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 200, 110, -1));
 
         jButton4.setText("Buscar");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -97,7 +97,7 @@ public class recibo2 extends javax.swing.JFrame {
                 jButton4ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 200, -1, -1));
+        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 200, -1, -1));
 
         jPanel7.setBackground(new java.awt.Color(13, 90, 13));
         jPanel7.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "DESCUENTOS A DESCONTAR", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(255, 255, 255))); // NOI18N
@@ -198,16 +198,9 @@ public class recibo2 extends javax.swing.JFrame {
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(jButton2)
-                        .addGap(23, 23, 23)
-                        .addComponent(jButton3)
-                        .addGap(15, 15, 15)
-                        .addComponent(jButton5))
-                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addContainerGap()
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel6Layout.createSequentialGroup()
                                 .addComponent(jLabel13)
@@ -230,7 +223,14 @@ public class recibo2 extends javax.swing.JFrame {
                             .addGroup(jPanel6Layout.createSequentialGroup()
                                 .addComponent(jLabel12)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txtHoras, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(txtHoras, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addComponent(jButton2)
+                        .addGap(23, 23, 23)
+                        .addComponent(jButton3)
+                        .addGap(15, 15, 15)
+                        .addComponent(jButton5)))
                 .addContainerGap(20, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
@@ -255,20 +255,20 @@ public class recibo2 extends javax.swing.JFrame {
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel14)
                             .addComponent(Sueldo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton2)
                     .addComponent(jButton3)
                     .addComponent(jButton5))
-                .addContainerGap(12, Short.MAX_VALUE))
+                .addGap(26, 26, 26))
         );
 
-        jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, -1, 160));
+        jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, -1, 200));
 
         Label_status.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         Label_status.setForeground(new java.awt.Color(255, 0, 0));
         Label_status.setText("...");
-        jPanel1.add(Label_status, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 440, 290, 30));
+        jPanel1.add(Label_status, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 480, 290, 30));
 
         jButton6.setText("Regresar");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
@@ -298,7 +298,7 @@ public class recibo2 extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 485, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 521, Short.MAX_VALUE)
         );
 
         pack();
@@ -308,7 +308,7 @@ public class recibo2 extends javax.swing.JFrame {
         //Codigo que permite consultar registros en la base de datos
         try{
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3307/nominabancos", "root", "");// "Jose Alejandro Jeronimo"
-            PreparedStatement pst = cn.prepareStatement("select * from bancoss where ID = ?");//"Jose Alejandro Jeronimo"
+            PreparedStatement pst = cn.prepareStatement("select * from bancobanrural where ID = ?");//"Jose Alejandro Jeronimo"
             
 
             pst.setString(1, txt_buscar.getText().trim());//busca lo que hay en el txt en la base de datos
@@ -341,7 +341,7 @@ public class recibo2 extends javax.swing.JFrame {
         //Codigo que permite borrar registros en la base de datos
         try {
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3307/nominabancos", "root", "");
-            PreparedStatement pst = cn.prepareStatement("delete from bancoss where ID = ?");
+            PreparedStatement pst = cn.prepareStatement("delete from bancobanrural where ID = ?");
 
             
             pst.setString(1, txt_buscar.getText().trim());// Busca lo que se encuntra en el txt
@@ -372,7 +372,7 @@ public class recibo2 extends javax.swing.JFrame {
             String ID = txt_buscar.getText().trim();
 
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3307/nominabancos", "root", "");
-            PreparedStatement pst = cn.prepareStatement("update bancoss set Nombre = ?, Puesto = ?, Sueldo = ?, NodeCuenta = ?, HorasExtras = ?, IGSS = ?, ISR = ?, Otros = ?, Totales = ? where ID = " + ID);
+            PreparedStatement pst = cn.prepareStatement("update bancobanrural set Nombre = ?, Puesto = ?, Sueldo = ?, NodeCuenta = ?, HorasExtras = ?, IGSS = ?, ISR = ?, Otros = ?, Totales = ? where ID = " + ID);
 
             
 
@@ -400,7 +400,7 @@ public class recibo2 extends javax.swing.JFrame {
         //Diseño del JFrame trabajado por ambos
         try{
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3307/nominabancos", "root", "");
-            PreparedStatement pst = cn.prepareStatement("insert into bancoss values(?,?,?,?,?,?,?,?,?,?)");
+            PreparedStatement pst = cn.prepareStatement("insert into bancobanrural values(?,?,?,?,?,?,?,?,?,?)");
 
 
             pst.setString(1, "0");
