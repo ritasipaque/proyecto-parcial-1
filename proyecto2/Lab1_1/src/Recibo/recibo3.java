@@ -80,9 +80,9 @@ public class recibo3 extends javax.swing.JFrame {
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 80, -1, -1));
 
         jLabel16.setFont(new java.awt.Font("Calibri", 1, 36)); // NOI18N
-        jLabel16.setText("No. 00019564-123");
+        jLabel16.setText("No. 00075413-330");
         jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 120, -1, -1));
-        jPanel1.add(txt_buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 200, 110, -1));
+        jPanel1.add(txt_buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 200, 110, -1));
 
         jLabel9.setText("Ingresa el código de la persona: ");
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 200, -1, -1));
@@ -93,7 +93,7 @@ public class recibo3 extends javax.swing.JFrame {
                 jButton4ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 200, -1, -1));
+        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 200, -1, -1));
 
         jPanel7.setBackground(new java.awt.Color(226, 224, 224));
         jPanel7.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "DESCUENTOS A DESCONTAR"));
@@ -128,8 +128,7 @@ public class recibo3 extends javax.swing.JFrame {
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                .addGap(0, 10, Short.MAX_VALUE)
+            .addGroup(jPanel7Layout.createSequentialGroup()
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(IGSS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -141,10 +140,10 @@ public class recibo3 extends javax.swing.JFrame {
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(txtOtros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(7, 7, 7))
+                .addGap(0, 37, Short.MAX_VALUE))
         );
 
-        jPanel1.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 260, -1, 120));
+        jPanel1.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 260, -1, 140));
 
         jPanel6.setBackground(new java.awt.Color(226, 224, 224));
         jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "DATOS EMPLEADO"));
@@ -186,16 +185,9 @@ public class recibo3 extends javax.swing.JFrame {
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(jButton2)
-                        .addGap(23, 23, 23)
-                        .addComponent(jButton3)
-                        .addGap(15, 15, 15)
-                        .addComponent(jButton5))
-                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addContainerGap()
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel6Layout.createSequentialGroup()
                                 .addComponent(jLabel13)
@@ -218,7 +210,14 @@ public class recibo3 extends javax.swing.JFrame {
                             .addGroup(jPanel6Layout.createSequentialGroup()
                                 .addComponent(jLabel12)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txtHoras, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(txtHoras, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGap(35, 35, 35)
+                        .addComponent(jButton2)
+                        .addGap(23, 23, 23)
+                        .addComponent(jButton3)
+                        .addGap(15, 15, 15)
+                        .addComponent(jButton5)))
                 .addContainerGap(20, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
@@ -243,20 +242,20 @@ public class recibo3 extends javax.swing.JFrame {
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel14)
                             .addComponent(Sueldo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton2)
                     .addComponent(jButton3)
                     .addComponent(jButton5))
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
-        jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, -1, 160));
+        jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, -1, 180));
 
         Label_status.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         Label_status.setForeground(new java.awt.Color(255, 0, 0));
         Label_status.setText("...");
-        jPanel1.add(Label_status, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 430, 60, 30));
+        jPanel1.add(Label_status, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 450, 310, 30));
 
         jButton6.setText("Regresar");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
@@ -264,18 +263,18 @@ public class recibo3 extends javax.swing.JFrame {
                 jButton6ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 440, -1, -1));
+        jPanel1.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 460, -1, -1));
 
         Totales.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TotalesActionPerformed(evt);
             }
         });
-        jPanel1.add(Totales, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 400, 64, -1));
+        jPanel1.add(Totales, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 420, 64, -1));
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel15.setText("Sueldo Total");
-        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 400, -1, -1));
+        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 420, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -285,7 +284,7 @@ public class recibo3 extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 493, Short.MAX_VALUE)
         );
 
         pack();
@@ -295,10 +294,8 @@ public class recibo3 extends javax.swing.JFrame {
         //Codigo que permite consultar registros en la base de datos
         try{
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3307/nominabancos", "root", "");
-            PreparedStatement pst = cn.prepareStatement("select * from bancoss where ID = ?");
-            
-
-            pst.setString(1, txt_buscar.getText().trim());//busca lo que hay en el txt en la base de datos
+            PreparedStatement pst = cn.prepareStatement("select * from bancobantrab where ID = ?");
+/*-----------------------------------------------------------------------------------------------------------------------*/pst.setString(1, txt_buscar.getText().trim());//busca lo que hay en el txt en la base de datos
 
             ResultSet rs = pst.executeQuery();
 
@@ -313,7 +310,6 @@ public class recibo3 extends javax.swing.JFrame {
                 ISR.setText(rs.getString("ISR"));
                 txtOtros.setText(rs.getString("Otros"));
                 Totales.setText(rs.getString("Totales"));
-
             } else {
                 //si el campo no existiera que aparecera un mensaje en el LABEL
                 JOptionPane.showMessageDialog(null, "Persona no registrada.");
@@ -328,13 +324,10 @@ public class recibo3 extends javax.swing.JFrame {
         //Codigo que permite borrar registros en la base de datos
         try {
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3307/nominabancos", "root", "");
-            PreparedStatement pst = cn.prepareStatement("delete from bancoss where ID = ?");
-
-            
-            pst.setString(1, txt_buscar.getText().trim());// Busca lo que se encuntra en el txt
+            PreparedStatement pst = cn.prepareStatement("delete from bancobantrab where ID = ?");
+/*-----------------------------------------------------------------------------------------------------------------------*/pst.setString(1, txt_buscar.getText().trim());// Busca lo que se encuntra en el txt
             pst.executeUpdate();
-
-            //Vacia los txt seleccionados
+        //Vacia los txt seleccionados
             txt_buscar.setText("");
             TxtNombre1.setText("");
             Puesto.setText("");
@@ -345,8 +338,7 @@ public class recibo3 extends javax.swing.JFrame {
             ISR.setText("");
             txtOtros.setText("");
             Totales.setText("");
-
-            // si se cumple aparecera mensaje en el label
+        // si se cumple aparecera mensaje en el label
             Label_status.setText("Registro eliminado.");
 
         } catch (Exception e) {
@@ -359,10 +351,9 @@ public class recibo3 extends javax.swing.JFrame {
             String ID = txt_buscar.getText().trim();
 
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3307/nominabancos", "root", "");
-            PreparedStatement pst = cn.prepareStatement("update bancoss set Nombre = ?, Puesto = ?, Sueldo = ?, NodeCuenta = ?, HorasExtras = ?, IGSS = ?, ISR = ?, Otros = ?, Totales = ? where ID = " + ID);
-
-
-            pst.setString(1, TxtNombre1.getText().trim());//Nombre
+            PreparedStatement pst = cn.prepareStatement("update bancobantrab set Nombre = ?, Puesto = ?, Sueldo = ?, "
+                    + "NodeCuenta = ?, HorasExtras = ?, IGSS = ?, ISR = ?, Otros = ?, Totales = ? where ID = " + ID);
+/*-----------------------------------------------------------------------------------------------------------------------*/pst.setString(1, TxtNombre1.getText().trim());//Nombre
             pst.setString(2, Puesto.getText().trim());//Puesto
             pst.setString(3, Sueldo1.getText().trim()); // Sueldo
             pst.setString(4, txtNoCuenta.getText().trim()); // No. de cuenta
@@ -371,10 +362,8 @@ public class recibo3 extends javax.swing.JFrame {
             pst.setString(7, ISR.getText().trim()); //ISR
             pst.setString(8, txtOtros.getText().trim()); //Otros
             pst.setString(9, Totales.getText().trim()); //Totales
-
             pst.executeUpdate();
-
-            //Si se cumple que aparecera el siguiente mensaje en el Label
+        //Si se cumple que aparecera el siguiente mensaje en el Label
             Label_status.setText("Modificación exitosa.");
 
         } catch (Exception e) {
@@ -386,9 +375,8 @@ public class recibo3 extends javax.swing.JFrame {
         //Diseño del JFrame trabajado por ambos
         try{
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3307/nominabancos", "root", "");
-            PreparedStatement pst = cn.prepareStatement("insert into bancoss values(?,?,?,?,?,?,?,?,?,?)");
-
-
+            PreparedStatement pst = cn.prepareStatement("insert into bancobantrab values(?,?,?,?,?,?,?,?,?,?)");
+/*-----------------------------------------------------------------------------------------------------------------------*/
             pst.setString(1, "0");
             pst.setString(2, TxtNombre1.getText().trim());//Nombre
             pst.setString(3, Puesto.getText().trim());//Puesto
@@ -400,8 +388,7 @@ public class recibo3 extends javax.swing.JFrame {
             pst.setString(9, txtOtros.getText().trim()); //Otros
             pst.setString(10, Totales.getText().trim()); //Totales
             pst.executeUpdate();
-
-            //Borra lo que hay en campos
+         //Borra lo que hay en campos
             TxtNombre1.setText("");
             Puesto.setText("");
             Sueldo1.setText("");
