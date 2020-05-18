@@ -301,7 +301,7 @@ public class recibo extends javax.swing.JFrame {
         //Codigo que permite borrar registros en la base de datos
         try {
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3307/nominabancos", "root", "");//"Jose Alejandro Jeronimo"
-            PreparedStatement pst = cn.prepareStatement("delete from bancoss where ID = ?");//"Jose Alejandro Jeronimo"
+            PreparedStatement pst = cn.prepareStatement("delete from bancoindustrial where ID = ?");//"Jose Alejandro Jeronimo"
 
             // Jaqueline Carrera
             pst.setString(1, txt_buscar.getText().trim());// Busca lo que se encuntra en el txt
@@ -342,7 +342,7 @@ public class recibo extends javax.swing.JFrame {
         //Diseño del JFrame trabajado por ambos
         try{
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3307/nominabancos", "root", "");//conexión a MYSQL "Jose Alejandro Jeronimo"
-            PreparedStatement pst = cn.prepareStatement("insert into bancoss values(?,?,?,?,?,?,?,?,?,?)");// conexión a la tabla "Jose Alejandro Jeronimo"
+            PreparedStatement pst = cn.prepareStatement("insert into bancoindustrial values(?,?,?,?,?,?,?,?,?,?)");// conexión a la tabla "Jose Alejandro Jeronimo"
 
             //La tabla y BD de MYSQL fueron trabajadas por "Jose Alejandro Jeronimo"
             //"Jaqueline Carrera" Trabajó el codigo de JAVA junto con modificaciones por Jose Alejandro Jeronimo
@@ -380,7 +380,7 @@ public class recibo extends javax.swing.JFrame {
             String ID = txt_buscar.getText().trim();
 
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3307/nominabancos", "root", "");//"Jose Alejandro Jeronimo"
-            PreparedStatement pst = cn.prepareStatement("update bancoss set Nombre = ?, Puesto = ?, Sueldo = ?, NodeCuenta = ?, HorasExtras = ?, IGSS = ?, ISR = ?, Otros = ?, Totales = ? where ID = " + ID);//"Jose Alejandro Jeronimo"
+            PreparedStatement pst = cn.prepareStatement("update bancoindustrial set Nombre = ?, Puesto = ?, Sueldo = ?, NodeCuenta = ?, HorasExtras = ?, IGSS = ?, ISR = ?, Otros = ?, Totales = ? where ID = " + ID);//"Jose Alejandro Jeronimo"
 
             //La tabla y BD de MYSQL fueron trabajadas por "Jose Alejandro Jeronimo"
             //"Jaqueline Carrera" Trabajó el codigo de JAVA junto con modificaciones por Jose Alejandro Jeronimo
@@ -408,7 +408,7 @@ public class recibo extends javax.swing.JFrame {
         //Codigo que permite consultar registros en la base de datos
         try{
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3307/nominabancos", "root", "");// "Jose Alejandro Jeronimo"
-            PreparedStatement pst = cn.prepareStatement("select * from bancoss where ID = ?");//"Jose Alejandro Jeronimo"
+            PreparedStatement pst = cn.prepareStatement("select * from bancoindustrial where ID = ?");//"Jose Alejandro Jeronimo"
             //La tabla y BD de MYSQL fueron trabajadas por "Jose Alejandro Jeronimo"
             //"Jaqueline Carrera" Trabajó el codigo de JAVA junto con modificaciones por Jose Alejandro Jeronimo
 

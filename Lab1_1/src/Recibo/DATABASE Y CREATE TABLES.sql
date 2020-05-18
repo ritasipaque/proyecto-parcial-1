@@ -1,9 +1,8 @@
 create database nominabancos;
 use nominabancos;
 /*---------------------------------------------------*/
-
 /*BASE DE DATOS RECIBO 1 BANCO INDUSTRIAL*/
-create table bancoss
+create table bancoindustrial
 (
 	ID int(10) auto_increment primary key,
     Nombre varchar(50) not null,
@@ -18,7 +17,7 @@ create table bancoss
 ) engine=innodb DEFAULT CHARSET=latin1;
 
 use nominabancos;
-select * from bancos;
+select * from bancoindustrial;
 
 /*---------------------------------------------------*/
 
