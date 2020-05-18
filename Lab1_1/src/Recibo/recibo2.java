@@ -268,7 +268,7 @@ public class recibo2 extends javax.swing.JFrame {
         Label_status.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         Label_status.setForeground(new java.awt.Color(255, 0, 0));
         Label_status.setText("...");
-        jPanel1.add(Label_status, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 440, 60, 30));
+        jPanel1.add(Label_status, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 440, 290, 30));
 
         jButton6.setText("Regresar");
         jButton6.addActionListener(new java.awt.event.ActionListener() {

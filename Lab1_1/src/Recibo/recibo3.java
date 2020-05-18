@@ -80,7 +80,7 @@ public class recibo3 extends javax.swing.JFrame {
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 80, -1, -1));
 
         jLabel16.setFont(new java.awt.Font("Calibri", 1, 36)); // NOI18N
-        jLabel16.setText("No. 00019564-123");
+        jLabel16.setText("No. 00075413-330");
         jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 120, -1, -1));
         jPanel1.add(txt_buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 200, 110, -1));
 

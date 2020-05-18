@@ -72,7 +72,7 @@ public class recibo extends javax.swing.JFrame {
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Ingresa el código de la persona: ");
         jPanel5.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 200, -1, -1));
-        jPanel5.add(txt_buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 200, 110, -1));
+        jPanel5.add(txt_buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 200, 110, -1));
 
         jLabel5.setFont(new java.awt.Font("Calibri", 1, 36)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
@@ -124,16 +124,9 @@ public class recibo extends javax.swing.JFrame {
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(jButton2)
-                        .addGap(23, 23, 23)
-                        .addComponent(jButton3)
-                        .addGap(15, 15, 15)
-                        .addComponent(jButton5))
-                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addContainerGap()
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel6Layout.createSequentialGroup()
                                 .addComponent(jLabel13)
@@ -156,7 +149,14 @@ public class recibo extends javax.swing.JFrame {
                             .addGroup(jPanel6Layout.createSequentialGroup()
                                 .addComponent(jLabel12)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txtHoras, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(txtHoras, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGap(42, 42, 42)
+                        .addComponent(jButton2)
+                        .addGap(23, 23, 23)
+                        .addComponent(jButton3)
+                        .addGap(15, 15, 15)
+                        .addComponent(jButton5)))
                 .addContainerGap(20, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
@@ -181,20 +181,20 @@ public class recibo extends javax.swing.JFrame {
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel14)
                             .addComponent(Sueldo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton2)
                     .addComponent(jButton3)
                     .addComponent(jButton5))
-                .addContainerGap(12, Short.MAX_VALUE))
+                .addGap(24, 24, 24))
         );
 
-        jPanel5.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, -1, 160));
+        jPanel5.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, -1, 190));
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
         jLabel15.setText("Sueldo Total");
-        jPanel5.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 390, -1, -1));
+        jPanel5.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 430, -1, -1));
 
         jButton6.setText("Regresar");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
@@ -202,7 +202,7 @@ public class recibo extends javax.swing.JFrame {
                 jButton6ActionPerformed(evt);
             }
         });
-        jPanel5.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 430, -1, -1));
+        jPanel5.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 470, -1, -1));
 
         jPanel7.setBackground(new java.awt.Color(0, 51, 153));
         jPanel7.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "DESCUENTOS A DESCONTAR", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(255, 255, 255))); // NOI18N
@@ -240,8 +240,8 @@ public class recibo extends javax.swing.JFrame {
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                .addGap(0, 11, Short.MAX_VALUE)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(IGSS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -253,22 +253,22 @@ public class recibo extends javax.swing.JFrame {
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(txtOtros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(7, 7, 7))
+                .addContainerGap(34, Short.MAX_VALUE))
         );
 
-        jPanel5.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 260, -1, -1));
+        jPanel5.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 260, -1, 150));
 
         Totales.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TotalesActionPerformed(evt);
             }
         });
-        jPanel5.add(Totales, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 390, 64, -1));
+        jPanel5.add(Totales, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 430, 64, -1));
 
         Label_status.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         Label_status.setForeground(new java.awt.Color(255, 0, 0));
         Label_status.setText("...");
-        jPanel5.add(Label_status, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 430, 60, 30));
+        jPanel5.add(Label_status, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 470, 330, 30));
 
         jButton4.setText("Buscar");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -276,7 +276,7 @@ public class recibo extends javax.swing.JFrame {
                 jButton4ActionPerformed(evt);
             }
         });
-        jPanel5.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 200, -1, -1));
+        jPanel5.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 200, -1, -1));
 
         jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recibo/bi.jpg"))); // NOI18N
         jLabel17.setVerticalAlignment(javax.swing.SwingConstants.TOP);
@@ -292,7 +292,7 @@ public class recibo extends javax.swing.JFrame {
         jLabel16.setText("No. 00019564-123");
         jPanel5.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 120, -1, -1));
 
-        getContentPane().add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 740, 480));
+        getContentPane().add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 740, 520));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

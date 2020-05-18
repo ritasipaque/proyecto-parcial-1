@@ -87,7 +87,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Calibri" size="36" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="No. 00019564-123"/>
+            <Property name="text" type="java.lang.String" value="No. 00075413-330"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
