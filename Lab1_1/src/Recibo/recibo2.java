@@ -309,8 +309,7 @@ public class recibo2 extends javax.swing.JFrame {
         try{
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3307/nominabancos", "root", "");// "Jose Alejandro Jeronimo"
             PreparedStatement pst = cn.prepareStatement("select * from bancobanrural where ID = ?");//"Jose Alejandro Jeronimo"
-            
-
+/*-----------------------------------------------------------------------------------------------------------------------*/
             pst.setString(1, txt_buscar.getText().trim());//busca lo que hay en el txt en la base de datos
 
             ResultSet rs = pst.executeQuery();
@@ -326,7 +325,6 @@ public class recibo2 extends javax.swing.JFrame {
                 ISR.setText(rs.getString("ISR"));
                 txtOtros.setText(rs.getString("Otros"));
                 Totales.setText(rs.getString("Totales"));
-
             } else {
                 //si el campo no existiera que aparecera un mensaje en el LABEL
                 JOptionPane.showMessageDialog(null, "Persona no registrada.");
@@ -342,12 +340,10 @@ public class recibo2 extends javax.swing.JFrame {
         try {
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3307/nominabancos", "root", "");
             PreparedStatement pst = cn.prepareStatement("delete from bancobanrural where ID = ?");
-
-            
+/*-----------------------------------------------------------------------------------------------------------------------*/
             pst.setString(1, txt_buscar.getText().trim());// Busca lo que se encuntra en el txt
             pst.executeUpdate();
-
-            //Vacia los txt seleccionados
+        //Vacia los txt seleccionados
             txt_buscar.setText("");
             TxtNombre1.setText("");
             Puesto.setText("");
@@ -358,8 +354,7 @@ public class recibo2 extends javax.swing.JFrame {
             ISR.setText("");
             txtOtros.setText("");
             Totales.setText("");
-
-            // si se cumple aparecera mensaje en el label
+        // si se cumple aparecera mensaje en el label
             Label_status.setText("Registro eliminado.");
 
         } catch (Exception e) {
@@ -372,10 +367,9 @@ public class recibo2 extends javax.swing.JFrame {
             String ID = txt_buscar.getText().trim();
 
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3307/nominabancos", "root", "");
-            PreparedStatement pst = cn.prepareStatement("update bancobanrural set Nombre = ?, Puesto = ?, Sueldo = ?, NodeCuenta = ?, HorasExtras = ?, IGSS = ?, ISR = ?, Otros = ?, Totales = ? where ID = " + ID);
-
-            
-
+            PreparedStatement pst = cn.prepareStatement("update bancobanrural set Nombre = ?, Puesto = ?, Sueldo = ?, "
+                    + "NodeCuenta = ?, HorasExtras = ?, IGSS = ?, ISR = ?, Otros = ?, Totales = ? where ID = " + ID);
+ /*-----------------------------------------------------------------------------------------------------------------------*/
             pst.setString(1, TxtNombre1.getText().trim());//Nombre
             pst.setString(2, Puesto.getText().trim());//Puesto
             pst.setString(3, Sueldo1.getText().trim()); // Sueldo
@@ -385,10 +379,8 @@ public class recibo2 extends javax.swing.JFrame {
             pst.setString(7, ISR.getText().trim()); //ISR
             pst.setString(8, txtOtros.getText().trim()); //Otros
             pst.setString(9, Totales.getText().trim()); //Totales
-
             pst.executeUpdate();
-
-            //Si se cumple que aparecera el siguiente mensaje en el Label
+        //Si se cumple que aparecera el siguiente mensaje en el Label
             Label_status.setText("Modificación exitosa.");
 
         } catch (Exception e) {
@@ -401,8 +393,7 @@ public class recibo2 extends javax.swing.JFrame {
         try{
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3307/nominabancos", "root", "");
             PreparedStatement pst = cn.prepareStatement("insert into bancobanrural values(?,?,?,?,?,?,?,?,?,?)");
-
-
+/*-----------------------------------------------------------------------------------------------------------------------*/
             pst.setString(1, "0");
             pst.setString(2, TxtNombre1.getText().trim());//Nombre
             pst.setString(3, Puesto.getText().trim());//Puesto
@@ -414,8 +405,7 @@ public class recibo2 extends javax.swing.JFrame {
             pst.setString(9, txtOtros.getText().trim()); //Otros
             pst.setString(10, Totales.getText().trim()); //Totales
             pst.executeUpdate();
-
-            //Borra lo que hay en campos
+     //Borra lo que hay en campos
             TxtNombre1.setText("");
             Puesto.setText("");
             Sueldo1.setText("");
