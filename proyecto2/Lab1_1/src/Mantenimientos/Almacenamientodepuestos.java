@@ -2,6 +2,7 @@ package Mantenimientos;
 
 import java.sql.*;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 public class Almacenamientodepuestos extends javax.swing.JFrame {
 
@@ -38,6 +39,8 @@ public class Almacenamientodepuestos extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         label_status = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblDatos = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -110,6 +113,18 @@ public class Almacenamientodepuestos extends javax.swing.JFrame {
         jLabel1.setText("jLabel1");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 430, 440));
 
+        tblDatos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Codigo Puesto", "Nombre Empleado", "Estatus", "Puesto"
+            }
+        ));
+        jScrollPane1.setViewportView(tblDatos);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 440, 420, 470));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -131,6 +146,18 @@ public class Almacenamientodepuestos extends javax.swing.JFrame {
             label_status.setText("Registro  eliminado.");
 
         } catch (Exception e) {
+        }
+        //---------------------------------------------------------------------------
+         DefaultTableModel modelo = (DefaultTableModel) tblDatos.getModel();
+        int a=tblDatos.getSelectedRow();
+        if (a<0){
+            JOptionPane.showMessageDialog(null, "Debe seleccionar una fila");
+        }else{
+            int confirmar = JOptionPane.showConfirmDialog(null, "Esta seguro que desea eliminar el registro?");
+            if (JOptionPane.OK_OPTION == confirmar){
+                modelo.removeRow(a);
+                JOptionPane.showMessageDialog(null, "Registro Eliminado");
+            }
         }
     }//GEN-LAST:event_jButton6ActionPerformed
 
@@ -158,6 +185,16 @@ public class Almacenamientodepuestos extends javax.swing.JFrame {
         } catch (Exception e) {
 
         }
+        //----------------------------------------------------------------------
+        DefaultTableModel modelo = (DefaultTableModel) tblDatos.getModel();
+        Object  [] fila=new Object [6];
+        fila[0]=txt_1.getText();
+        fila[1]=txt_2.getText();
+        fila[2]=txt_3.getText();
+        fila[3]=txt_4.getText();
+        
+        modelo.addRow(fila);
+        tblDatos.setModel(modelo);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
@@ -177,6 +214,14 @@ public class Almacenamientodepuestos extends javax.swing.JFrame {
 
         } catch (Exception e) {
         }
+        //-------------------------------------------------------------------------------
+        String [] datos=new String [5];
+        datos[0]=txt_1.getText();
+        datos[1]=txt_2.getText();
+        datos[2]=txt_3.getText();
+        datos[3]=txt_4.getText();
+        int i = 0;
+
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -252,7 +297,9 @@ public class Almacenamientodepuestos extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel label_status;
+    private javax.swing.JTable tblDatos;
     private javax.swing.JTextField txt_1;
     private javax.swing.JTextField txt_2;
     private javax.swing.JTextField txt_3;
