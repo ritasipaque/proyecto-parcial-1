@@ -46,11 +46,13 @@ public class Almacenamientodepuestos extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel3.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Nombre del empleado:");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 112, -1, -1));
         getContentPane().add(txt_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(179, 69, 205, -1));
 
         jLabel13.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(0, 0, 0));
         jLabel13.setText("Ingrese el codigo:");
         getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 280, -1, -1));
         getContentPane().add(txt_3, new org.netbeans.lib.awtextra.AbsoluteConstraints(179, 145, 205, -1));
@@ -66,6 +68,7 @@ public class Almacenamientodepuestos extends javax.swing.JFrame {
         getContentPane().add(txt_buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 280, 80, -1));
 
         jLabel11.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(0, 0, 0));
         jLabel11.setText("codigo del puesto  :");
         getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 74, -1, -1));
 
@@ -94,15 +97,18 @@ public class Almacenamientodepuestos extends javax.swing.JFrame {
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 280, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Estatus del sedes");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 150, 116, -1));
 
         jLabel5.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Puesto del empleado:");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 185, 130, -1));
         getContentPane().add(txt_4, new org.netbeans.lib.awtextra.AbsoluteConstraints(179, 183, 204, -1));
 
         jLabel12.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(0, 0, 0));
         jLabel12.setText("Mantenimiento de Puestos");
         getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(124, 11, -1, -1));
 
