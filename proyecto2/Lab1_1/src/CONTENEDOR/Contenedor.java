@@ -73,7 +73,7 @@ public class Contenedor extends javax.swing.JFrame {
         );
 
         jMenu3.setForeground(new java.awt.Color(0, 0, 204));
-        jMenu3.setText("Manteniminetos ");
+        jMenu3.setText("Mantenimientos ");
         jMenu3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jMenu3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

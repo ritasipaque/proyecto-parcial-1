@@ -5,6 +5,7 @@ package Mantenimientos;
 
 import java.sql.*;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 
 public class Almacenamiento_Departamento extends javax.swing.JFrame {
@@ -40,6 +41,8 @@ public class Almacenamiento_Departamento extends javax.swing.JFrame {
         ya = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblDatos = new javax.swing.JTable();
 
         jLabel8.setText("jLabel8");
 
@@ -48,26 +51,32 @@ public class Almacenamiento_Departamento extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Arial", 3, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Mantenimiento de Departamento");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 50, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Codigo de  Puesto");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 280, 110, -1));
 
         jLabel6.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Puesto");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 320, 50, -1));
 
         jLabel5.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Codigo  de  Departamento");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 106, 150, 22));
 
         jLabel2.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Departamento");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 150, 90, -1));
 
         jLabel3.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Codigo de Jefe de  Area");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 140, -1));
 
@@ -128,6 +137,7 @@ public class Almacenamiento_Departamento extends javax.swing.JFrame {
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 260, 100, -1));
 
         jLabel7.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("Nombre de Jefe de Area");
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, -1, -1));
 
@@ -140,9 +150,22 @@ public class Almacenamiento_Departamento extends javax.swing.JFrame {
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Mantenimientos/Captura3.PNG"))); // NOI18N
         getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 40, 263, 199));
 
+        jLabel10.setForeground(new java.awt.Color(0, 0, 0));
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Mantenimientos/fondorombo2.png"))); // NOI18N
         jLabel10.setText("jLabel10");
         getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 670, 500));
+
+        tblDatos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Codigo Departamento", "Departamento", "Codigo Jefe de area", "Nombre Jefe de area", "Codigo puesto", "Puesto"
+            }
+        ));
+        jScrollPane1.setViewportView(tblDatos);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 510, 670, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -179,6 +202,18 @@ public class Almacenamiento_Departamento extends javax.swing.JFrame {
         } catch (Exception e) {
 
         }
+        
+        //-----------------------------------------------------------------------------------------------------
+        DefaultTableModel modelo = (DefaultTableModel) tblDatos.getModel();
+        Object  [] fila=new Object [6];
+        fila[0]=codigo.getText();
+        fila[1]=departamento.getText();
+        fila[2]=codigo1.getText();
+        fila[3]=jefe.getText();
+        fila[4]=codigo2.getText();
+        fila[5]=puesto.getText();
+        modelo.addRow(fila);
+        tblDatos.setModel(modelo);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -212,7 +247,15 @@ public class Almacenamiento_Departamento extends javax.swing.JFrame {
         } catch (Exception e) {
         }
 
-        // TODO add your handling code here:
+        // ------------------------------------------------------------------------------------------------
+        String [] datos=new String [6];
+        datos[0]=codigo.getText();
+        datos[1]=departamento.getText();
+        datos[2]=codigo1.getText();
+        datos[3]=jefe.getText();
+        datos[4]=codigo2.getText();
+        datos[5]=puesto.getText();
+        int i = 0;
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -242,7 +285,18 @@ public class Almacenamiento_Departamento extends javax.swing.JFrame {
         } catch (Exception e) {
         }
 
-        // TODO add your handling code here:
+        // -----------------------------------------------------------
+        DefaultTableModel modelo = (DefaultTableModel) tblDatos.getModel();
+        int a=tblDatos.getSelectedRow();
+        if (a<0){
+            JOptionPane.showMessageDialog(null, "Debe seleccionar una fila");
+        }else{
+            int confirmar = JOptionPane.showConfirmDialog(null, "Esta seguro que desea eliminar el registro?");
+            if (JOptionPane.OK_OPTION == confirmar){
+                modelo.removeRow(a);
+                JOptionPane.showMessageDialog(null, "Registro Eliminado");
+            }
+        }
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -336,8 +390,10 @@ public class Almacenamiento_Departamento extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jefe;
     private javax.swing.JTextField puesto;
+    private javax.swing.JTable tblDatos;
     private javax.swing.JLabel ya;
     // End of variables declaration//GEN-END:variables
 }
