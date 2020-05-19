@@ -114,25 +114,29 @@ public class Nomina extends javax.swing.JFrame {
 
     private void buscadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscadorActionPerformed
         // TODO add your handling code here:
-        try {
+        try{
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/registrof1", "root", "");
-            PreparedStatement pst = cn.prepareStatement("delete from clientes2 where id = ?");
-
+            PreparedStatement pst = cn.prepareStatement("select * from clientes2 where Id = ?");
             pst.setString(1, buscar.getText().trim());
-            pst.executeUpdate();
+            ResultSet rs = pst.executeQuery();
+
+            if(rs.next()){
             
-            txtnombre1.setText("");
-            txtapellidos1.setText("");
-            txtcorreo1.setText("");
-            txtcontra1.setText("");
-            txttarjeta1.setText("");
-            txtcodigo1.setText("");
-            label2.setText("Registro eliminado.");
-            
-        label1.setText("Registro eliminado.");    
-} catch (Exception e) {
+                txtnombre1.setText(rs.getString("Nombre"));
+                txtapellidos1.setText(rs.getString("Apellidos"));
+                txtcontra1.setText(rs.getString("Contra"));
+                txtcorreo1.setText(rs.getString("Correo"));
+                txttarjeta1.setText(rs.getString("Tarjeta"));
+                txtcodigo1.setText(rs.getString("Codigo"));
+                
+                
+            } else {
+                JOptionPane.showMessageDialog(null, "Persona no registrada.");
+            }
+
+        }catch (Exception e){
+
         }
-     
     }//GEN-LAST:event_buscadorActionPerformed
 
     /**
