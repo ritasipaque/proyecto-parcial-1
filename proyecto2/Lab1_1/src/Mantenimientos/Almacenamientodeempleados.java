@@ -6,6 +6,7 @@
 package Mantenimientos;
 import java.sql.*;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author familia Sipaque
@@ -58,6 +59,8 @@ public class Almacenamientodeempleados extends javax.swing.JFrame {
         txt_PuestoEmpleado = new javax.swing.JComboBox<>();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblDatos = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -179,7 +182,19 @@ public class Almacenamientodeempleados extends javax.swing.JFrame {
 
         jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Mantenimientos/fondorombo2.png"))); // NOI18N
         jLabel15.setText("jLabel15");
-        getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 610, 550));
+        getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 630, 550));
+
+        tblDatos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Nombre ", "Departamento", "Puesto ", "Telefono ", "No.Cuenta", "Direccion", "Sexo", "Edad", "Correo"
+            }
+        ));
+        jScrollPane1.setViewportView(tblDatos);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(3, 570, 630, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -216,6 +231,21 @@ public class Almacenamientodeempleados extends javax.swing.JFrame {
         } catch (Exception e) {
 
         }
+        //-------------------------------------------------------------------------------------------------
+        DefaultTableModel modelo = (DefaultTableModel) tblDatos.getModel();
+        Object  [] fila=new Object [10];
+        fila[0]=txt_NombreEmpleado.getText();
+        fila[1]=txt_DepartamentoEmpleado.getText();
+        fila[2]=txt_PuestoEmpleado.getSelectedItem().toString();
+        fila[3]=txt_TelefonoEmpleado.getText();
+        fila[4]=txt_CuentaEmpleado.getText();
+        fila[5]=txt_DireccionEmpleado.getText();
+        fila[6]=txt_SexoEmpleado.getSelectedItem().toString();
+        fila[7]=txt_EdadEmpleado.getText();
+        fila[8]=txt_CorreoEmpleado.getText();
+        fila[9]=label_status.getText();
+        modelo.addRow(fila);
+        tblDatos.setModel(modelo); 
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -272,7 +302,19 @@ public class Almacenamientodeempleados extends javax.swing.JFrame {
 
         } catch (Exception e) {
         }
-
+//--------------------------------------------------------------------------------------------
+String [] datos=new String [5];
+        datos[0]=txt_NombreEmpleado.getText();
+        datos[1]=txt_DepartamentoEmpleado.getText();
+        datos[2]=txt_PuestoEmpleado.getSelectedItem().toString();
+        datos[3]=txt_TelefonoEmpleado.getText();
+        datos[4]=txt_CuentaEmpleado.getText();
+        datos[5]=txt_DireccionEmpleado.getText();
+        datos[6]=txt_SexoEmpleado.getSelectedItem().toString();
+        datos[7]=txt_EdadEmpleado.getText();
+        datos[8]=txt_CorreoEmpleado.getText();
+        datos[9]=label_status.getText();
+        int i = 0;
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
@@ -299,7 +341,18 @@ public class Almacenamientodeempleados extends javax.swing.JFrame {
 
         } catch (Exception e) {
         }
-
+//-----------------------------------------------------------------------------------
+ DefaultTableModel modelo = (DefaultTableModel) tblDatos.getModel();
+        int a=tblDatos.getSelectedRow();
+        if (a<0){
+            JOptionPane.showMessageDialog(null, "Debe seleccionar una fila");
+        }else{
+            int confirmar = JOptionPane.showConfirmDialog(null, "Esta seguro que desea eliminar el registro?");
+            if (JOptionPane.OK_OPTION == confirmar){
+                modelo.removeRow(a);
+                JOptionPane.showMessageDialog(null, "Registro Eliminado");
+            }
+        }
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void txt_SexoEmpleadoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_txt_SexoEmpleadoItemStateChanged
@@ -365,7 +418,9 @@ public class Almacenamientodeempleados extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel label_status;
+    private javax.swing.JTable tblDatos;
     private javax.swing.JTextField txt_CorreoEmpleado;
     private javax.swing.JTextField txt_CuentaEmpleado;
     private javax.swing.JTextField txt_DepartamentoEmpleado;
