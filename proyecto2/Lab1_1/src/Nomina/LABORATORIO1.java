@@ -139,6 +139,9 @@ public class LABORATORIO1 extends javax.swing.JFrame {
         txtjudicial = new javax.swing.JTextField();
         txtotrosss = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         CmdCalc = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -155,71 +158,83 @@ public class LABORATORIO1 extends javax.swing.JFrame {
         Regresar = new javax.swing.JButton();
         label_status = new javax.swing.JLabel();
         CmdCalc2 = new javax.swing.JButton();
+        jLabel17 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(153, 153, 255));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Calibri", 1, 12))); // NOI18N
         jPanel1.setForeground(new java.awt.Color(0, 60, 90));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Nombre:");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, -1));
 
         txtnombres.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
         jPanel1.add(txtnombres, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 60, 180, -1));
 
-        jLabel2.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Puesto:");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, -1, -1));
 
-        jLabel11.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("ID:");
         jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, -1));
         jPanel1.add(txtid, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 30, 180, -1));
         jPanel1.add(txtpues, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 90, 180, -1));
 
         jLabel12.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("DATOS PERSONALES");
         jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, -1, -1));
 
         jLabel13.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setText("INGRESOS");
         jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 140, -1, -1));
 
-        jLabel4.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Sueldo Extraordinario:");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, -1, -1));
 
         txtsueldoextra.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
         jPanel1.add(txtsueldoextra, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 160, 120, -1));
 
-        jLabel5.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Comisiones:");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 200, -1, -1));
 
         txtcomis.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
         jPanel1.add(txtcomis, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 190, 120, -1));
 
-        jLabel6.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Otros:");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 220, -1, -1));
 
         txtotross.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
         jPanel1.add(txtotross, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 220, 120, -1));
 
-        jLabel7.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Anticipos:");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 160, -1, -1));
 
-        jLabel8.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Descuento Judicial:");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 190, -1, -1));
 
-        jLabel9.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Otros:");
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 220, -1, -1));
 
@@ -233,12 +248,24 @@ public class LABORATORIO1 extends javax.swing.JFrame {
         jPanel1.add(txtotrosss, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 220, 138, -1));
 
         jLabel14.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
         jLabel14.setText("DESCUENTOS");
-        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 140, -1, -1));
+        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 140, -1, -1));
+
+        jLabel15.setText("jLabel15");
+        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 290, 490, 480));
+
+        jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Nomina/fondol1.png"))); // NOI18N
+        jLabel16.setText("jLabel15");
+        jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -40, 880, 680));
+
+        jLabel18.setText("jLabel18");
+        jPanel1.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 570, 290));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 570, 290));
 
         jLabel3.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Desarrollo Empresarial S.A.");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(189, 11, -1, -1));
 
@@ -287,12 +314,13 @@ public class LABORATORIO1 extends javax.swing.JFrame {
         });
         getContentPane().add(CmdTotales, new org.netbeans.lib.awtextra.AbsoluteConstraints(697, 180, 130, 35));
 
-        jLabel10.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Total Salarios:");
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 620, -1, -1));
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 610, -1, -1));
 
         TSal.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
-        getContentPane().add(TSal, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 620, 120, -1));
+        getContentPane().add(TSal, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 610, 120, -1));
 
         cheque.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         cheque.setForeground(new java.awt.Color(204, 0, 0));
@@ -302,7 +330,7 @@ public class LABORATORIO1 extends javax.swing.JFrame {
                 chequeActionPerformed(evt);
             }
         });
-        getContentPane().add(cheque, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 620, -1, -1));
+        getContentPane().add(cheque, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 610, -1, -1));
 
         CmdCalc1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         CmdCalc1.setText("Modificar");
@@ -356,6 +384,10 @@ public class LABORATORIO1 extends javax.swing.JFrame {
             }
         });
         getContentPane().add(CmdCalc2, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 230, 130, 35));
+
+        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Nomina/fondol1.png"))); // NOI18N
+        jLabel17.setText("jLabel17");
+        getContentPane().add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 880, 640));
 
         pack();
         setLocationRelativeTo(null);
@@ -669,6 +701,10 @@ public class LABORATORIO1 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
