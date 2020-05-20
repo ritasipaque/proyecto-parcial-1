@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package Mantenimientos;
+import CONTENEDOR.Contenedor;
 import java.sql.*;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -58,76 +59,66 @@ public class Almacenamientodeempleados extends javax.swing.JFrame {
         txt_SexoEmpleado = new javax.swing.JComboBox<>();
         txt_PuestoEmpleado = new javax.swing.JComboBox<>();
         jLabel14 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
         jLabel15 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblDatos = new javax.swing.JTable();
+        jLabel16 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Mantenimiento de Empleados ");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(118, 11, 310, -1));
 
         jLabel2.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Registro de Empleados");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 40, 200, -1));
 
         jLabel3.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Nombre del Empleado : ");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 78, 160, -1));
         getContentPane().add(txt_NombreEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(213, 76, 205, -1));
 
         jLabel4.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Departamento del Empleado:");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 107, -1, -1));
         getContentPane().add(txt_DepartamentoEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(213, 107, 205, -1));
 
         jLabel5.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Puesto del Empleado:");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 140, 160, -1));
 
         jLabel6.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Telefono del Empleado:");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 171, 135, -1));
         getContentPane().add(txt_TelefonoEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(213, 169, 205, -1));
 
         jLabel7.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("Datos del Empleado");
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 204, -1, -1));
 
         jLabel8.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("No.de Cuenta del Empleado:");
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 240, -1, -1));
         getContentPane().add(txt_CuentaEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(213, 235, 205, -1));
 
         jLabel9.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("Direccion del Empleado:");
         getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 275, 157, -1));
         getContentPane().add(txt_DireccionEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(213, 273, 205, -1));
 
         jLabel10.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(0, 0, 0));
         jLabel10.setText("Sexo del Empleado: ");
         getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 306, -1, -1));
 
         jLabel11.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(0, 0, 0));
         jLabel11.setText("Edad del Empleado:");
         getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 344, -1, -1));
         getContentPane().add(txt_EdadEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(213, 342, 205, -1));
 
         jLabel12.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(0, 0, 0));
         jLabel12.setText("Correo del Empleado: ");
         getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 375, -1, -1));
         getContentPane().add(txt_CorreoEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(213, 373, 205, -1));
@@ -141,7 +132,6 @@ public class Almacenamientodeempleados extends javax.swing.JFrame {
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 423, -1, -1));
 
         jLabel13.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(0, 0, 0));
         jLabel13.setText("Ingrese el codigo del empleado :");
         getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 464, -1, -1));
         getContentPane().add(txt_buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(237, 464, 70, -1));
@@ -193,7 +183,14 @@ public class Almacenamientodeempleados extends javax.swing.JFrame {
         jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Mantenimientos/Captura0.PNG"))); // NOI18N
         getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(446, 11, -1, 167));
 
-        jLabel15.setForeground(new java.awt.Color(0, 0, 0));
+        jButton2.setText("Regresar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 460, -1, -1));
+
         jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Mantenimientos/fondorombo2.png"))); // NOI18N
         jLabel15.setText("jLabel15");
         getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 630, 550));
@@ -208,7 +205,11 @@ public class Almacenamientodeempleados extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tblDatos);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(3, 570, 630, -1));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(3, 570, 630, 130));
+
+        jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Mantenimientos/fondorombo2.png"))); // NOI18N
+        jLabel16.setText("jLabel16");
+        getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 554, 630, 190));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -377,6 +378,13 @@ String [] datos=new String [5];
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_SexoEmpleadoActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+         Contenedor GN= new Contenedor(); 
+         GN.setVisible(true);
+         this.setVisible(false);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -414,6 +422,7 @@ String [] datos=new String [5];
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
@@ -424,6 +433,7 @@ String [] datos=new String [5];
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
