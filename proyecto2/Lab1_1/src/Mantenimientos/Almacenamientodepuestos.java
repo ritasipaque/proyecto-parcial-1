@@ -7,6 +7,7 @@ import javax.swing.table.DefaultTableModel;
 
 public class Almacenamientodepuestos extends javax.swing.JFrame {
 
+    
     /**
      * Creates new form Almacenamientodepuestos
      */
