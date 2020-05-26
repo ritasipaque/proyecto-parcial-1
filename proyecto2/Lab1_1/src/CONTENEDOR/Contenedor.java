@@ -1,3 +1,4 @@
+//DIANA VICTORES 9959-19-1471/CODIGO Y DISEÑO
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -12,20 +13,38 @@ import Nomina.LABORATORIO1;
 import Nomina.bitacora;
 import Nomina.r_empleados;
 import Recibo.recibo;
-import Nomina.nomina_exe;
+//import Nomina.nomina_exe;
+import modelo.Usuarios;
 
 /**
  *
  * @author Diana
  */
 public class Contenedor extends javax.swing.JFrame {
-
+    Usuarios mod;
     /**
      * Creates new form Contenedor
      */
     public Contenedor() {
         initComponents();
     }
+    public Contenedor (Usuarios mod){
+    initComponents();
+        setLocationRelativeTo(null);
+        this.mod = mod;
+        
+        if (mod.getIdTipo() == 1) {
+            MANTENIMIENTOS.setVisible(true);
+           NOMINA.setVisible(true);
+        } else {
+             MANTENIMIENTOS.setVisible(false);
+            NOMINA.setVisible(false);
+        }
+
+    }
+    
+       
+   
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -36,48 +55,30 @@ public class Contenedor extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jDesktopPane2 = new javax.swing.JDesktopPane();
-        jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu3 = new javax.swing.JMenu();
+        MANTENIMIENTOS = new javax.swing.JMenu();
         jCheckBoxMenuItem10 = new javax.swing.JCheckBoxMenuItem();
         jCheckBoxMenuItem8 = new javax.swing.JCheckBoxMenuItem();
         jCheckBoxMenuItem9 = new javax.swing.JCheckBoxMenuItem();
-        jMenu1 = new javax.swing.JMenu();
+        NOMINA = new javax.swing.JMenu();
         jCheckBoxMenuItem6 = new javax.swing.JCheckBoxMenuItem();
         jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
         jCheckBoxMenuItem2 = new javax.swing.JCheckBoxMenuItem();
         jCheckBoxMenuItem3 = new javax.swing.JCheckBoxMenuItem();
-        jMenu2 = new javax.swing.JMenu();
+        SALIR = new javax.swing.JMenu();
         jCheckBoxMenuItem5 = new javax.swing.JCheckBoxMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jDesktopPane2.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/CONTENEDOR/blue3.jpg"))); // NOI18N
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/CONTENEDOR/fondol.jpg"))); // NOI18N
-
-        jDesktopPane2.setLayer(jLabel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
-
-        javax.swing.GroupLayout jDesktopPane2Layout = new javax.swing.GroupLayout(jDesktopPane2);
-        jDesktopPane2.setLayout(jDesktopPane2Layout);
-        jDesktopPane2Layout.setHorizontalGroup(
-            jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel2)
-        );
-        jDesktopPane2Layout.setVerticalGroup(
-            jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDesktopPane2Layout.createSequentialGroup()
-                .addComponent(jLabel2)
-                .addGap(0, 1, Short.MAX_VALUE))
-        );
-
-        jMenu3.setForeground(new java.awt.Color(0, 0, 204));
-        jMenu3.setText("Mantenimientos ");
-        jMenu3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jMenu3.addActionListener(new java.awt.event.ActionListener() {
+        MANTENIMIENTOS.setForeground(new java.awt.Color(0, 0, 204));
+        MANTENIMIENTOS.setText("Mantenimientos ");
+        MANTENIMIENTOS.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        MANTENIMIENTOS.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenu3ActionPerformed(evt);
+                MANTENIMIENTOSActionPerformed(evt);
             }
         });
 
@@ -88,7 +89,7 @@ public class Contenedor extends javax.swing.JFrame {
                 jCheckBoxMenuItem10ActionPerformed(evt);
             }
         });
-        jMenu3.add(jCheckBoxMenuItem10);
+        MANTENIMIENTOS.add(jCheckBoxMenuItem10);
 
         jCheckBoxMenuItem8.setSelected(true);
         jCheckBoxMenuItem8.setText("Mantenimiento Departamentos");
@@ -97,7 +98,7 @@ public class Contenedor extends javax.swing.JFrame {
                 jCheckBoxMenuItem8ActionPerformed(evt);
             }
         });
-        jMenu3.add(jCheckBoxMenuItem8);
+        MANTENIMIENTOS.add(jCheckBoxMenuItem8);
 
         jCheckBoxMenuItem9.setSelected(true);
         jCheckBoxMenuItem9.setText("Mantenimiento Puestos");
@@ -106,13 +107,13 @@ public class Contenedor extends javax.swing.JFrame {
                 jCheckBoxMenuItem9ActionPerformed(evt);
             }
         });
-        jMenu3.add(jCheckBoxMenuItem9);
+        MANTENIMIENTOS.add(jCheckBoxMenuItem9);
 
-        jMenuBar1.add(jMenu3);
+        jMenuBar1.add(MANTENIMIENTOS);
 
-        jMenu1.setForeground(new java.awt.Color(255, 0, 0));
-        jMenu1.setText("NOMINA");
-        jMenu1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        NOMINA.setForeground(new java.awt.Color(255, 0, 0));
+        NOMINA.setText("NOMINA");
+        NOMINA.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
 
         jCheckBoxMenuItem6.setSelected(true);
         jCheckBoxMenuItem6.setText("Planilla");
@@ -121,7 +122,7 @@ public class Contenedor extends javax.swing.JFrame {
                 jCheckBoxMenuItem6ActionPerformed(evt);
             }
         });
-        jMenu1.add(jCheckBoxMenuItem6);
+        NOMINA.add(jCheckBoxMenuItem6);
 
         jCheckBoxMenuItem1.setSelected(true);
         jCheckBoxMenuItem1.setText("Registro Empleados");
@@ -130,7 +131,7 @@ public class Contenedor extends javax.swing.JFrame {
                 jCheckBoxMenuItem1ActionPerformed(evt);
             }
         });
-        jMenu1.add(jCheckBoxMenuItem1);
+        NOMINA.add(jCheckBoxMenuItem1);
 
         jCheckBoxMenuItem2.setSelected(true);
         jCheckBoxMenuItem2.setText("Bitacora");
@@ -139,7 +140,7 @@ public class Contenedor extends javax.swing.JFrame {
                 jCheckBoxMenuItem2ActionPerformed(evt);
             }
         });
-        jMenu1.add(jCheckBoxMenuItem2);
+        NOMINA.add(jCheckBoxMenuItem2);
 
         jCheckBoxMenuItem3.setSelected(true);
         jCheckBoxMenuItem3.setText("Recibo");
@@ -148,13 +149,13 @@ public class Contenedor extends javax.swing.JFrame {
                 jCheckBoxMenuItem3ActionPerformed(evt);
             }
         });
-        jMenu1.add(jCheckBoxMenuItem3);
+        NOMINA.add(jCheckBoxMenuItem3);
 
-        jMenuBar1.add(jMenu1);
+        jMenuBar1.add(NOMINA);
 
-        jMenu2.setForeground(new java.awt.Color(51, 153, 0));
-        jMenu2.setText("SALIR");
-        jMenu2.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+        SALIR.setForeground(new java.awt.Color(51, 153, 0));
+        SALIR.setText("SALIR");
+        SALIR.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
 
         jCheckBoxMenuItem5.setSelected(true);
         jCheckBoxMenuItem5.setText("Salir del Sistema");
@@ -163,9 +164,9 @@ public class Contenedor extends javax.swing.JFrame {
                 jCheckBoxMenuItem5ActionPerformed(evt);
             }
         });
-        jMenu2.add(jCheckBoxMenuItem5);
+        SALIR.add(jCheckBoxMenuItem5);
 
-        jMenuBar1.add(jMenu2);
+        jMenuBar1.add(SALIR);
 
         setJMenuBar(jMenuBar1);
 
@@ -173,13 +174,13 @@ public class Contenedor extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jDesktopPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jLabel1)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jDesktopPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -220,7 +221,7 @@ public class Contenedor extends javax.swing.JFrame {
 
     private void jCheckBoxMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxMenuItem6ActionPerformed
         // Planilla
-         nomina_exe frm = new nomina_exe();
+         LABORATORIO1 frm = new LABORATORIO1();
          frm.setVisible(true);
          this.setVisible(false);
       
@@ -249,12 +250,12 @@ public class Contenedor extends javax.swing.JFrame {
  Almacenamientodeempleados frm = new Almacenamientodeempleados();
          frm.setVisible(true);
          this.setVisible(false);
-         
+//         
     }//GEN-LAST:event_jCheckBoxMenuItem10ActionPerformed
 
-    private void jMenu3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu3ActionPerformed
+    private void MANTENIMIENTOSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MANTENIMIENTOSActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenu3ActionPerformed
+    }//GEN-LAST:event_MANTENIMIENTOSActionPerformed
 
     /**
      * @param args the command line arguments
@@ -292,6 +293,9 @@ public class Contenedor extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu MANTENIMIENTOS;
+    private javax.swing.JMenu NOMINA;
+    private javax.swing.JMenu SALIR;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem10;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem2;
@@ -300,11 +304,23 @@ public class Contenedor extends javax.swing.JFrame {
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem6;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem8;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem9;
-    private javax.swing.JDesktopPane jDesktopPane2;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenuBar jMenuBar1;
     // End of variables declaration//GEN-END:variables
+
+    private static class usuarios {
+
+        public usuarios() {
+        }
+    }
+
+    private static class NOMINA {
+
+        private static void setVisible(boolean b) {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+
+        public NOMINA() {
+        }
+    }
 }

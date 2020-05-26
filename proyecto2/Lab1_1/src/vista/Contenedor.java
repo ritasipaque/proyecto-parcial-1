@@ -3,15 +3,20 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Login;
+package vista;
+
+import modelo.Usuarios;
 
 /**
  *
  * @author Diana
  */
-class e {
+public class Contenedor {
 
-    static String getMessage() {
+    public Contenedor(Usuarios mod) {
+    }
+
+    void setVisible(boolean b) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

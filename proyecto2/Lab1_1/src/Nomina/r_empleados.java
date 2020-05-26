@@ -1,3 +1,4 @@
+//DIANA VICTORES 9959-19-1471/ CODIGO REGISTRO DE EMPLEADOS, MODIFICACION EN DISEÑO
 package Nomina;
 
 
@@ -139,32 +140,36 @@ public class r_empleados extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tablaempleado);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, 723, 202));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 300, 723, 202));
 
+        jLabel3.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("EMPLEADO");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, -1, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 130, -1, -1));
 
+        jLabel4.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("CARGO");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, -1, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 170, -1, -1));
 
+        jLabel5.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("FECHA DE CONTRATO");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, -1, -1));
 
+        jLabel6.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("SUELDO");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, -1, -1));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 260, -1, -1));
 
         txtcodigo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtcodigoActionPerformed(evt);
             }
         });
-        getContentPane().add(txtcodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 90, 170, -1));
-        getContentPane().add(txtempleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 130, 170, -1));
-        getContentPane().add(txtfecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 210, 170, -1));
+        getContentPane().add(txtcodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 90, 170, -1));
+        getContentPane().add(txtempleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 130, 170, -1));
+        getContentPane().add(txtfecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 210, 170, -1));
 
         comcargo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar:", "Contador", "Auxiliar", "Secretaria", "Vendedora", "Chofer", "Mensajero" }));
         comcargo.addActionListener(new java.awt.event.ActionListener() {
@@ -172,41 +177,46 @@ public class r_empleados extends javax.swing.JFrame {
                 comcargoActionPerformed(evt);
             }
         });
-        getContentPane().add(comcargo, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 170, 170, -1));
-        getContentPane().add(txtsueldo, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 260, 170, -1));
+        getContentPane().add(comcargo, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 170, 170, -1));
+        getContentPane().add(txtsueldo, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 260, 170, -1));
 
+        jButton2.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
         jButton2.setText("NUEVO");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 90, 150, -1));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 90, 170, -1));
 
-        jButton3.setText("EDITAR (ACTUALIZAR)");
+        jButton3.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
+        jButton3.setText("EDITAR");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 140, 150, -1));
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 130, 170, -1));
 
+        jButton4.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
         jButton4.setText("ELIMINAR");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 190, 150, -1));
+        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 170, 170, -1));
 
+        jButton1.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
         jButton1.setText("GRABAR");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 40, 150, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 50, 170, -1));
 
+        BITACORA.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
         BITACORA.setText("BITACORA");
         BITACORA.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -218,51 +228,57 @@ public class r_empleados extends javax.swing.JFrame {
                 BITACORAActionPerformed(evt);
             }
         });
-        getContentPane().add(BITACORA, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 80, 111, -1));
+        getContentPane().add(BITACORA, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 130, 130, -1));
 
         label_status.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         getContentPane().add(label_status, new org.netbeans.lib.awtextra.AbsoluteConstraints(526, 237, -1, -1));
 
+        jButton5.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
         jButton5.setText("SALIR");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 110, 110, -1));
+        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 170, 130, -1));
         getContentPane().add(label_estatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 180, -1, -1));
 
+        jButton6.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
         jButton6.setText("BUSCAR");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton6ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 250, 150, -1));
+        getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 210, 170, -1));
 
+        jLabel2.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("CODIGO");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 90, -1, -1));
 
+        jLabel7.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("ID");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, -1, -1));
-        getContentPane().add(txtid, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 40, 160, -1));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 50, 30, 20));
+        getContentPane().add(txtid, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 50, 120, -1));
 
         Label_status.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         getContentPane().add(Label_status, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 220, -1, -1));
 
+        jButton7.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
         jButton7.setText("REGRESAR");
         jButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton7ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 150, 110, -1));
+        getContentPane().add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 210, 130, -1));
 
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Nomina/fondol1.png"))); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Nomina/blu2.png"))); // NOI18N
         jLabel8.setText("jLabel8");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 760, 520));
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 520));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

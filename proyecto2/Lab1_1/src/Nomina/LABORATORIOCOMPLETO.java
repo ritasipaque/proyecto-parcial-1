@@ -1,12 +1,13 @@
 package Nomina;
 //import java.awt.Color;
-import Login.in_sesion;
+//import Login.in_sesion;
 import Recibo.recibo;
 import Nomina.LABORATORIO1;
 import java.io.File;
 import java.util.Formatter;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import vista.login;
 
 
 
@@ -570,7 +571,7 @@ public class LABORATORIOCOMPLETO extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                in_sesion login = new in_sesion();
+                login login = new login();
                 login.setVisible(true);
                 //new LABORATORIO1().setVisible(true);
             }
