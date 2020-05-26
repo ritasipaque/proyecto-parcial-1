@@ -67,6 +67,7 @@ public class Inicio extends javax.swing.JFrame {
             frmLog = new login();
             frmLog.setVisible(true);
         }
+        
     }//GEN-LAST:event_btnLoginActionPerformed
 
     /**
