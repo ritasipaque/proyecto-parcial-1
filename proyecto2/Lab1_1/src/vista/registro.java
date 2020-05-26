@@ -18,6 +18,7 @@ public class registro extends javax.swing.JFrame {
      */
     public registro() {
         initComponents();
+        
         setLocationRelativeTo(null);
     }
 

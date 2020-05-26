@@ -18,7 +18,11 @@
     <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
     <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+<<<<<<< HEAD
     <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,2,-96,0,0,2,-83"/>
+=======
+    <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,2,-13,0,0,2,118"/>
+>>>>>>> 9fd56b84ce16e9a94e0afd5ef0c4135b88782340
   </AuxValues>
 
   <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
@@ -30,9 +34,12 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Arial" size="13" style="1"/>
         </Property>
+<<<<<<< HEAD
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
+=======
+>>>>>>> 9fd56b84ce16e9a94e0afd5ef0c4135b88782340
         <Property name="text" type="java.lang.String" value="Mantenimiento de Empleados "/>
       </Properties>
       <Constraints>
@@ -46,9 +53,12 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Arial" size="13" style="1"/>
         </Property>
+<<<<<<< HEAD
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
+=======
+>>>>>>> 9fd56b84ce16e9a94e0afd5ef0c4135b88782340
         <Property name="text" type="java.lang.String" value="Registro de Empleados"/>
       </Properties>
       <Constraints>
@@ -62,9 +72,12 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Arial" size="13" style="1"/>
         </Property>
+<<<<<<< HEAD
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
+=======
+>>>>>>> 9fd56b84ce16e9a94e0afd5ef0c4135b88782340
         <Property name="text" type="java.lang.String" value="Nombre del Empleado : "/>
       </Properties>
       <Constraints>
@@ -85,9 +98,12 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Arial" size="13" style="1"/>
         </Property>
+<<<<<<< HEAD
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
+=======
+>>>>>>> 9fd56b84ce16e9a94e0afd5ef0c4135b88782340
         <Property name="text" type="java.lang.String" value="Departamento del Empleado:"/>
       </Properties>
       <Constraints>
@@ -108,9 +124,12 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Arial" size="13" style="1"/>
         </Property>
+<<<<<<< HEAD
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
+=======
+>>>>>>> 9fd56b84ce16e9a94e0afd5ef0c4135b88782340
         <Property name="text" type="java.lang.String" value="Puesto del Empleado:"/>
       </Properties>
       <Constraints>
@@ -124,9 +143,12 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Arial" size="13" style="1"/>
         </Property>
+<<<<<<< HEAD
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
+=======
+>>>>>>> 9fd56b84ce16e9a94e0afd5ef0c4135b88782340
         <Property name="text" type="java.lang.String" value="Telefono del Empleado:"/>
       </Properties>
       <Constraints>
@@ -147,9 +169,12 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Arial" size="13" style="1"/>
         </Property>
+<<<<<<< HEAD
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
+=======
+>>>>>>> 9fd56b84ce16e9a94e0afd5ef0c4135b88782340
         <Property name="text" type="java.lang.String" value="Datos del Empleado"/>
       </Properties>
       <Constraints>
@@ -163,9 +188,12 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Arial" size="13" style="1"/>
         </Property>
+<<<<<<< HEAD
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
+=======
+>>>>>>> 9fd56b84ce16e9a94e0afd5ef0c4135b88782340
         <Property name="text" type="java.lang.String" value="No.de Cuenta del Empleado:"/>
       </Properties>
       <Constraints>
@@ -186,9 +214,12 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Arial" size="13" style="1"/>
         </Property>
+<<<<<<< HEAD
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
+=======
+>>>>>>> 9fd56b84ce16e9a94e0afd5ef0c4135b88782340
         <Property name="text" type="java.lang.String" value="Direccion del Empleado:"/>
       </Properties>
       <Constraints>
@@ -209,9 +240,12 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Arial" size="13" style="1"/>
         </Property>
+<<<<<<< HEAD
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
+=======
+>>>>>>> 9fd56b84ce16e9a94e0afd5ef0c4135b88782340
         <Property name="text" type="java.lang.String" value="Sexo del Empleado: "/>
       </Properties>
       <Constraints>
@@ -225,9 +259,12 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Arial" size="13" style="1"/>
         </Property>
+<<<<<<< HEAD
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
+=======
+>>>>>>> 9fd56b84ce16e9a94e0afd5ef0c4135b88782340
         <Property name="text" type="java.lang.String" value="Edad del Empleado:"/>
       </Properties>
       <Constraints>
@@ -248,9 +285,12 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Arial" size="13" style="1"/>
         </Property>
+<<<<<<< HEAD
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
+=======
+>>>>>>> 9fd56b84ce16e9a94e0afd5ef0c4135b88782340
         <Property name="text" type="java.lang.String" value="Correo del Empleado: "/>
       </Properties>
       <Constraints>
@@ -287,9 +327,12 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Arial" size="13" style="1"/>
         </Property>
+<<<<<<< HEAD
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
+=======
+>>>>>>> 9fd56b84ce16e9a94e0afd5ef0c4135b88782340
         <Property name="text" type="java.lang.String" value="Ingrese el codigo del empleado :"/>
       </Properties>
       <Constraints>
@@ -428,7 +471,24 @@
         </Constraint>
       </Constraints>
     </Component>
+<<<<<<< HEAD
     <Component class="javax.swing.JLabel" name="jLabel14">
+=======
+    <Component class="javax.swing.JButton" name="jButton2">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Regresar"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
+      </Events>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="350" y="460" width="-1" height="-1"/>
+        </Constraint>
+      </Constraints>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel15">
+>>>>>>> 9fd56b84ce16e9a94e0afd5ef0c4135b88782340
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/Mantenimientos/Captura0.PNG"/>
@@ -446,7 +506,11 @@
       </AuxValues>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+<<<<<<< HEAD
           <AbsoluteConstraints x="10" y="510" width="630" height="130"/>
+=======
+          <AbsoluteConstraints x="3" y="570" width="630" height="130"/>
+>>>>>>> 9fd56b84ce16e9a94e0afd5ef0c4135b88782340
         </Constraint>
       </Constraints>
 
@@ -525,6 +589,7 @@
     </Container>
     <Component class="javax.swing.JLabel" name="jLabel16">
       <Properties>
+<<<<<<< HEAD
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Arial" size="13" style="1"/>
         </Property>
@@ -533,11 +598,16 @@
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/Mantenimientos/blue3.jpg"/>
+=======
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/Mantenimientos/fondorombo2.png"/>
+>>>>>>> 9fd56b84ce16e9a94e0afd5ef0c4135b88782340
         </Property>
         <Property name="text" type="java.lang.String" value="jLabel16"/>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+<<<<<<< HEAD
           <AbsoluteConstraints x="0" y="-90" width="690" height="500"/>
         </Constraint>
       </Constraints>
@@ -552,6 +622,9 @@
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
           <AbsoluteConstraints x="0" y="404" width="690" height="260"/>
+=======
+          <AbsoluteConstraints x="0" y="554" width="630" height="190"/>
+>>>>>>> 9fd56b84ce16e9a94e0afd5ef0c4135b88782340
         </Constraint>
       </Constraints>
     </Component>
