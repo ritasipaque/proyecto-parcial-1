@@ -196,6 +196,7 @@ public class Contenedor extends javax.swing.JFrame {
         
          r_empleados frm = new r_empleados();
          frm.setVisible(true);
+         
          this.setVisible(false);
         
 
