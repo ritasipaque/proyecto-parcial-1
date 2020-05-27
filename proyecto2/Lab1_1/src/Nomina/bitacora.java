@@ -22,6 +22,12 @@ import javax.swing.table.DefaultTableModel;
  * @author lsosa
  */
 public class bitacora extends javax.swing.JFrame {
+    String codigo;
+    String empleado;
+    String Puesto;
+    String Fecha;
+    String Sueldo;
+    String Contrase;
 
     /**
      * Creates new form bitacora
