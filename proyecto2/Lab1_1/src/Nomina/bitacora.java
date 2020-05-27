@@ -233,6 +233,24 @@ public class bitacora extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // BOTON GRABAR
+         codigo=txtcod.getText();
+        empleado=txtemp.getText();
+        Puesto=txtpuesto.getSelectedItem().toString();
+        Fecha=txtfech.getText();
+        Sueldo=txtSueldo.getText();
+        Contrase=contra.getText();
+        
+         DefaultTableModel modelo = (DefaultTableModel) tblDatos.getModel();
+        Object  [] fila=new Object [6];
+        fila[0]=txtcod.getText();
+        fila[1]=txtemp.getText();
+        fila[2]=txtpuesto.getSelectedItem().toString();
+        fila[3]=txtfech.getText();
+        fila[4]=txtSueldo.getText();
+        fila[5]=contra.getText();
+        modelo.addRow(fila);
+        tblDatos.setModel(modelo);
+        
         try {
             
            Connection cn= DriverManager.getConnection("jdbc:mysql://localhost/Bitacora_BD14","root","");
@@ -260,17 +278,6 @@ public class bitacora extends javax.swing.JFrame {
         } catch (Exception e) {
             
         }
- //-----------------------------------------------------------------------------------------------------------------
-        DefaultTableModel modelo = (DefaultTableModel) tblDatos.getModel();
-        Object  [] fila=new Object [6];
-        fila[0]=txtcod.getText();
-        fila[1]=txtemp.getText();
-        fila[2]=txtpuesto.getSelectedItem().toString();
-        fila[3]=txtfech.getText();
-        fila[4]=txtSueldo.getText();
-        fila[5]=contra.getText();
-        modelo.addRow(fila);
-        tblDatos.setModel(modelo);
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
