@@ -22,6 +22,7 @@ import javax.swing.table.DefaultTableModel;
  * @author lsosa
  */
 public class bitacora extends javax.swing.JFrame {
+    //Variables Locales - Luis Sosa
     String codigo;
     String empleado;
     String Puesto;
@@ -233,6 +234,7 @@ public class bitacora extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // BOTON GRABAR
+        //Registra datos en la tabla - Luis Sosa
          codigo=txtcod.getText();
         empleado=txtemp.getText();
         Puesto=txtpuesto.getSelectedItem().toString();
@@ -250,7 +252,8 @@ public class bitacora extends javax.swing.JFrame {
         fila[5]=contra.getText();
         modelo.addRow(fila);
         tblDatos.setModel(modelo);
-        
+        //--------------------------------------------------------------------------------------------------------
+        // Conectar datos con la base de datos - Luis Sosa
         try {
             
            Connection cn= DriverManager.getConnection("jdbc:mysql://localhost/Bitacora_BD13","root","");
@@ -286,6 +289,7 @@ public class bitacora extends javax.swing.JFrame {
         
 
   //-----------------------------------------------------------------------------------------------------------------
+  //vacia los textfield para ingresar otros datos - Luis Sosa
         this.txtcod.setText("");
         this.txtemp.setText("");
         this.txtpuesto.setSelectedIndex(0);
@@ -297,7 +301,7 @@ public class bitacora extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
+        // Para salir del programa
         System.exit(0);
     }//GEN-LAST:event_jButton4ActionPerformed
 
@@ -326,6 +330,7 @@ public class bitacora extends javax.swing.JFrame {
 
         }
 //--------------------------------------------------------------------------------
+//Busca y presenta los datos en la tabla
         DefaultTableModel modelo = (DefaultTableModel) tblDatos.getModel();
         Object  [] fila=new Object [6];
         fila[0]=txtcod.getText();
@@ -342,7 +347,7 @@ public class bitacora extends javax.swing.JFrame {
 
     private void EditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditarActionPerformed
         // BOTON EDITAR
-
+       // Modifica los datos en la base de datos
         try{ 
             String ID = txtid.getText().trim();
             
@@ -364,6 +369,7 @@ public class bitacora extends javax.swing.JFrame {
 
         }
 //-------------------------------------------------------------------------------------
+//Modifica los datos en la tabla - Luis Sosa
         String [] datos=new String [5];
         datos[0]=txtcod.getText();
         datos[1]=txtemp.getText();
@@ -375,7 +381,7 @@ public class bitacora extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // BOTON ELIMINAR
-
+        // Elimina los datos en la base de datos - Luis Sosa
         try {
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/Bitacora_BD13", "root", "");
             PreparedStatement pst = cn.prepareStatement("delete from Bitacora_de_empleados1 where ID = ?" );
@@ -396,6 +402,7 @@ public class bitacora extends javax.swing.JFrame {
         } catch (Exception e) {
         }
 //-------------------------------------------------------------------------------------------------------------
+//Eliminar los datos en la tabla - Luis Sosa
         DefaultTableModel modelo = (DefaultTableModel) tblDatos.getModel();
         int a=tblDatos.getSelectedRow();
         if (a<0){
@@ -415,6 +422,7 @@ public class bitacora extends javax.swing.JFrame {
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // REGRESAR
+        //Regresa a la ventana anterior
         Contenedor GN= new Contenedor(); 
          GN.setVisible(true);
          this.setVisible(false);
