@@ -14,6 +14,10 @@ import javax.swing.table.DefaultTableModel;
  * @author familia Sipaque
  */
 public class Almacenamientodepuestos extends javax.swing.JFrame {
+    String CodigoPuesto;
+    String NombreEmp;
+    String Estatus;
+    String Puesto;
 
     /**
      * Creates new form Almacenamientodepuestos
@@ -182,6 +186,8 @@ public class Almacenamientodepuestos extends javax.swing.JFrame {
         } catch (Exception e) {
         }
         //---------------------------------------------------------------------------
+        
+        //Eliminar datos de la tabla - Luis Sosa
         DefaultTableModel modelo = (DefaultTableModel) tblDatos.getModel();
         int a=tblDatos.getSelectedRow();
         if (a<0){
@@ -197,6 +203,25 @@ public class Almacenamientodepuestos extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // se registran todo los empleados
+        
+        CodigoPuesto=txt_1.getText();
+        NombreEmp=txt_2.getText();
+        Estatus=txt_3.getText();
+        Puesto=txt_4.getText();
+        
+        
+         DefaultTableModel modelo = (DefaultTableModel) tblDatos.getModel();
+        Object  [] fila=new Object [6];
+        fila[0]=txt_1.getText();
+        fila[1]=txt_2.getText();
+        fila[2]=txt_3.getText();
+        fila[3]=txt_4.getText();
+        
+        modelo.addRow(fila);
+        tblDatos.setModel(modelo);
+        
+        //-------------------------------------------------------------------------------------------------------  
+        
         try {
 
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/puesto", "root", "");
@@ -219,16 +244,7 @@ public class Almacenamientodepuestos extends javax.swing.JFrame {
         } catch (Exception e) {
 
         }
-        //----------------------------------------------------------------------
-        DefaultTableModel modelo = (DefaultTableModel) tblDatos.getModel();
-        Object  [] fila=new Object [6];
-        fila[0]=txt_1.getText();
-        fila[1]=txt_2.getText();
-        fila[2]=txt_3.getText();
-        fila[3]=txt_4.getText();
-
-        modelo.addRow(fila);
-        tblDatos.setModel(modelo);
+       
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
@@ -249,6 +265,8 @@ public class Almacenamientodepuestos extends javax.swing.JFrame {
         } catch (Exception e) {
         }
         //-------------------------------------------------------------------------------
+        
+        //Modificar los datos en la tabla - Luis Sosa
         String [] datos=new String [5];
         datos[0]=txt_1.getText();
         datos[1]=txt_2.getText();
@@ -280,6 +298,19 @@ public class Almacenamientodepuestos extends javax.swing.JFrame {
         } catch (Exception e) {
 
         }
+        
+         //------------------------------------------------------------------------------------------------
+   
+   //Buscar y presentar los datos en la tabla - Luis Sosa
+   DefaultTableModel modelo = (DefaultTableModel) tblDatos.getModel();
+        Object  [] fila=new Object [6];
+        fila[0]=txt_1.getText();
+        fila[1]=txt_2.getText();
+        fila[2]=txt_3.getText();
+        fila[3]=txt_4.getText();
+        
+        modelo.addRow(fila);
+        tblDatos.setModel(modelo);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
