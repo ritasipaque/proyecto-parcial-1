@@ -69,6 +69,7 @@ public class MantenimientoConcepto extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         tabla = new javax.swing.JTable();
         Buscar2 = new javax.swing.JButton();
+        jButton16 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -173,6 +174,13 @@ public class MantenimientoConcepto extends javax.swing.JFrame {
             }
         });
 
+        jButton16.setText("Ingresar a la Tabla");
+        jButton16.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton16ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -188,8 +196,7 @@ public class MantenimientoConcepto extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(Buscar2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(Buscar2))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(jLabel39)
@@ -217,7 +224,7 @@ public class MantenimientoConcepto extends javax.swing.JFrame {
                                         .addGap(18, 18, 18)
                                         .addComponent(aviso, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(42, 42, 42)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 96, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 86, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(22, 22, 22)
@@ -268,7 +275,10 @@ public class MantenimientoConcepto extends javax.swing.JFrame {
                                                 .addGroup(layout.createSequentialGroup()
                                                     .addComponent(jLabel52)
                                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                    .addComponent(txtotrosss, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)))))))))
+                                                    .addComponent(txtotrosss, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(144, 144, 144)
+                                        .addComponent(jButton16))))))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jScrollPane2)))
@@ -357,7 +367,9 @@ public class MantenimientoConcepto extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel35)
                             .addComponent(jLabel34))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                .addComponent(jButton16, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -405,6 +417,68 @@ public class MantenimientoConcepto extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_Buscar2ActionPerformed
 
+    private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
+
+        //Codigo echo por Jaqueline Carrera
+        //Codigo que ingresa los datos a la tabla con sus respectivas condiciones
+        //Se empiezan a poner las variables para los txtfield
+        String Id=txtid1.getText(),Nombre=txtnombres1.getText(),Natu=txtnaturaleza.getText();
+        String Tip=txttipo.getText();
+        String fechai=txtinicial.getText();
+        String fechaf=txtfinal.getText();
+        String selec;
+        selec = aviso.getText();
+
+        float SueldoO=Float.parseFloat(txtsueldo2.getText());
+        float SueldoE=Float.parseFloat(txtsueldoextra2.getText());
+        float comisiones=Float.parseFloat(txtcomis2.getText());
+        float bonificaciones=Float.parseFloat(txtcomis2.getText());
+        float Otrosi=Float.parseFloat(txtotross2.getText());
+        float TotalIngresos;
+        float anticipos=Float.parseFloat(txtanticipos.getText());
+        float Desc=Float.parseFloat(txtjudicial.getText());
+        float Otrosd=Float.parseFloat(txtotrosss.getText());
+        float igss1;
+        float isr1 = 0;
+        float TotalEgresos;
+        float SueldoLiquido;
+        //Condicion del ISR para sueldos mayores de 5000
+        if(SueldoO>=5000){
+            isr1=(float) (SueldoO*0.0145);
+        }
+        //Calculos del IGSS, Total ingresos, Total Egresos y Sueldo Liquido
+        igss1= (float) (SueldoO*0.0483);
+        TotalIngresos=(SueldoO+SueldoE+comisiones+Otrosi);
+        TotalEgresos=(anticipos+Desc+Otrosd+igss1+isr1);
+        SueldoLiquido=(TotalIngresos-TotalEgresos);
+        //Datos que se iran a la tabla
+        DefaultTableModel modelo=(DefaultTableModel)
+        tabla.getModel();
+        Object [] fila=new  Object[20];
+        fila[0]=Id;
+        fila[1]=Nombre;
+        fila[2]=selec;
+        fila[3]=Natu;
+        fila[4]=Tip;
+        fila[5]=SueldoO;
+        fila[6]=SueldoE;
+        fila[7]=comisiones;
+        fila[8]=bonificaciones;
+        fila[9]=Otrosi;
+        fila[10]=TotalIngresos;
+        fila[11]=anticipos;
+        fila[12]=Desc;
+        fila[13]=igss1;
+        fila[14]=isr1;
+        fila[15]=Otrosd;
+        fila[16]=TotalEgresos;
+        fila[17]=fechai;
+        fila[18]=fechaf;
+        fila[19]=SueldoLiquido;
+        modelo.addRow(fila);
+        tabla.setModel(modelo);
+    }//GEN-LAST:event_jButton16ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -445,6 +519,7 @@ public class MantenimientoConcepto extends javax.swing.JFrame {
     private javax.swing.JRadioButton a;
     private javax.swing.JTextField aviso;
     private javax.swing.JRadioButton b;
+    private javax.swing.JButton jButton16;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
