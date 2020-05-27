@@ -71,6 +71,8 @@ public class MantenimientoConcepto extends javax.swing.JFrame {
         Buscar2 = new javax.swing.JButton();
         jButton16 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        registro = new javax.swing.JButton();
+        label1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -189,6 +191,14 @@ public class MantenimientoConcepto extends javax.swing.JFrame {
             }
         });
 
+        registro.setBackground(new java.awt.Color(204, 255, 255));
+        registro.setText("Registrar Empleados a la base de datos");
+        registro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                registroActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -286,14 +296,22 @@ public class MantenimientoConcepto extends javax.swing.JFrame {
                                                 .addGroup(layout.createSequentialGroup()
                                                     .addComponent(jLabel52)
                                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                    .addComponent(txtotrosss, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(144, 144, 144)
-                                        .addComponent(jButton16))))))
+                                                    .addComponent(txtotrosss, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)))))))))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jScrollPane2)))
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jButton16)
+                        .addGap(311, 311, 311))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(66, 66, 66)
+                        .addComponent(registro)
+                        .addGap(384, 384, 384))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -379,11 +397,18 @@ public class MantenimientoConcepto extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel35)
                             .addComponent(jLabel34))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                .addGap(35, 35, 35)
                 .addComponent(jButton16, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(registro, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(33, 33, 33))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(23, 23, 23))))
         );
 
         pack();
@@ -503,6 +528,47 @@ public class MantenimientoConcepto extends javax.swing.JFrame {
         aviso.setText(selec);
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void registroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registroActionPerformed
+
+        // Codigo que ingresa
+        //Jaqueline Carrera
+        try{
+            for(int i=0; i<tabla.getRowCount();++i)// se Ingresaran los datos de la tabla
+
+            {
+                Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/nomina", "root", "");//conecta a MYSQL
+                PreparedStatement pst = cn.prepareStatement("insert into concepto values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+
+                pst.setString(1, tabla.getValueAt(i,0).toString());//Codigo para ingresar datos desde la tabla
+                pst.setString(2, tabla.getValueAt(i,1).toString());
+                pst.setString(3, tabla.getValueAt(i,2).toString());
+                pst.setString(4, tabla.getValueAt(i,3).toString());
+                pst.setString(5, tabla.getValueAt(i,4).toString());
+                pst.setString(6, tabla.getValueAt(i,5).toString());
+                pst.setString(7, tabla.getValueAt(i,6).toString());
+                pst.setString(8, tabla.getValueAt(i,7).toString());
+                pst.setString(9, tabla.getValueAt(i,8).toString());
+                pst.setString(10, tabla.getValueAt(i,9).toString());
+                pst.setString(11, tabla.getValueAt(i,10).toString());
+                pst.setString(12, tabla.getValueAt(i,11).toString());
+                pst.setString(13, tabla.getValueAt(i,12).toString());
+                pst.setString(14, tabla.getValueAt(i,13).toString());
+                pst.setString(15, tabla.getValueAt(i,14).toString());
+                pst.setString(16, tabla.getValueAt(i,15).toString());
+                pst.setString(17, tabla.getValueAt(i,16).toString());
+                pst.setString(18, tabla.getValueAt(i,17).toString());
+                pst.setString(19, tabla.getValueAt(i,18).toString());
+                pst.setString(20, tabla.getValueAt(i,19).toString());
+                pst.executeUpdate();
+
+                label1.setText("Se registraron los empleados");
+            }
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_registroActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -567,6 +633,8 @@ public class MantenimientoConcepto extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel52;
     private javax.swing.JLabel jLabel53;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel label1;
+    private javax.swing.JButton registro;
     private javax.swing.JTable tabla;
     private javax.swing.JTextField txtBuscar;
     private javax.swing.JTextField txtanticipos;
