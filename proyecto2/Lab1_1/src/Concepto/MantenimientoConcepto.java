@@ -73,6 +73,8 @@ public class MantenimientoConcepto extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         registro = new javax.swing.JButton();
         label1 = new javax.swing.JLabel();
+        Modificar = new javax.swing.JButton();
+        Eliminar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -199,6 +201,20 @@ public class MantenimientoConcepto extends javax.swing.JFrame {
             }
         });
 
+        Modificar.setText("Modificar");
+        Modificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ModificarActionPerformed(evt);
+            }
+        });
+
+        Eliminar.setText("Eliminar");
+        Eliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EliminarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -311,7 +327,11 @@ public class MantenimientoConcepto extends javax.swing.JFrame {
                         .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(66, 66, 66)
                         .addComponent(registro)
-                        .addGap(384, 384, 384))))
+                        .addGap(18, 18, 18)
+                        .addComponent(Modificar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(Eliminar)
+                        .addGap(212, 212, 212))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -404,7 +424,11 @@ public class MantenimientoConcepto extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(registro, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(registro, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(Modificar, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(Eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(33, 33, 33))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -569,6 +593,78 @@ public class MantenimientoConcepto extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_registroActionPerformed
 
+    private void ModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModificarActionPerformed
+
+        // Codigo que modifica
+        //Jaqueline Carrera
+        try{
+            for(int i=0; i<tabla.getRowCount();++i)// se Ingresaran los datos de la tabla
+
+            {
+                String ID = txtBuscar.getText().trim();
+                Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/nomina", "root", "");//conecta a MYSQL
+                PreparedStatement pst = cn.prepareStatement("update concepto set nombre_empleado = ?, estatus = ?, naturaleza = ?, tipo = ?, sueldo_ordinario = ?,sueldo_extraordinario = ?, comisiones = ?, bonificaciones = ?, otros_ingresos = ?, total_ingresos = ?,anticipos = ?, descuento_judicial = ?, igss = ?, isr = ?,otros_descuentos = ?,total_egresos = ?, fecha_inicial = ?, fecha_final = ?, sueldo_liquido = ? where id_empleado = "+ ID);
+
+                pst.setString(1, tabla.getValueAt(i,0).toString());//Codigo para ingresar datos desde la tabla
+                pst.setString(2, tabla.getValueAt(i,1).toString());
+                pst.setString(3, tabla.getValueAt(i,2).toString());
+                pst.setString(4, tabla.getValueAt(i,3).toString());
+                pst.setString(5, tabla.getValueAt(i,4).toString());
+                pst.setString(6, tabla.getValueAt(i,5).toString());
+                pst.setString(7, tabla.getValueAt(i,6).toString());
+                pst.setString(8, tabla.getValueAt(i,7).toString());
+                pst.setString(9, tabla.getValueAt(i,8).toString());
+                pst.setString(10, tabla.getValueAt(i,9).toString());
+                pst.setString(11, tabla.getValueAt(i,10).toString());
+                pst.setString(12, tabla.getValueAt(i,11).toString());
+                pst.setString(13, tabla.getValueAt(i,12).toString());
+                pst.setString(14, tabla.getValueAt(i,13).toString());
+                pst.setString(15, tabla.getValueAt(i,14).toString());
+                pst.setString(16, tabla.getValueAt(i,15).toString());
+                pst.setString(17, tabla.getValueAt(i,16).toString());
+                pst.setString(18, tabla.getValueAt(i,17).toString());
+                pst.setString(19, tabla.getValueAt(i,18).toString());
+                pst.setString(20, tabla.getValueAt(i,19).toString());
+                pst.executeUpdate();
+
+                label1.setText("Se Modifico");
+
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_ModificarActionPerformed
+
+    private void EliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarActionPerformed
+        // Codigo para eliminar en la base de datos
+        //
+        try {
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/nomina", "root", "");
+            PreparedStatement pst = cn.prepareStatement("delete from concepto where id_empleado = ?");
+
+            pst.setString(1, txtBuscar.getText().trim());
+            pst.executeUpdate();
+
+            txtid1.setText("");
+            txtnombres1.setText("");
+            aviso.setText("");
+            txtnaturaleza.setText("");
+            txttipo.setText("");
+            txtsueldo2.setText("");
+            txtsueldoextra2.setText("");
+            txtcomis2.setText("");
+            txtboni.setText("");
+            txtotross2.setText("");
+            txtanticipos.setText("");
+            txtjudicial.setText("");
+            txtotrosss.setText("");
+            txtinicial.setText("");
+            txtfinal.setText("");
+            label1.setText("Registro eliminado.");
+        } catch (Exception e) {
+        }
+    }//GEN-LAST:event_EliminarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -606,6 +702,8 @@ public class MantenimientoConcepto extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Buscar2;
+    private javax.swing.JButton Eliminar;
+    private javax.swing.JButton Modificar;
     private javax.swing.JRadioButton a;
     private javax.swing.JTextField aviso;
     private javax.swing.JRadioButton b;
