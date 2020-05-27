@@ -4,7 +4,10 @@
  * and open the template in the editor.
  */
 package Concepto;
-
+import Recibo.recibo;
+import javax.swing.table.DefaultTableModel;
+import java.sql.*;
+import javax.swing.JOptionPane;
 /**
  *
  * @author Jacky
