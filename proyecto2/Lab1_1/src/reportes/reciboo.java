@@ -10,7 +10,7 @@ import java.awt.print.PrinterException;
 import java.awt.print.PrinterJob;
 import java.io.File;
 import java.io.FileInputStream;
-
+import javax.swing.JOptionPane;
 
 import java.util.Formatter;
 import java.util.Properties;
@@ -25,7 +25,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Alejandro
+ * @author Alejandro ,Carlos  Flores
  */
 public class reciboo extends javax.swing.JFrame {
    String prueva;
@@ -488,7 +488,15 @@ public class reciboo extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-      prueva=Sueldo.getText();
+/**
+ *
+ * boton de buscar    es  sql
+ */
+
+        
+        prueva=Sueldo.getText();
+        
+        
         try{
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/nomina", "root", "");
             PreparedStatement pst = cn.prepareStatement("select * from concepto where id_empleado = ?");
