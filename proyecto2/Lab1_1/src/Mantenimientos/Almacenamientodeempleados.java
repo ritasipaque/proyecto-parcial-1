@@ -14,6 +14,7 @@ import javax.swing.table.DefaultTableModel;
  * @author familia Sipaque
  */
 public class Almacenamientodeempleados extends javax.swing.JFrame {
+   //variables locales - Luis Sosa
     String nombre;
 String DepartamentoEmp;
 String PuestoEmp;
@@ -243,6 +244,7 @@ String estatus;
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // se registran todo los empleados
+        // Registrar datos en la tabla - Luis Sosa
          DefaultTableModel modelo = (DefaultTableModel) tblDatos.getModel();
         
         nombre=txt_NombreEmpleado.getText();
@@ -270,6 +272,7 @@ String estatus;
         modelo.addRow(fila);
         tblDatos.setModel(modelo); 
         //-----------------------------------------------------------------------------------------------------
+        // se registran todo los empleados
         try {
 
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/bd_ins800", "root", "");
@@ -332,7 +335,9 @@ String estatus;
         } catch (Exception e) {
 
         }
-        //-------------------------------------------------------------------------------------------
+        //------------------------------------------------------------------------------------
+        
+        //Buscar y presentar los datos en la tabla - Luis Sosa
         DefaultTableModel modelo = (DefaultTableModel) tblDatos.getModel();
         
         
@@ -374,6 +379,7 @@ String estatus;
         } catch (Exception e) {
         }
         //--------------------------------------------------------------------------------------------
+        //Modificar datos en la tabla - Luis Sosa
         String [] datos=new String [5];
         datos[0]=txt_NombreEmpleado.getText();
         datos[1]=txt_DepartamentoEmpleado.getText();
@@ -413,6 +419,7 @@ String estatus;
         } catch (Exception e) {
         }
         //-----------------------------------------------------------------------------------
+        //Eliminar datos de la tabla - Luis Sosa
         DefaultTableModel modelo = (DefaultTableModel) tblDatos.getModel();
         int a=tblDatos.getSelectedRow();
         if (a<0){
@@ -435,7 +442,7 @@ String estatus;
     }//GEN-LAST:event_txt_SexoEmpleadoActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        // Regresar a la ventana anterior - Luis Sosa
          Contenedor GN= new Contenedor(); 
          GN.setVisible(true);
          this.setVisible(false);
