@@ -45,9 +45,7 @@ public class recibo2 extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
-        jLabel10 = new javax.swing.JLabel();
         TxtNombre1 = new javax.swing.JTextField();
-        Puesto = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         txtNoCuenta = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
@@ -157,9 +155,6 @@ public class recibo2 extends javax.swing.JFrame {
         jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "DATOS EMPLEADO", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(255, 255, 255))); // NOI18N
         jPanel6.setForeground(new java.awt.Color(255, 255, 255));
 
-        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel10.setText("Puesto");
-
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("No. de cuenta personal");
 
@@ -207,13 +202,9 @@ public class recibo2 extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(TxtNombre1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel10)
-                                    .addComponent(jLabel14))
+                                .addComponent(jLabel14)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(Puesto, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE)
-                                    .addComponent(Sueldo1))))
+                                .addComponent(Sueldo1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(39, 39, 39)
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel6Layout.createSequentialGroup()
@@ -246,16 +237,10 @@ public class recibo2 extends javax.swing.JFrame {
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel12)
-                        .addComponent(txtHoras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Puesto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(9, 9, 9)
-                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel14)
-                            .addComponent(Sueldo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                        .addComponent(txtHoras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(Sueldo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel14))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton2)
                     .addComponent(jButton3)
@@ -276,19 +261,19 @@ public class recibo2 extends javax.swing.JFrame {
                 jButton6ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 440, -1, -1));
+        jPanel1.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 470, -1, -1));
 
         Totales.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TotalesActionPerformed(evt);
             }
         });
-        jPanel1.add(Totales, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 400, 64, -1));
+        jPanel1.add(Totales, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 440, 64, -1));
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
         jLabel15.setText("Sueldo Total");
-        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 400, -1, -1));
+        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 440, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -307,24 +292,26 @@ public class recibo2 extends javax.swing.JFrame {
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         //Codigo que permite consultar registros en la base de datos
         try{
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3307/nominabancos", "root", "");// "Jose Alejandro Jeronimo"
-            PreparedStatement pst = cn.prepareStatement("select * from bancobanrural where ID = ?");//"Jose Alejandro Jeronimo"
-/*-----------------------------------------------------------------------------------------------------------------------*/
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/nomina", "root", "");// "Jose Alejandro Jeronimo"
+            PreparedStatement pst = cn.prepareStatement("select * from concepto where id_empleado = ?");//"Jose Alejandro Jeronimo"
+            //La tabla y BD de MYSQL fueron trabajadas por "Jose Alejandro Jeronimo"
+            //"Jaqueline Carrera" Trabajó el codigo de JAVA junto con modificaciones por Jose Alejandro Jeronimo
+
             pst.setString(1, txt_buscar.getText().trim());//busca lo que hay en el txt en la base de datos
 
             ResultSet rs = pst.executeQuery();
 
             if(rs.next()){
                 //Busca lo que está en las " " y lo trae a los txt correspondientes
-                TxtNombre1.setText(rs.getString("Nombre"));
-                Puesto.setText(rs.getString("Puesto"));
-                Sueldo1.setText(rs.getString("Sueldo"));
-                txtNoCuenta.setText(rs.getString("NodeCuenta"));
-                txtHoras.setText(rs.getString("HorasExtras"));
-                IGSS.setText(rs.getString("IGSS"));
-                ISR.setText(rs.getString("ISR"));
-                txtOtros.setText(rs.getString("Otros"));
-                Totales.setText(rs.getString("Totales"));
+                txt_buscar.setText(rs.getString("id_empleado"));
+                TxtNombre1.setText(rs.getString("nombre_empleado"));
+                Sueldo1.setText(rs.getString("sueldo_ordinario"));
+                txtHoras.setText(rs.getString("sueldo_extraordinario"));
+                IGSS.setText(rs.getString("igss"));
+                ISR.setText(rs.getString("isr"));
+                txtOtros.setText(rs.getString("otros_ingresos"));
+                Totales.setText(rs.getString("sueldo_liquido"));
+
             } else {
                 //si el campo no existiera que aparecera un mensaje en el LABEL
                 JOptionPane.showMessageDialog(null, "Persona no registrada.");
@@ -346,7 +333,7 @@ public class recibo2 extends javax.swing.JFrame {
         //Vacia los txt seleccionados
             txt_buscar.setText("");
             TxtNombre1.setText("");
-            Puesto.setText("");
+         
             Sueldo1.setText("");
             txtNoCuenta.setText("");
             txtHoras.setText("");
@@ -371,7 +358,7 @@ public class recibo2 extends javax.swing.JFrame {
                     + "NodeCuenta = ?, HorasExtras = ?, IGSS = ?, ISR = ?, Otros = ?, Totales = ? where ID = " + ID);
  /*-----------------------------------------------------------------------------------------------------------------------*/
             pst.setString(1, TxtNombre1.getText().trim());//Nombre
-            pst.setString(2, Puesto.getText().trim());//Puesto
+  
             pst.setString(3, Sueldo1.getText().trim()); // Sueldo
             pst.setString(4, txtNoCuenta.getText().trim()); // No. de cuenta
             pst.setString(5, txtHoras.getText().trim()); // Horas extras
@@ -388,26 +375,28 @@ public class recibo2 extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        //Codigo que permite insertar registros en al base de datos
+     //Codigo que permite insertar registros en al base de datos
         //Diseño del JFrame trabajado por ambos
         try{
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3307/nominabancos", "root", "");
-            PreparedStatement pst = cn.prepareStatement("insert into bancobanrural values(?,?,?,?,?,?,?,?,?,?)");
-/*-----------------------------------------------------------------------------------------------------------------------*/
-            pst.setString(1, "0");
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/nominabancos", "root", "");//conexión a MYSQL "Jose Alejandro Jeronimo"
+            PreparedStatement pst = cn.prepareStatement("insert into bancobanrural values(?,?,?,?,?,?,?,?,?)");// conexión a la tabla "Jose Alejandro Jeronimo"
+
+            //La tabla y BD de MYSQL fueron trabajadas por "Jose Alejandro Jeronimo"
+            //"Jaqueline Carrera" Trabajó el codigo de JAVA junto con modificaciones por Jose Alejandro Jeronimo
+
+            pst.setString(1, txt_buscar.getText().trim());//ID
             pst.setString(2, TxtNombre1.getText().trim());//Nombre
-            pst.setString(3, Puesto.getText().trim());//Puesto
-            pst.setString(4, Sueldo1.getText().trim()); // Sueldo
-            pst.setString(5, txtNoCuenta.getText().trim()); // No. de cuenta
-            pst.setString(6, txtHoras.getText().trim()); // Horas extras
-            pst.setString(7, IGSS.getText().trim()); //IGSS
-            pst.setString(8, ISR.getText().trim()); //ISR
-            pst.setString(9, txtOtros.getText().trim()); //Otros
-            pst.setString(10, Totales.getText().trim()); //Totales
+            pst.setString(3, Sueldo1.getText().trim()); // Sueldo
+            pst.setString(4, txtNoCuenta.getText().trim()); // No. de cuenta
+            pst.setString(5, txtHoras.getText().trim()); // Horas extras
+            pst.setString(6, IGSS.getText().trim()); //IGSS
+            pst.setString(7, ISR.getText().trim()); //ISR
+            pst.setString(8, txtOtros.getText().trim()); //Otros
+            pst.setString(9, Totales.getText().trim()); //Totales
             pst.executeUpdate();
-     //Borra lo que hay en campos
+
+            //Borra lo que hay en campos
             TxtNombre1.setText("");
-            Puesto.setText("");
             Sueldo1.setText("");
             txtNoCuenta.setText("");
             txtHoras.setText("");
@@ -471,7 +460,6 @@ public class recibo2 extends javax.swing.JFrame {
     public static javax.swing.JTextField IGSS;
     public static javax.swing.JTextField ISR;
     private javax.swing.JLabel Label_status;
-    public static javax.swing.JTextField Puesto;
     public static javax.swing.JTextField Sueldo1;
     public static javax.swing.JTextField Totales;
     public static javax.swing.JTextField TxtNombre1;
@@ -481,7 +469,6 @@ public class recibo2 extends javax.swing.JFrame {
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
