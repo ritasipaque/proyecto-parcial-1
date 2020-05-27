@@ -19,7 +19,7 @@ import javax.swing.table.DefaultTableModel;
 public class nomina_exe extends javax.swing.JFrame {
     /**
  *
- * nominas globales
+ * nominas globales de  la  nomina
  */
   double sueldoExtra, comisiones, otrosIngresos,bonficacion =250 ;
      float igss=(float) 0.83;  float isr;   float anticipos, dj, otrosDescuentos;
@@ -376,7 +376,7 @@ public class nomina_exe extends javax.swing.JFrame {
     private void CmdCalcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CmdCalcActionPerformed
         /**
  *
- *  se   exatrajo  doto  de la  parte  de  diseño 
+ *  se   exatrajo  doto  de la  parte  de  diseño   de   getxt
  */ 
         
         nombree=txtnombres.getText();
@@ -392,7 +392,7 @@ public class nomina_exe extends javax.swing.JFrame {
         otrosDescuentos=Float.parseFloat(txtotrosss.getText());
          
        totIngresos = (float) (sueldo+sueldoExtra+comisiones+otrosIngresos);
-      //-------------------------------------------------------//
+      // calculos de  la nomina-------------------------------------------------------//
         horas=(float) (sueldoExtra*1.5);
         igss1=sueldo*igss;
         
@@ -511,6 +511,10 @@ public class nomina_exe extends javax.swing.JFrame {
     }//GEN-LAST:event_CmdTotalesActionPerformed
 
     private void chequeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chequeActionPerformed
+             /**
+ *
+ *   datos    recibo
+ */
         this.setVisible(true);
         recibo c= new recibo();
         c.setVisible(true);
@@ -620,7 +624,7 @@ PreparedStatement pst = cn.prepareStatement("update planilla set CodigoNombre=?,
      
         /**
  *
- * boton  de   eliminar
+ * boton  de   eliminar de   sql y de  la  tabla  
  */
         try {
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/nominaphase3", "root", "");
@@ -691,7 +695,7 @@ PreparedStatement pst = cn.prepareStatement("update planilla set CodigoNombre=?,
     private void CmdCalc2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CmdCalc2ActionPerformed
       /**
  *
- * boton de   buscar  de  nomina 
+ * boton de   buscar  de  nomina  de   la   tabla
  */
         try{
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/nominaphase3", "root", "");
