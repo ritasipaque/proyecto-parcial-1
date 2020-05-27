@@ -12,7 +12,15 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author PERSONAL
  */
+/**
+ *
+ * cambios  por  carlos  flores  
+ */
 public class nomina_exe extends javax.swing.JFrame {
+    /**
+ *
+ * nominas globales
+ */
   double sueldoExtra, comisiones, otrosIngresos,bonficacion =250 ;
      float igss=(float) 0.83;  float isr;   float anticipos, dj, otrosDescuentos;
        float igss1;  
@@ -28,25 +36,7 @@ public class nomina_exe extends javax.swing.JFrame {
      */
     public nomina_exe() {
         initComponents();
-      Object[] data = new Object[15];
-        data[0]=nombree;
-        data[1]=puestoo;
-        data[2]=String.valueOf(sueldo);
-        data[3]=String.valueOf(horas);
-        data[4]=String.valueOf(bonficacion);
-        data[5]=String.valueOf(comisiones);
-        data[6]=String.valueOf(otrosIngresos);
-        data[7]=String.valueOf(totIngresos);
-        data[8]=String.valueOf(igss1);
-        data[9]=String.valueOf(isr);
-        data[10]=String.valueOf(anticipos);
-        data[11]=String.valueOf(dj);
-        data[12]=String.valueOf(  otrosDescuentos);
-        data[13]=String.valueOf(totDesc);
-        data[14]=String.valueOf( sueldoLiquido);
-        DefaultTableModel modelo = (DefaultTableModel) tablita.getModel();
-        modelo.addRow(data);
-        tablita.setModel(modelo); 
+     
          
     }
 
@@ -384,7 +374,12 @@ public class nomina_exe extends javax.swing.JFrame {
 
     
     private void CmdCalcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CmdCalcActionPerformed
-         nombree=txtnombres.getText();
+        /**
+ *
+ *  se   exatrajo  doto  de la  parte  de  diseño 
+ */ 
+        
+        nombree=txtnombres.getText();
           fecha=txt_f.getText();
          puestoo=txtpues.getText();
            sueldoExtra=Float.parseFloat(txtsueldoextra.getText());
@@ -414,7 +409,10 @@ public class nomina_exe extends javax.swing.JFrame {
         //---------------------------------------//
     
         //--------------------------//
-        
+        /**
+ *
+ *  se  creo  una  tabla  en la cual se  pone todos  los  txtfliles
+ */
          Object[] data = new Object[15];
         data[0]=nombree;
         data[1]=puestoo;
@@ -434,7 +432,10 @@ public class nomina_exe extends javax.swing.JFrame {
         DefaultTableModel modelo = (DefaultTableModel) tablita.getModel();
         modelo.addRow(data);
         tablita.setModel(modelo); 
-        
+        /**
+ *
+ * coneccion de  insertar  en  sql
+ */
         try {
             Class.forName("com.mysql.jdbc.Driver");
             Connection conectar = DriverManager.getConnection("jdbc:mysql://localhost/nominaphase3","root","");
@@ -485,10 +486,20 @@ public class nomina_exe extends javax.swing.JFrame {
     }//GEN-LAST:event_CmdCalcActionPerformed
 
     private void CmdSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CmdSalirActionPerformed
+       /**
+ *
+ *para  salir  de   de  del  programa
+ */
+        
         System.exit(0);
     }//GEN-LAST:event_CmdSalirActionPerformed
 
     private void CmdTotalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CmdTotalesActionPerformed
+     /**
+ *
+ * te  cuenta todos   los  sueldos  ingresados
+ */
+        
         DefaultTableModel modelo = (DefaultTableModel) tablita.getModel();
         float t2=0; String t0="";
         for(int i=0; i<modelo.getRowCount(); i++)
@@ -521,6 +532,10 @@ public class nomina_exe extends javax.swing.JFrame {
     }//GEN-LAST:event_chequeActionPerformed
 
     private void CmdCalc1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CmdCalc1ActionPerformed
+       /**
+ *
+ * boton de Modificar
+ */
         Object[] data = new Object[15];
         data[0]=nombree;
         data[1]=puestoo;
@@ -602,6 +617,11 @@ PreparedStatement pst = cn.prepareStatement("update planilla set CodigoNombre=?,
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+     
+        /**
+ *
+ * boton  de   eliminar
+ */
         try {
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/nominaphase3", "root", "");
             PreparedStatement pst = cn.prepareStatement("delete from planilla where ID = ?");
@@ -669,7 +689,10 @@ PreparedStatement pst = cn.prepareStatement("update planilla set CodigoNombre=?,
     }//GEN-LAST:event_RegresarActionPerformed
 
     private void CmdCalc2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CmdCalc2ActionPerformed
-      
+      /**
+ *
+ * boton de   buscar  de  nomina 
+ */
         try{
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/nominaphase3", "root", "");
             PreparedStatement pst = cn.prepareStatement("select * from planilla where ID = ?");
