@@ -14,6 +14,13 @@ import javax.swing.table.DefaultTableModel;
  * @author familia Sipaque
  */
 public class Almacenamiento_Departamento extends javax.swing.JFrame {
+     //variables locales - Luis Sosa
+    String CodigoDep;
+    String Departamento;
+    String CodigoArea;
+    String NombreArea;
+    String CodigoPuesto;
+    String Puesto;
 
     /**
      * Creates new form Almacenamiento_Departamento

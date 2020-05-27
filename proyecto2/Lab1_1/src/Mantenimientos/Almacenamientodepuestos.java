@@ -14,6 +14,7 @@ import javax.swing.table.DefaultTableModel;
  * @author familia Sipaque
  */
 public class Almacenamientodepuestos extends javax.swing.JFrame {
+   //Variables locales - Luis Sosa
     String CodigoPuesto;
     String NombreEmp;
     String Estatus;
