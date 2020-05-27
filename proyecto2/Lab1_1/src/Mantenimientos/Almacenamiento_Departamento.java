@@ -200,7 +200,7 @@ public class Almacenamiento_Departamento extends javax.swing.JFrame {
             /**
             conector de mi sql
             */
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/A_d", "root", "");
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/A_D", "root", "");
             PreparedStatement pst = cn.prepareStatement("insert into departamento values(?,?,?,?,?,?)");
             /**
             entrada y salida  de  arcrivos
