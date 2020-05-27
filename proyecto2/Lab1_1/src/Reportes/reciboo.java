@@ -168,7 +168,6 @@ public class reciboo extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         id = new javax.swing.JTextField();
         o = new javax.swing.JTextField();
-        jButton4 = new javax.swing.JButton();
         ya = new javax.swing.JLabel();
 
         panel.setBackground(new java.awt.Color(0, 153, 153));
@@ -236,13 +235,6 @@ public class reciboo extends javax.swing.JFrame {
         jLabel21.setText("Total de  Egresos");
 
         jLabel12.setText("ID");
-
-        jButton4.setText("jButton4");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
-            }
-        });
 
         ya.setText("jLabel6");
 
@@ -315,15 +307,9 @@ public class reciboo extends javax.swing.JFrame {
                                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 144, Short.MAX_VALUE)
                                                     .addComponent(IGSS, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                 .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING)))
-                                        .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(panelLayout.createSequentialGroup()
-                                                .addGap(34, 34, 34)
-                                                .addComponent(jButton4)
-                                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLayout.createSequentialGroup()
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(ya)
-                                                .addGap(58, 58, 58))))))))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(ya)
+                                        .addGap(58, 58, 58))))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLayout.createSequentialGroup()
                         .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(panelLayout.createSequentialGroup()
@@ -399,14 +385,9 @@ public class reciboo extends javax.swing.JFrame {
                         .addComponent(jLabel14)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(panelLayout.createSequentialGroup()
-                        .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panelLayout.createSequentialGroup()
-                                .addComponent(anti, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(dj, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(panelLayout.createSequentialGroup()
-                                .addGap(15, 15, 15)
-                                .addComponent(jButton4)))
+                        .addComponent(anti, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(dj, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(otro2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 29, Short.MAX_VALUE)
@@ -490,7 +471,7 @@ public class reciboo extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
 /**
  *
- * boton de buscar    es  sql
+ * boton de buscar    es  sql de  la  base  de datos  de  la  nomina  
  */
 
         
@@ -531,54 +512,6 @@ public class reciboo extends javax.swing.JFrame {
             
         }
     }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-   try{
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/nomina", "root", "");
-            PreparedStatement pst = cn.prepareStatement("insert into concepto values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
-            
-            pst.setString(1, "0");
-           pst.setString(2, "0");    
-           pst.setString(3, "0");
-            
-              pst.setString(4, "0");
-                pst.setString(5, "0");
-                  pst.setString(6, "0");
-                    pst.setString(7, "0"); 
-                    pst.setString(8, "0"); 
-                    pst.setString(9, "0");
-                      pst.setString(10, "0");
-                        pst.setString(11, "0");
-                          pst.setString(12, "0");
-                            pst.setString(13, "0");
-                              pst.setString(14, "0");
-                                pst.setString(15, "0");
-                                  pst.setString(16, "0");
-                                    pst.setString(17, "0");
-                                pst.setString(18, "0");
-                                  pst.setString(19, "0");
-                                  pst.setString(20, "0");
-                    
-                    
-                    
-                    
-           
-            
-            
-            pst.executeUpdate();
-            
-            Sueldo.setText("");
-            bonificacion.setText("");
-           ya.setText("Registro exitoso.");
-        }catch (Exception e){
-            
-        }
-
-
-
-
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -634,7 +567,6 @@ public class reciboo extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
