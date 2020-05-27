@@ -253,8 +253,8 @@ public class bitacora extends javax.swing.JFrame {
         
         try {
             
-           Connection cn= DriverManager.getConnection("jdbc:mysql://localhost/Bitacora_BD14","root","");
-           PreparedStatement pst = cn.prepareStatement("insert into Bitacora_de_empleado values(?,?,?,?,?,?,?)");
+           Connection cn= DriverManager.getConnection("jdbc:mysql://localhost/Bitacora_BD13","root","");
+           PreparedStatement pst = cn.prepareStatement("insert into Bitacora_de_empleados1 values(?,?,?,?,?,?,?)");
            
             pst.setString(1, "0");
             pst.setString(2, txtcod.getText().trim());
@@ -305,8 +305,8 @@ public class bitacora extends javax.swing.JFrame {
         // TODO add your handling code here:
          try{
              Connection cn;
-            cn = DriverManager.getConnection("jdbc:mysql://localhost/Bitacora_BD14", "root", "");
-            PreparedStatement pst = cn.prepareStatement("select * from Bitacora_de_empleado where ID = ?");
+            cn = DriverManager.getConnection("jdbc:mysql://localhost/Bitacora_BD13", "root", "");
+            PreparedStatement pst = cn.prepareStatement("select * from Bitacora_de_empleados1 where ID = ?");
             pst.setString(1, txtid.getText().trim());
 
             ResultSet rs = pst.executeQuery();
@@ -325,8 +325,17 @@ public class bitacora extends javax.swing.JFrame {
         }catch (Exception e){
 
         }
-
-        
+//--------------------------------------------------------------------------------
+        DefaultTableModel modelo = (DefaultTableModel) tblDatos.getModel();
+        Object  [] fila=new Object [6];
+        fila[0]=txtcod.getText();
+        fila[1]=txtemp.getText();
+        fila[2]=txtpuesto.getSelectedItem().toString();
+        fila[3]=txtfech.getText();
+        fila[4]=txtSueldo.getText();
+        fila[5]=contra.getText();
+        modelo.addRow(fila);
+        tblDatos.setModel(modelo);
      
         
     }//GEN-LAST:event_jButton6ActionPerformed
@@ -337,8 +346,8 @@ public class bitacora extends javax.swing.JFrame {
         try{ 
             String ID = txtid.getText().trim();
             
-            Connection cn= DriverManager.getConnection("jdbc:mysql://localhost/Bitacora_BD14","root","");
-            PreparedStatement pst = cn.prepareStatement("update Bitacora_de_empleado set  Codigo=?, Empleado=?, Cargo=?,Fecha=?, Sueldo=?,Contraseña=? where ID = " + ID);
+            Connection cn= DriverManager.getConnection("jdbc:mysql://localhost/Bitacora_BD13","root","");
+            PreparedStatement pst = cn.prepareStatement("update Bitacora_de_empleados1 set  Codigo=?, Empleado=?, Cargo=?,Fecha=?, Sueldo=?,Contraseña=? where ID = " + ID);
 
             pst.setString(1, txtcod.getText().trim());
             pst.setString(2, txtemp.getText().trim());
@@ -368,8 +377,8 @@ public class bitacora extends javax.swing.JFrame {
         // BOTON ELIMINAR
 
         try {
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/Bitacora_BD14", "root", "");
-            PreparedStatement pst = cn.prepareStatement("delete from Bitacora_de_empleado where ID = ?" );
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/Bitacora_BD13", "root", "");
+            PreparedStatement pst = cn.prepareStatement("delete from Bitacora_de_empleados1 where ID = ?" );
 
             pst.setString(1, txtid.getText().trim());
 
