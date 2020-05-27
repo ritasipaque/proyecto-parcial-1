@@ -197,6 +197,28 @@ public class Almacenamiento_Departamento extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         try {
+            
+          //Datos agregados a la tabla -Luis Sosa
+        CodigoDep=codigo.getText();
+            Departamento=departamento.getText();
+            CodigoArea=codigo1.getText();
+            NombreArea=jefe.getText();
+            CodigoPuesto=codigo2.getText();
+            Puesto=puesto.getText();
+
+            
+              DefaultTableModel modelo = (DefaultTableModel) tblDatos.getModel();
+        Object  [] fila=new Object [6];
+        fila[0]=codigo.getText();
+        fila[1]=departamento.getText();
+        fila[2]=codigo1.getText();
+        fila[3]=jefe.getText();
+        fila[4]=codigo2.getText();
+        fila[5]=puesto.getText();
+        modelo.addRow(fila);
+        tblDatos.setModel(modelo);
+
+        //-----------------------------------------------------------------------------------------------------
             /**
             conector de mi sql
             */
@@ -228,17 +250,7 @@ public class Almacenamiento_Departamento extends javax.swing.JFrame {
 
         }
 
-        //-----------------------------------------------------------------------------------------------------
-        DefaultTableModel modelo = (DefaultTableModel) tblDatos.getModel();
-        Object  [] fila=new Object [6];
-        fila[0]=codigo.getText();
-        fila[1]=departamento.getText();
-        fila[2]=codigo1.getText();
-        fila[3]=jefe.getText();
-        fila[4]=codigo2.getText();
-        fila[5]=puesto.getText();
-        modelo.addRow(fila);
-        tblDatos.setModel(modelo);
+       
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -273,6 +285,7 @@ public class Almacenamiento_Departamento extends javax.swing.JFrame {
         }
 
         // ------------------------------------------------------------------------------------------------
+       //Datos en la tabla-Luis Sosa
         String [] datos=new String [6];
         datos[0]=codigo.getText();
         datos[1]=departamento.getText();
@@ -310,7 +323,9 @@ public class Almacenamiento_Departamento extends javax.swing.JFrame {
         } catch (Exception e) {
         }
 
-        // -----------------------------------------------------------
+      // -----------------------------------------------------------
+        
+        //Eliminar datos de la tabla-Luis Sosa
         DefaultTableModel modelo = (DefaultTableModel) tblDatos.getModel();
         int a=tblDatos.getSelectedRow();
         if (a<0){
@@ -353,6 +368,19 @@ public class Almacenamiento_Departamento extends javax.swing.JFrame {
         }catch (Exception e){
 
         }
+         //----------------------------------------------------------------------------------------------
+             
+        //buscar y presentar datos en la tabla - Luis Sosa
+        DefaultTableModel modelo = (DefaultTableModel) tblDatos.getModel();
+        Object  [] fila=new Object [6];
+        fila[0]=codigo.getText();
+        fila[1]=departamento.getText();
+        fila[2]=codigo1.getText();
+        fila[3]=jefe.getText();
+        fila[4]=codigo2.getText();
+        fila[5]=puesto.getText();
+        modelo.addRow(fila);
+        tblDatos.setModel(modelo);
 
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
