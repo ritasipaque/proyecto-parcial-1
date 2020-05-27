@@ -13,7 +13,16 @@ import javax.swing.table.DefaultTableModel;
  * @author familia Sipaque
  */
 public class Almacenamientodeempleados extends javax.swing.JFrame {
-
+String nombre;
+String DepartamentoEmp;
+String PuestoEmp;
+String TelefonoEmp;
+String CuentaEmp;
+String DireccionEmp;
+String SexoEmp;
+String edadEmp;
+String correoEmp;
+String estatus;
     /**
      * Creates new form Almacenamientodeempleados
      */
@@ -310,6 +319,34 @@ public class Almacenamientodeempleados extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // se registran todo los empleados
+        
+          DefaultTableModel modelo = (DefaultTableModel) tblDatos.getModel();
+        
+        nombre=txt_NombreEmpleado.getText();
+      DepartamentoEmp=txt_DepartamentoEmpleado.getText();
+      PuestoEmp=txt_PuestoEmpleado.getSelectedItem().toString();
+        TelefonoEmp=txt_TelefonoEmpleado.getText();
+        CuentaEmp=txt_CuentaEmpleado.getText();
+        DireccionEmp=txt_DireccionEmpleado.getText();
+        SexoEmp=txt_SexoEmpleado.getSelectedItem().toString();
+        edadEmp=txt_EdadEmpleado.getText();
+        correoEmp=txt_CorreoEmpleado.getText();
+        estatus=label_status.getText();
+        
+        Object  [] fila=new Object [10];
+        fila[0]=nombre;
+        fila[1]=txt_DepartamentoEmpleado.getText();
+        fila[2]=txt_PuestoEmpleado.getSelectedItem().toString();
+        fila[3]=txt_TelefonoEmpleado.getText();
+        fila[4]=txt_CuentaEmpleado.getText();
+        fila[5]=txt_DireccionEmpleado.getText();
+        fila[6]=txt_SexoEmpleado.getSelectedItem().toString();
+        fila[7]=txt_EdadEmpleado.getText();
+        fila[8]=txt_CorreoEmpleado.getText();
+        fila[9]=label_status.getText();
+        modelo.addRow(fila);
+        tblDatos.setModel(modelo); 
+        
         try {
 
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/bd_ins800", "root", "");
@@ -340,21 +377,7 @@ public class Almacenamientodeempleados extends javax.swing.JFrame {
         } catch (Exception e) {
 
         }
-        //-------------------------------------------------------------------------------------------------
-        DefaultTableModel modelo = (DefaultTableModel) tblDatos.getModel();
-        Object  [] fila=new Object [10];
-        fila[0]=txt_NombreEmpleado.getText();
-        fila[1]=txt_DepartamentoEmpleado.getText();
-        fila[2]=txt_PuestoEmpleado.getSelectedItem().toString();
-        fila[3]=txt_TelefonoEmpleado.getText();
-        fila[4]=txt_CuentaEmpleado.getText();
-        fila[5]=txt_DireccionEmpleado.getText();
-        fila[6]=txt_SexoEmpleado.getSelectedItem().toString();
-        fila[7]=txt_EdadEmpleado.getText();
-        fila[8]=txt_CorreoEmpleado.getText();
-        fila[9]=label_status.getText();
-        modelo.addRow(fila);
-        tblDatos.setModel(modelo);
+       
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -386,6 +409,22 @@ public class Almacenamientodeempleados extends javax.swing.JFrame {
         } catch (Exception e) {
 
         }
+        DefaultTableModel modelo = (DefaultTableModel) tblDatos.getModel();
+        
+        
+        Object  [] fila=new Object [10];
+        fila[0]=nombre;
+        fila[1]=txt_DepartamentoEmpleado.getText();
+        fila[2]=txt_PuestoEmpleado.getSelectedItem().toString();
+        fila[3]=txt_TelefonoEmpleado.getText();
+        fila[4]=txt_CuentaEmpleado.getText();
+        fila[5]=txt_DireccionEmpleado.getText();
+        fila[6]=txt_SexoEmpleado.getSelectedItem().toString();
+        fila[7]=txt_EdadEmpleado.getText();
+        fila[8]=txt_CorreoEmpleado.getText();
+        fila[9]=label_status.getText();
+        modelo.addRow(fila);
+        tblDatos.setModel(modelo); 
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed

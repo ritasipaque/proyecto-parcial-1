@@ -13,7 +13,12 @@ import javax.swing.table.DefaultTableModel;
  * @author familia Sipaque
  */
 public class Almacenamiento_Departamento extends javax.swing.JFrame {
-
+    String CodigoDep;
+    String Departamento;
+    String CodigoArea;
+    String NombreArea;
+    String CodigoPuesto;
+    String Puesto;
     /**
      * Creates new form Almacenamiento_Departamento
      */
@@ -41,7 +46,6 @@ public class Almacenamiento_Departamento extends javax.swing.JFrame {
         codigo1 = new javax.swing.JTextField();
         codigo2 = new javax.swing.JTextField();
         puesto = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
@@ -51,6 +55,8 @@ public class Almacenamiento_Departamento extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblDatos = new javax.swing.JTable();
+        jButton5 = new javax.swing.JButton();
+        txtBuscar = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -86,14 +92,6 @@ public class Almacenamiento_Departamento extends javax.swing.JFrame {
         });
 
         puesto.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-
-        jButton2.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jButton2.setText("Agregar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
 
         jButton3.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jButton3.setText("Modificar");
@@ -136,11 +134,25 @@ public class Almacenamiento_Departamento extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tblDatos);
 
+        jButton5.setText("Agregar");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 680, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(55, 55, 55)
+                .addComponent(jButton5)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(441, Short.MAX_VALUE)
+                .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(95, 95, 95))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -197,7 +209,6 @@ public class Almacenamiento_Departamento extends javax.swing.JFrame {
                                 .addGroup(layout.createSequentialGroup()
                                     .addGap(20, 20, 20)
                                     .addComponent(jLabel7))
-                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(layout.createSequentialGroup()
                                     .addGap(299, 299, 299)
                                     .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))))
@@ -206,7 +217,12 @@ public class Almacenamiento_Departamento extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 640, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(204, Short.MAX_VALUE)
+                .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(141, 141, 141)
+                .addComponent(jButton5)
+                .addGap(251, 251, 251))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -260,9 +276,6 @@ public class Almacenamiento_Departamento extends javax.swing.JFrame {
                             .addComponent(jLabel7))
                         .addGroup(layout.createSequentialGroup()
                             .addGap(363, 363, 363)
-                            .addComponent(jButton2))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(363, 363, 363)
                             .addComponent(jButton4)))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
@@ -274,52 +287,6 @@ public class Almacenamiento_Departamento extends javax.swing.JFrame {
     private void codigo2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_codigo2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_codigo2ActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        try {
-            /**
-            conector de mi sql
-            */
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/A_d", "root", "");
-            PreparedStatement pst = cn.prepareStatement("insert into departamento values(?,?,?,?,?,?)");
-            /**
-            entrada y salida  de  arcrivos
-            */
-            pst.setString(1, codigo.getText().trim());
-            pst.setString(2, departamento.getText().trim());
-            pst.setString(3, codigo1 .getText().trim());
-            pst.setString(4, jefe.getText().trim());
-            pst.setString(5, codigo2.getText().trim());
-            pst.setString(6, puesto.getText().trim());
-
-            pst.executeUpdate();
-
-            codigo.setText("");
-            departamento.setText("");
-            codigo1.setText("");
-            jefe.setText("");
-            codigo2.setText("");
-            puesto.setText("");
-            /**
-            * aviso
-            */
-            ya.setText("Registro exitoso.");
-        } catch (Exception e) {
-
-        }
-
-        //-----------------------------------------------------------------------------------------------------
-        DefaultTableModel modelo = (DefaultTableModel) tblDatos.getModel();
-        Object  [] fila=new Object [6];
-        fila[0]=codigo.getText();
-        fila[1]=departamento.getText();
-        fila[2]=codigo1.getText();
-        fila[3]=jefe.getText();
-        fila[4]=codigo2.getText();
-        fila[5]=puesto.getText();
-        modelo.addRow(fila);
-        tblDatos.setModel(modelo);
-    }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         try {
@@ -408,34 +375,100 @@ public class Almacenamiento_Departamento extends javax.swing.JFrame {
         /**
         coneccion de base de tados
         */
-        try{
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/A_D", "root", "");
-            PreparedStatement pst = cn.prepareStatement("select * from departamento  where ID = ?");
-            /**
-            * quequeda  por  codigo
-            */
-            pst.setString(1, codigo.getText().trim());
+        try {
+            Connection cn;
+            cn = DriverManager.getConnection("jdbc:mysql://localhost/A_D", "root", "");
+            PreparedStatement pst = cn.prepareStatement("select * from departamento where ID = ?");
+            pst.setString(1, txtBuscar.getText().trim());
             ResultSet rs = pst.executeQuery();
-            /**
-            busqueda  en los  base de datos
-            */
-            if(rs.next()){
+
+            if (rs.next()) {
                 codigo.setText(rs.getString("id"));
                 departamento.setText(rs.getString("departamento"));
                 codigo1.setText(rs.getString("codigo"));
                 jefe.setText(rs.getString("jefe"));
                 codigo2.setText(rs.getString("codigo1"));
                 puesto.setText(rs.getString("puesto"));
+
+
             } else {
-                JOptionPane.showMessageDialog(null, "Alumno no registrado.");
+                JOptionPane.showMessageDialog(null, " no registrado.");
             }
 
-        }catch (Exception e){
+        } catch (Exception e) {
 
         }
+        //----------------------------------------------------------------------------------------------
+              DefaultTableModel modelo = (DefaultTableModel) tblDatos.getModel();
+        Object  [] fila=new Object [6];
+        fila[0]=codigo.getText();
+        fila[1]=departamento.getText();
+        fila[2]=codigo1.getText();
+        fila[3]=jefe.getText();
+        fila[4]=codigo2.getText();
+        fila[5]=puesto.getText();
+        modelo.addRow(fila);
+        tblDatos.setModel(modelo);
 
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+        CodigoDep=codigo.getText();
+            Departamento=departamento.getText();
+            CodigoArea=codigo1.getText();
+            NombreArea=jefe.getText();
+            CodigoPuesto=codigo2.getText();
+            Puesto=puesto.getText();
+
+            
+              DefaultTableModel modelo = (DefaultTableModel) tblDatos.getModel();
+        Object  [] fila=new Object [6];
+        fila[0]=codigo.getText();
+        fila[1]=departamento.getText();
+        fila[2]=codigo1.getText();
+        fila[3]=jefe.getText();
+        fila[4]=codigo2.getText();
+        fila[5]=puesto.getText();
+        modelo.addRow(fila);
+        tblDatos.setModel(modelo);
+
+        //-----------------------------------------------------------------------------------------------------
+
+        try {
+            /**
+            conector de mi sql
+            */
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/A_d", "root", "");
+            PreparedStatement pst = cn.prepareStatement("insert into departamento values(?,?,?,?,?,?)");
+            /**
+            entrada y salida  de  arcrivos
+            */
+            pst.setString(1, codigo.getText().trim());
+            pst.setString(2, departamento.getText().trim());
+            pst.setString(3, codigo1 .getText().trim());
+            pst.setString(4, jefe.getText().trim());
+            pst.setString(5, codigo2.getText().trim());
+            pst.setString(6, puesto.getText().trim());
+
+            pst.executeUpdate();
+
+            codigo.setText("");
+            departamento.setText("");
+            codigo1.setText("");
+            jefe.setText("");
+            codigo2.setText("");
+            puesto.setText("");
+            /**
+            * aviso
+            */
+            ya.setText("Registro exitoso.");
+        } catch (Exception e) {
+
+        }
+
+    }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -478,9 +511,9 @@ public class Almacenamiento_Departamento extends javax.swing.JFrame {
     private javax.swing.JTextField codigo2;
     private javax.swing.JTextField departamento;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
@@ -493,6 +526,7 @@ public class Almacenamiento_Departamento extends javax.swing.JFrame {
     private javax.swing.JTextField jefe;
     private javax.swing.JTextField puesto;
     private javax.swing.JTable tblDatos;
+    private javax.swing.JTextField txtBuscar;
     private javax.swing.JLabel ya;
     // End of variables declaration//GEN-END:variables
 }

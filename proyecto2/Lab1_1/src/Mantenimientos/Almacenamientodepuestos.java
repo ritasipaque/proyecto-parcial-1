@@ -13,6 +13,10 @@ import javax.swing.table.DefaultTableModel;
  * @author familia Sipaque
  */
 public class Almacenamientodepuestos extends javax.swing.JFrame {
+    String CodigoPuesto;
+    String NombreEmp;
+    String Estatus;
+    String Puesto;
 
     /**
      * Creates new form Almacenamientodepuestos
@@ -244,6 +248,24 @@ public class Almacenamientodepuestos extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // se registran todo los empleados
+        
+        CodigoPuesto=txt_1.getText();
+        NombreEmp=txt_2.getText();
+        Estatus=txt_3.getText();
+        Puesto=txt_4.getText();
+        
+        
+         DefaultTableModel modelo = (DefaultTableModel) tblDatos.getModel();
+        Object  [] fila=new Object [6];
+        fila[0]=txt_1.getText();
+        fila[1]=txt_2.getText();
+        fila[2]=txt_3.getText();
+        fila[3]=txt_4.getText();
+        
+        modelo.addRow(fila);
+        tblDatos.setModel(modelo);
+        
+        //-------------------------------------------------------------------------------------------------------  
         try {
 
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/puesto", "root", "");
@@ -266,16 +288,7 @@ public class Almacenamientodepuestos extends javax.swing.JFrame {
         } catch (Exception e) {
 
         }
-        //----------------------------------------------------------------------
-        DefaultTableModel modelo = (DefaultTableModel) tblDatos.getModel();
-        Object  [] fila=new Object [6];
-        fila[0]=txt_1.getText();
-        fila[1]=txt_2.getText();
-        fila[2]=txt_3.getText();
-        fila[3]=txt_4.getText();
-
-        modelo.addRow(fila);
-        tblDatos.setModel(modelo);
+       
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
@@ -327,6 +340,16 @@ public class Almacenamientodepuestos extends javax.swing.JFrame {
         } catch (Exception e) {
 
         }
+   //------------------------------------------------------------------------------------------------
+         DefaultTableModel modelo = (DefaultTableModel) tblDatos.getModel();
+        Object  [] fila=new Object [6];
+        fila[0]=txt_1.getText();
+        fila[1]=txt_2.getText();
+        fila[2]=txt_3.getText();
+        fila[3]=txt_4.getText();
+        
+        modelo.addRow(fila);
+        tblDatos.setModel(modelo);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
