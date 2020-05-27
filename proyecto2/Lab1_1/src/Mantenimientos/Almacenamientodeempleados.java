@@ -332,6 +332,23 @@ String estatus;
         } catch (Exception e) {
 
         }
+        //-------------------------------------------------------------------------------------------
+        DefaultTableModel modelo = (DefaultTableModel) tblDatos.getModel();
+        
+        
+        Object  [] fila=new Object [10];
+        fila[0]=nombre;
+        fila[1]=txt_DepartamentoEmpleado.getText();
+        fila[2]=txt_PuestoEmpleado.getSelectedItem().toString();
+        fila[3]=txt_TelefonoEmpleado.getText();
+        fila[4]=txt_CuentaEmpleado.getText();
+        fila[5]=txt_DireccionEmpleado.getText();
+        fila[6]=txt_SexoEmpleado.getSelectedItem().toString();
+        fila[7]=txt_EdadEmpleado.getText();
+        fila[8]=txt_CorreoEmpleado.getText();
+        fila[9]=label_status.getText();
+        modelo.addRow(fila);
+        tblDatos.setModel(modelo); 
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
