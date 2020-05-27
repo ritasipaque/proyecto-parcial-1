@@ -68,6 +68,7 @@ public class MantenimientoConcepto extends javax.swing.JFrame {
         txtfinal = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
         tabla = new javax.swing.JTable();
+        Buscar2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -165,6 +166,13 @@ public class MantenimientoConcepto extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(tabla);
 
+        Buscar2.setText("Buscar");
+        Buscar2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Buscar2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -179,7 +187,9 @@ public class MantenimientoConcepto extends javax.swing.JFrame {
                                 .addComponent(jLabel14)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(512, 512, 512))
+                                .addGap(18, 18, 18)
+                                .addComponent(Buscar2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(jLabel39)
@@ -207,7 +217,7 @@ public class MantenimientoConcepto extends javax.swing.JFrame {
                                         .addGap(18, 18, 18)
                                         .addComponent(aviso, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(42, 42, 42)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 96, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(22, 22, 22)
@@ -267,11 +277,12 @@ public class MantenimientoConcepto extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
+                .addGap(19, 19, 19)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel14)
-                    .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Buscar2))
+                .addGap(16, 16, 16)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(54, 54, 54)
@@ -358,6 +369,42 @@ public class MantenimientoConcepto extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtotrosssActionPerformed
 
+    private void Buscar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Buscar2ActionPerformed
+        //Codigo que sirve para buscar a la persona en la base de datos
+        // Codigo para buscar datos en la base de datos:
+        try{
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/nomina", "root", "");
+            PreparedStatement pst = cn.prepareStatement("select * from concepto where id_empleado = ?");
+            pst.setString(1, txtBuscar.getText().trim());
+            ResultSet rs = pst.executeQuery();
+
+            if(rs.next()){
+
+                txtid1.setText(rs.getString("id_empleado"));
+                txtnombres1.setText(rs.getString("nombre_empleado"));
+                aviso.setText(rs.getString("estatus"));
+                txtnaturaleza.setText(rs.getString("naturaleza"));
+                txttipo.setText(rs.getString("tipo"));
+                txtsueldo2.setText(rs.getString("sueldo_ordinario"));
+                txtsueldoextra2.setText(rs.getString("sueldo_extraordinario"));
+                txtcomis2.setText(rs.getString("comisiones"));
+                txtboni.setText(rs.getString("bonificaciones"));
+                txtotross2.setText(rs.getString("otros_ingresos"));
+                txtanticipos.setText(rs.getString("anticipos"));
+                txtjudicial.setText(rs.getString("descuento_judicial"));
+                txtotrosss.setText(rs.getString("otros_descuentos"));
+                txtinicial.setText(rs.getString("fecha_inicial"));
+                txtfinal.setText(rs.getString("fecha_final"));
+
+            } else {
+                JOptionPane.showMessageDialog(null, "Persona no registrada.");
+            }
+
+        }catch (Exception e){
+
+        }
+    }//GEN-LAST:event_Buscar2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -394,6 +441,7 @@ public class MantenimientoConcepto extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Buscar2;
     private javax.swing.JRadioButton a;
     private javax.swing.JTextField aviso;
     private javax.swing.JRadioButton b;
