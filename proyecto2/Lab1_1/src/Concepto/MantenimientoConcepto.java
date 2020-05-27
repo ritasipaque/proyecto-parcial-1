@@ -72,6 +72,8 @@ public class MantenimientoConcepto extends javax.swing.JFrame {
         txtinicial = new javax.swing.JTextField();
         jLabel49 = new javax.swing.JLabel();
         txtfinal = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
+        jButton16 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -183,11 +185,28 @@ public class MantenimientoConcepto extends javax.swing.JFrame {
 
         jLabel49.setText("Fecha final");
 
+        jButton1.setText("Colocar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton16.setText("Ingresar a la Tabla");
+        jButton16.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton16ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1003, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jButton1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 811, Short.MAX_VALUE)
+                .addComponent(jButton16))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
@@ -291,7 +310,14 @@ public class MantenimientoConcepto extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 330, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(164, 164, 164)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(160, 160, 160)
+                        .addComponent(jButton16, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButton1))
+                .addContainerGap(209, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
@@ -380,7 +406,7 @@ public class MantenimientoConcepto extends javax.swing.JFrame {
                                 .addComponent(jButton15)
                                 .addComponent(jButton14)
                                 .addComponent(jButton13))))
-                    .addContainerGap(2, Short.MAX_VALUE)))
+                    .addContainerGap(232, Short.MAX_VALUE)))
         );
 
         pack();
@@ -404,6 +430,80 @@ public class MantenimientoConcepto extends javax.swing.JFrame {
     private void txtotrosssActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtotrosssActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtotrosssActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+
+        //Condicion para los buttoncheck
+        String selec="";
+
+        if (a.isSelected())     {
+            selec= "Activo";   }
+        if (b.isSelected())     {
+            selec= "Inactivo";   }
+        aviso.setText(selec);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
+
+        //Codigo echo por Jaqueline Carrera
+        //Codigo que ingresa los datos a la tabla con sus respectivas condiciones
+        //Se empiezan a poner las variables para los txtfield
+        String Id=txtid1.getText(),Nombre=txtnombres1.getText(),Natu=txtnaturaleza.getText();
+        String Tip=txttipo.getText();
+        String fechai=txtinicial.getText();
+        String fechaf=txtfinal.getText();
+        String selec;
+        selec = aviso.getText();
+
+        float SueldoO=Float.parseFloat(txtsueldo2.getText());
+        float SueldoE=Float.parseFloat(txtsueldoextra2.getText());
+        float comisiones=Float.parseFloat(txtcomis2.getText());
+        float bonificaciones=Float.parseFloat(txtcomis2.getText());
+        float Otrosi=Float.parseFloat(txtotross2.getText());
+        float TotalIngresos;
+        float anticipos=Float.parseFloat(txtanticipos.getText());
+        float Desc=Float.parseFloat(txtjudicial.getText());
+        float Otrosd=Float.parseFloat(txtotrosss.getText());
+        float igss1;
+        float isr1 = 0;
+        float TotalEgresos;
+        float SueldoLiquido;
+        //Condicion del ISR para sueldos mayores de 5000
+        if(SueldoO>=5000){
+            isr1=(float) (SueldoO*0.0145);
+        }
+        //Calculos del IGSS, Total ingresos, Total Egresos y Sueldo Liquido
+        igss1= (float) (SueldoO*0.0483);
+        TotalIngresos=(SueldoO+SueldoE+comisiones+Otrosi);
+        TotalEgresos=(anticipos+Desc+Otrosd+igss1+isr1);
+        SueldoLiquido=(TotalIngresos-TotalEgresos);
+        //Datos que se iran a la tabla
+        DefaultTableModel modelo=(DefaultTableModel)
+        tabla.getModel();
+        Object [] fila=new  Object[20];
+        fila[0]=Id;
+        fila[1]=Nombre;
+        fila[2]=selec;
+        fila[3]=Natu;
+        fila[4]=Tip;
+        fila[5]=SueldoO;
+        fila[6]=SueldoE;
+        fila[7]=comisiones;
+        fila[8]=bonificaciones;
+        fila[9]=Otrosi;
+        fila[10]=TotalIngresos;
+        fila[11]=anticipos;
+        fila[12]=Desc;
+        fila[13]=igss1;
+        fila[14]=isr1;
+        fila[15]=Otrosd;
+        fila[16]=TotalEgresos;
+        fila[17]=fechai;
+        fila[18]=fechaf;
+        fila[19]=SueldoLiquido;
+        modelo.addRow(fila);
+        tabla.setModel(modelo);
+    }//GEN-LAST:event_jButton16ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -447,9 +547,11 @@ public class MantenimientoConcepto extends javax.swing.JFrame {
     private javax.swing.JRadioButton a;
     private javax.swing.JTextField aviso;
     private javax.swing.JRadioButton b;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton15;
+    private javax.swing.JButton jButton16;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
