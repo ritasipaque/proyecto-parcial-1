@@ -70,6 +70,7 @@ public class MantenimientoConcepto extends javax.swing.JFrame {
         tabla = new javax.swing.JTable();
         Buscar2 = new javax.swing.JButton();
         jButton16 = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -181,6 +182,13 @@ public class MantenimientoConcepto extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setText("Colocar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -188,23 +196,26 @@ public class MantenimientoConcepto extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(60, 60, 60)
+                        .addGap(39, 39, 39)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(15, 15, 15)
+                                .addGap(36, 36, 36)
                                 .addComponent(jLabel14)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(Buscar2))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jLabel39)
                                     .addComponent(jLabel40)
-                                    .addComponent(jLabel38)
                                     .addComponent(jLabel37)
                                     .addComponent(jLabel36)
-                                    .addComponent(jLabel34))
+                                    .addComponent(jLabel34)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jButton1)
+                                        .addGap(30, 30, 30)
+                                        .addComponent(jLabel38)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -354,7 +365,8 @@ public class MantenimientoConcepto extends javax.swing.JFrame {
                             .addComponent(jLabel38)
                             .addComponent(a)
                             .addComponent(b)
-                            .addComponent(aviso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(aviso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton1))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel37)
@@ -479,6 +491,18 @@ public class MantenimientoConcepto extends javax.swing.JFrame {
         tabla.setModel(modelo);
     }//GEN-LAST:event_jButton16ActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+
+        //Condicion para los buttoncheck Jaqueline Carrera
+        String selec="";
+
+        if (a.isSelected())     {
+            selec= "Activo";   }
+        if (b.isSelected())     {
+            selec= "Inactivo";   }
+        aviso.setText(selec);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -519,6 +543,7 @@ public class MantenimientoConcepto extends javax.swing.JFrame {
     private javax.swing.JRadioButton a;
     private javax.swing.JTextField aviso;
     private javax.swing.JRadioButton b;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton16;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel34;
